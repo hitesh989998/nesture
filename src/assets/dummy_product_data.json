@@ -1,0 +1,479 @@
+[
+  {
+    "id": 1,
+    "category": "Sustainable Clothing",
+    "name": "Organic Cotton T-Shirt",
+    "description": "A soft, breathable t-shirt made from 100% organic cotton. Perfect for a casual, eco-friendly look.",
+    "image_url": "https://cdn.pixabay.com/photo/2024/04/17/18/40/ai-generated-8702726_640.jpg",
+    "price": 1299,
+    "quantity": 1
+  },
+  {
+    "id": 2,
+    "category": "Sustainable Clothing",
+    "name": "Hemp Fiber Kurta",
+    "description": "Stylish traditional kurta made with sustainable hemp fibers. Comfortable and eco-friendly.",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRda7iFp_rnv09aObA064DfwbbSBQYnA_BjOQ&s",
+    "price": 1999,
+    "quantity": 1
+  },
+  {
+    "id": 3,
+    "category": "Sustainable Clothing",
+    "name": "Recycled Denim Jeans",
+    "description": "Durable jeans made from recycled materials, offering style without waste.",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLxaeivCxNS5yPAhAAG_sRXFwbm46Cnz3bQw&s",
+    "price": 2499,
+    "quantity": 1
+  },
+  {
+    "id": 4,
+    "category": "Eco-Friendly Accessories",
+    "name": "Bamboo Sunglasses",
+    "description": "Stylish and sustainable sunglasses made from bamboo. Lightweight and UV-protective.",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGiFiA7_BiUH2d0u1c-kLDaGeOcg3ZK_x1_w&s",
+    "price": 1500,
+    "quantity": 1
+  },
+  {
+    "id": 5,
+    "category": "Eco-Friendly Accessories",
+    "name": "Jute Tote Bag",
+    "description": "A spacious and trendy jute tote bag. Perfect for shopping or casual outings.",
+    "image_url": "https://cdn.pixabay.com/photo/2019/02/07/03/53/lawn-3980448_640.jpg",
+    "price": 499,
+    "quantity": 1
+  },
+  {
+    "id": 6,
+    "category": "Eco-Friendly Accessories",
+    "name": "Cork Wallet",
+    "description": "A slim and lightweight wallet made from durable cork. A stylish choice for the eco-conscious.",
+    "image_url": "https://cdn.pixabay.com/photo/2022/02/11/09/21/leather-wallet-7006894_640.jpg",
+    "price": 799,
+    "quantity": 1
+  },
+  {
+    "id": 7,
+    "category": "Organic Skincare",
+    "name": "Aloe Vera Face Cream",
+    "description": "A soothing face cream made from organic aloe vera. Hydrates and refreshes your skin naturally.",
+    "image_url": "data:image/jpeg;base64,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",
+    "price": 749,
+    "quantity": 1
+  },
+  {
+    "id": 8,
+    "category": "Organic Skincare",
+    "name": "Turmeric Glow Serum",
+    "description": "A natural serum enriched with turmeric for glowing, healthy skin.",
+    "image_url": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxASEhIQEBIQEBUQEhAQEBAPEBAQEA8PFRUWFhURFRUYHSggGBolGxUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGhAQGi0dHR0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAOEA4QMBEQACEQEDEQH/xAAbAAACAwEBAQAAAAAAAAAAAAAEBQECAwAGB//EAD8QAAEDAgQDBQQIBQMFAQAAAAEAAhEDIQQFEjFBUXEiMmGBkQYTobEVM0JScoLB8BQjstHhYnOSNENT0vEW/8QAGwEAAwEBAQEBAAAAAAAAAAAAAAECAwQFBgf/xAA0EQACAQMDAgMHAgcBAQEAAAAAAQIDBBESITEUQQUTUSIyYXGR0fCBoSMzUpKx4fFCwRX/2gAMAwEAAhEDEQA/AH5XMalUhDzJ8O0tlwBW0FsSxl7iifshXhCyccJQ+6EaUGWUOCo8ktKDJQ5dRRpQ8nfR1FGlCyR9GUUaUGSDlVLxRpQ8iPMMOGOgXWMlgaBFIzkAcgDkAQUAVQM5ICEAQgZBQBVICCkAHjDZSzRHnMWbqDogWwrroNHwMn7KTGQuxjLIEhXpQPJ9LJXWcZWUgH+Su7BW0GSwtWI6UAD1sTpUyko8jjFy4L064PEIUk+Byi48l/eDmmIgVRzQBDqnigQkzJ0uWU+SwNQBKAOQByAKlAFUhkygCEAQgDigZVICpQAuxzlDNEIMRuoOmBthGXQVIaBtkjGQHjadkhIT6Ex4Pobiuk5CqAH2R90ranwSw4qxEFAAWNo6lhUpajppVtAvOFqTZ0BXTgoLBhUk5vLIfh63By0yiMMoMLWH2ijKDDNadGqCJMhLKDDMsw7yynyWgYKBkoAhAHFAFSgZCQHIA5AHIAgoGQgCr0gQnx7lDNYigtkqDoiGYdqGDGNMJGMjDG07JCQp90gvJ7YldRyFJQB6DJCA0raHBLDZlWI6EDKuYkGDNzAk5JDUWymtvNR5iNPKkXBB2TUkxSg0R7tWZ4YmzHvLGXI0ChSMlAEIAhAEFIZVAHIGcgDkAcgDggDOsbJMEJMabqGaxAqTLqTZBdIKRsYUWoMWVxbLIEhZ7tIs9Q4rqOUpKAHmTXaVtDglh9JWI1SGUqugKZPCLgssCfXsVzuex2RpYkZ4ZwcFNNqSLqpxZtqgWV5wjLTqe5fDVCRdXTk2ZVoKIpzHvlEuTEYUMPhwztudMEuIbseSrEVsw3xlHm81rBhmmZgwDwcPELN87DRtRqamhw4gFAi6AISGVKAOQM5AHIA4oAkBAA+JNkmNCPEm6g1iRQYpZaZs0XUlPgY4dqZiy+JZZJiQt0JF5Hjl0nOUTEPsl7pW0OCWHUjdWI1c4DdIZQukWUy4KjyAnDk7rmcMneqqS2CG02gLRRSRi5ybK6BCWA1PJrRZAWkFgyqyyxNmHfUy5MzSof5bvP8AqRP3io+4eczLb8zfmoAKy0/ymdExBKAIKQFUAcgZyAOQByAJQAFjHWUsaE77lSahFFllLGjm7qTR8DPDBMwZriBZDBAOlIYwJXQYlUxB7K5ZTJC2hwRIIyjGlzNblTewIU5z7QGdDN/kvLub3S9MOSJVMbIf5ZWimCbr0ae8UaZNzimqnEpTaONdqWgfms737UaA81ktxQ2TwRqFGYHtrKXJRq938tw6j4pz5CL2EmIA3cCW8Wgb8uiy7lE5X9U3wn5lMAolAiqBnIA5AHIA5AHIA5xQAsxz1DLiL2CSkWGhtlLGjKnupRb4GuGCswZevspYASRYaV0GBUIAN92XUnALRSUVuTpbexXCdiiQeSjz4yjsW6Uo8nlNBc8kbap+K+cnNKWfic9G3nWl7KPe5ZiGe7AJC9unf0tK3PR6Gp6B1NlM7Lqp3EZ8MwnQlHk1/h28ltkywR/Dt5JZDBHuGjgmLAgzUw6evwWM+SkFZS10DcuI+1pAjz6LOKlnk1yscA+Z0nBzbartL7hoAm/HgicN+RRl8DHEtaHdkgi2zdIHkmJmKBESgR0oA6UAdKAOQMlAFKpskwE+MddQzSJnh2oQ2F1NkmOIPSN1CNJcDfDKzBlq+ylgBpFhRK6DEgIAaYV0Md0XHfVvLpNnVaU9Ujz+KxRJNP1uvn6cpqOcvc9PyNWxzMNAkLJ1Ms77S3p01jBLa5CHFHoumhxk+KOsCd11eHylGskuDy76jHy8s9S1fXR4PlZckFPIsEFAjz+L9xULg81mG7ewGkeVwhwTJ1FqFLBtF3Vjefq2T66lHkxK8xoFxmLwjZ0++J8abB8dSl0IFKtMR4/Ow2NLSYkDVA3vdJpcIWWE5ZizVph5ABJIgbWKljCkDOQI6UDJQI5AFkAYYh1kmNCbEG6hmqNsI1MTNsTspkVEGobqUaSHGGVMwLV9lLBASRQUVuZHMQAxw47D+i87xP8Aks77D3zyWIJFQ9V5MN4H0UIJbj7K6mpsFefXjpeRVFpeUC4mjDitYSyjrp1PZ3G2QMbM8V6vhqjr1Pk8jxKpKUcI9DXr6YXoX/iCtku+TxaNvr5IpP1XVWlw7iKmuB1YKnsbwvTOM8rW77/xFWZFXBAhTjRdTIpCPM+CzZQ69nvqR1d81DKQxSGcgDkASEASECJQAJi3WSZSFD91JoH4VtkyO5GLNlEjSANht1KNJjnDqmYE19lLBASRQWV0GWSWpAMcJ3XdF5vij/gs77D3xFVyxznOcF5lClOVNNHvefGLwwrLsM9kkhctxSn3Q5VYy2QDj8Q7UnSgsFxi2Wy6sWuBnitFLRJSXYqdJODR7XDPbUaNl7MPJuo4e589VjOjIMpUwNl6VChGlHETgq1HJ7l10GR5XEj+Y/8AEfmqM+5m4IEKsbulIpCTMwsWWN/Z36kfid81LGhmkMhAHIAlAjkATKAAMa5JlIWjdSX2GmHFlRAPjSs5G0DDCbqUXMdYdUzA7EKWCAkigwrpMDmoAYYXuu6LyvFF/BZ6Nh74jdmbmOLRe6823qyhDC4PclQUtxhhcY5zTIhYXFzKWwo0IpgFdoMysovB3RjhGFKmtJSGepyOi6JXd4ZQlJuXY8fxCrFbD5jYX0kItLc+fnJN7FitCDymNePfVWgjs9p0kDc7epWPn+24JcFOj7OrPJR9InZ1M8xrbZZu+p5x9vuWrSf5kWYmiTN22jZ2rfxFlzVPFKcc+y/2+5rGyk+6/f7C/EYAPOnWJiYDXGOMTsoqeIJQU4xzkcbRt4bGmX4YU2BrZPGTvJXbF5SZztYeAhMRCAJQByBHJiIcUhivGvSLQNRF0kNjamLJkAGNKzZvAzwe6SHMdYfZNmR2IUsEBJFBhXSYENQAywo7Lui87xFZos9Cw/mCbA4ZrqjieB4rzbOmprc9u4qSithlpaLCP8Ln8QhGLWOSaDk1uL6tIkmFyxkkj0FLYtluAc599guu3pqtLSc9zX8uOx7PDUgwABfR0IRpLSj5qvN1HkKhdxxkFACGtgxUqVZG8eYET1XM9OZSNkpYSLDIQbjf7R1kTa8BcUbKDWXy/wAZ0yrvOx5zHYV7He77G94cCPVc87OjF4eS41KklnYGawte0u2vJERNoMjzU1KajT/h9mmNSbliXoMGPBEherCakso4JRcXhkqySJSA6UwOTJJlAFapskxoT4t11JaIwguhAxrwTZKFuMKzZvArg90Icx1QQzIriDZSwQEkMNK6TEgIAZYM9l3Ref4j/KZ3+H/zDzpc5tR0FeJTqOMU0fR1Ip8hmEcTJJlc9aTk8sIJLZB9CiXGAs6VN1JKMRVKihHLPQ4HABolfU2dhGks9zwLm8c3gP0henoR5+pkqiRXWxLqjyymCQ06bXLnDfyXFOq5tqPC2OqFNRSb7mtLDPBgtIPKJUUlPPtLcqbjjbgzq+9Du66AWgktteZuQtakWlwZwkmzzea16lwXGztrc45LGUCozBxQgmIvwNwuapbym9pNGsaqS3Rk4Pbu0xzaCqUvK3bG15myRux0hdNCvGtDVE5q1KVKWmRZbmR0oEdKYiQgDHEOskxoTYh11JojbBJiYxc6yGShVi3rNnRA7BvQhTHNF9k2ZlcQ+yhjQHrSAYErpMSoKYhxlLA4OHgue4pqccM67WemWQLEZQ3UTJ9V5cbGC2ye07yTNsNl7G8VlWs6aQRuZscZfQA2U+HUFGeUcl1VbQyqOhfUR4PHkZteU2iUyuKqkNJ5AlTJ4i2XFe0keLoY17HlzDB2mATHmvjFVnCWqLwz6Ty4yik0FMzSr993/IgfBLqa2c639WV09PHCGA9o6xi9gNhNzzPH4rpfilxtvwYKwpegDmGZGoZNjadMCTET6rCre16ssuWDWna0oLGAYV3H7TvUrF1aneT+pqqNP0RVzuZ9VDbe7NFFLgow7r2/CJPEl8jx/E47xZde0eUQmSRKAJQAJi3KWUhTU3SLDcE1MlhlUoYkJ8YbrNnREnBIQTG9JybMiKzlDGCyjADIldBiQEANsqdAK47ybjDJ2WcU5CrNcY4OsV4cbmcuGfQU6CxwRl+Ic43JXNcVJtbs0dOMex67LSIC9Xwv3U2eJdp6mHPLea+gU0jzXBsowtTdRAqUimMc3Q/8Lvksqk1ofyZcKctS2PBx2j1Xxsj6SHBqAszRGoCkDKoFSGcxNjJKQyRuvY8IftS/Q8jxRbRJXunjkFAiExElAAOMUloXhl0ihrhKdlRDNawskwQmxYus2dES2FCEKQxpqmZkVSs2MHlMY8GCfyW+GYl25a/knpYBtHDOY0yNwuO9pOVPB12k1GR53FYd73my+fp0ZxjjB9BG5glyMcty5wtCXS1qssYwZ1LyC3PSYXL3Able7bWTpxSPLq3cZM2fhiNyV1+RIw6mPoU9z4lPp2HVRKV6ALSJOxU1LbMWgjdrJ41w7R6r5Jnuw4N6dJxBcBIbGo8pMD4ojTlJNpbLn9SnOKaT5ZepTc0lrgQRuDwUThKEtMlhlQkpLK3Rk8JIrBzQhjOKBhOCw5e4jkJ+K9jwdZnL5Hk+Ke5H5hZywr39DPEyR9FFGhhko7LHJaWMqcuelhgB4jK38lLTLWAcZU8HZTuVsF08K4cE9ROkpWonkk5jURRicO6dlk5o3jEihSI4JqSJkgtqvJng6oFOQwYQU8gfUWYRq9HScmSfcsCMICHUGuEKZJNFRbQIMqbOwWXkx9DTzZBFLBtCtU4olzbNar9OyvBGTF7i5AFPdoAh1JKS2HHk8RiWw93Ur4ap7z+Z9XT91BuV4sUxUsCSG6Q67TB2N7bzPguqzrqlGe2W8YMrmi6jj6bh2IrYVztR7UloJJeOxIBNjwb8l11ZWs5a5bvb14/4YU43EY6Vt9Of+mFOphhDogw0wNXZeL2JPP8AfLGE7WO+MPb12ZrKNw/Zztv9CtSvSvpZqJLjJa3cyRxvePKVFStQ3xHL37fnf9io06vd4W3qBYuoCQQIER1uVyVqkZyzFYOqjBxWG8hmTVdJcTxAC9LwiajOWfQ8/wAUi5Rj8xwzFBfQKrE8TymbsrNVKoidDNmlpVJpi0s0FJqewtzv4ZqNKDUyDg2o0IFMzOACny0PzDN+WAqXSRSqgtXKByWTt0aKsDvyYclHTledkEq5RHBQ6UkUpxYM/L1m9SKxFmX0eEtTHoR6d2arpd4jJWwNUzBxWLu2+DVW6QXleKLjdbUark9zKrTUUN12HKSAqJOLZTA4MCAJ0oAq5tj0KmXA48nzvFbzzgr4OUsybPrKfBWnUIkDjHwMhOM3HjuaOKfIRS1ksZ2e9Dbg3JPFt/tFbxdRuMdufzgiSgk5b/nzNn4CpABLBd7hJdO4B4dCtHaVGsNpcmauKaeVnsDO1NJBcBBB8JGxC5p6lJxbOiOJJPBg4rI2SCsJs7qP1XbZPEmcN6tkE03L0lJnnYRsxx5q1NicUWGJcOKpVpIl04s3bjyFrG5Zm6CCKGaBbwukZSt2G08e0rojXizF0Wglldp4rVSTMnFo2BVEnFAEQgCpYClhDyzCpg2lQ4JlKbRj9HBT5SK8xihsLxT1ToCACMJUDDK3oT0syqxyhg3MuQlenGomefKGAqliSeC2TMwlrpTESSUAVkoAiCkwR88qj+y/P8Yk0z62BkFS5Nj0VOmx9Sm9rKXuz7xun3Qa5jwwnS/70RMr24whOrCUYrRv2w08cP1PKlKUKcoyb1bd85WeV6C/EMpOeNAYYpt1CnLWOq3kNnhsuSrGlOp7ONlulw38DqpupGHtZW/flL4lsM7S5wbaabnEWOlzWkiD4fFOi9E5KO3s5/VIKi1RTl6pfo2KnGbnjc9V57eXlnoJYWEG4NhIt1XRZZdRpehw3r2LgEG69Pg88296jIFBdPIHFpTAqQpYE6iOKak0GEWZjHsvuFrCvKJnKlGQ1wOcg2K7qV1GRy1Ldoc0a4dsuyMkzllHBd4VEmYJSGXDkxHSjIYPMU2r59I9rJR1SLJoQwy7Bl9zsuuhQ1bs56tXSO6GCYOAXpQpqJwym5BLWN5BWQXsEwOKQHEoAo55SbGkfO8S2C4cnOHxK+CrLFWS+LPqqTzFP4IHaDwm1zHAc0kn27HRldw45i92kuqv1N1QTwJsYtxbIneV3K7lJJym8rP59Dm6aMW1GKw/z/Jj/KE9/wC2BAgf6R6TPVY4pLL37/6/Y1/iv07f7ILmQS0Pk2BnwgjdJyhjMc5KSlnDwDlpG4InaRErFprk3TT4Hns2wF8Hi136L0PB1m5af9L/AMo8rxR4p5XqHZpg2iSvZuaSW55tGo2J2N4LgR1FyyExHF1kZHgHdM2SYGrmWVYEdTA2KSGwWrhSDIsjTvlBkc5TiXCAV3W9Z8M5K1JPdHoqTl6aZwNYNXMTEQ1oKAI90jAHlcKDxXgYPaM8Vhzu26W4DfJsxa0aXWK9K3rRSwzhrUpN5Q4p4pnAhdiqJnM4SRq14OxCvKIwWF0ATITAg1AlkDiQhgeHx+W1muedDnAucQ5o1CCeMbL4y7sq8akpacpt7rc+kt7inKKWcPABRrGm6QATsQ4GOh9FzUqkqUspfU65wVSODd2ZuIgspne+m4kzZdPWya3ivoZq0intJlP48yeyy5mIMAw0W/4/FT1b/pX5j7F9Mn3f5n7lTjn3jSJ5DawFvQLN3E9/iV08ds9iuio8zDj+WAjRVqPOGytVOkuUhngnHDw93ItgcJ/+LusqMrafmT77YPOuqka60xKY3MC/ZdlSq5nNCmomeHdxKyReSatVNgijX2upSfcbZem+VRJFVxQwRWi3iURj6jb9CXVCbBPPZCD8rwjibrroUm2YVZrB6JlMiAvTisHnyeQkCy0IK0mpAXsmB5eo4WkLwWj18la7B9kkJNDyRUowLHUU8MAKpXLec+CWpoNKZ1TGVraC4dVSr1OzE6UO4yo4usGwXeq1VzUM3QgYvzKvtIUyu6hUbaBl/G1t9SnqanOR+TDgIp4uq4SXeSbuajBUIIywftDVZLXNFQAwL6Xev+FwU/F6lN6ZrV+zN52EJ7xeDd+e0nGXtqCbwWU6g9SQuj/9OjJ+0n9ExKxqJey19WjL6Qwp3DD1wzQfgVPVWr5x/aX09wuG/wC4ocbhuAZtaMON7b/FS7m1S2x/aUqFw+W/7irs1pDuh35abGD5/uVPX0Vxn9EkNWlV8v8AdsEdmh2aDwEvdqNvRczv5Jeyvq8/Y36NPeT+iwY1sUe88zv0WdCtOpWWtkVacYQ9kFOMnh0XpYRxktxcNQBoKriL2TAtrG0lAG1M2TwIswcyjAZN6DdVgrjFy2E5JDPC5SbE2XVTtXyznncIc0sOGxF13Qp6TknPITELUyJBTA4kcEmMyhSPJ5GliGvdxEH7Wy8PVuetgNqAEd4X5KsiwD4YQXS7pyTQmQ7DTeR1KWnI8mgc0ASfCUaQ1FPd31apHJS4lJl31mzFvK5KTaDDKPoO4G3JAHMba5IKXA+RQ6xPUrwKi9pnoR4QWce0hgdSa8sbokmJaO76Seq7FeRcYqcE8LH2IVCSbcZYy8mZxFE70RvbS8i0kx/lQ69F80/ozRU6q4n+xHv6X/h4iBrNrCZPHY+qTq0f6P3K0VP6/wBijsQ37NNo6kun1UOrHtFFKnLvJmb6hduAI4AQs5z1FRiomGPIFMkmACJJ4XWtpHNVHNcP2QAVwB8l7OnHJ5+QnDNMWpvdPGLJxi3xFickuWHswlcgaacDkVsqNTHBHmw9Q2nlNdwAIaCtVazfJm7iKDsLkRA7bvILWNn6szd16DDD5RSHCT4raNrBGbuJMOo4RrTEAcltGnFcGTm2akHaZVkEskcUAS48QgDiTwQBI5oA01N5pgAOyujBjjssHa032NlcT9QcZFTmQ8tWfRQL6qRWrkQO7iZ8YAQ7RdgVy+5mPZstMhxI5EyFk7F+porpehZ+RGdgUdJL1DqY+gG/K8RPYAA2uQsZW1bOxqq9LAYMnrWI0zzV9LVI6iBmctxMwQHXuLC3OVPTVfQrz6YU3KnxcApu0mLqInj82/lVXMdY9p21oXj3Ph89TcTtp3Ucbg7ak8j0XmSpyjysHZGeeCyk2TJASKUiwahZeyBywSxskCwnibALWlQlUlp4+ZjUqqKzyb1sOyA1xbUDuABi1+K9y0tYUXlPU2eZXrSqLjGA3D4EGIYLbWXrxgn2PNcmNaFAi0BvktUsdiMhVKnzjoLK0SzSLm2210IGbE+F+iYiwI4kSLoAh1Rv7KMjKl9wSPMJZDBaLyDbxTEXIAm5HOLoAhr732SyPBz3ARBlMRf3jOSAKmdhEeaYGzQD92et+qYFB2d9uN5CANCPu+l4QBzYPCDxufRAEOERY/4QBZrQbgu228UsAQ4cPObjyQBaJ+8UAJPaDI21xqEh42PA+BXLWoKaOilV0nlMR7NYpl/d6/wFpPkJuvFq+HVv/Lz8D0IXNPO4H/C1Jh1Ko0z3dD/gvPla1o7YOuNWD7mpwzhfS8CYk64+KStK3LWPoDq087P/ACHYfLnkSA8/8/7R8V1UvD6j/wBf8/8ApnO5gvz/AGFYXJahdZkAcXkb9JJ+S7KPh7UstZ+f4znq3a04Tx8hhQyNodrquLnbAAaWtHIBelC3w8yf2OOVbKwkNqWFYNrjwiV1JYOZs00biPOCmmLBLaRjg3mmwRUA6uDgeUfokgZxpiTYja/7KYjiJ2IN+O9vBLkZUMMmwt03SWw2Q4bg2PACZ8gm2JIoa7GjtG3+o6fmlqQ9LM3Y2n95p2sHSSPDmpc4LllKEnwgetmrB3dVjs8BpPSVi7mCexp5E2hXmWcVXRoGkAkgiJI6lYVbpv3Tanb45Fv0vV51f35LDqn6s16dHv4nYbdJXtHmEQORnwKALzzkjfcoAoCDtO56JAadRHI/sJgVDogD0JH9kAdY+HSEgNGm0G6AKta0d3UPmUASHTzMG8gtvzQBSb3BbGx/cKcjwT2psJ67pYHkgt4keW49EbD3L6JFgDx3m/RMkoecaT4FJYG8nGNpafAwOsc02kCbRJAFrCdo4lJbA9zF+IY2xeZjYwlrXqPS/QrVxdNjNRc0yLGd7cIulOrCKy2ONOUnsgQZrRmACbAzcb+J6FYdXTXxNemm/gQ/MJM6XxO7o25JO8j6DVs/UEq508S1hZ+YGRzjZZO9fZGnSruxe/N3AntBs2sJv6rHq6iNOngYP9oHD/uiBIsNJj0/VLrJvbI+miuwsxOfOZqLKLXMgdtxGpzy6HRubGVk5KTNEsG4zWo8SaIiLBmguA2uOXipzJjwkK8ZV1yWVGtcCBoNQQ2ZkmDbb5pOMu+yHldgjKIe1rXHW4/baWgi3xvaVemL2J1NDD6Gf996XkofmBD83rsAbqDvENEn+3ku3qpo5OniwhvtRFnMA7ManFxBcOJHBPrfgLpfibUc3rQHNFItO8Tcc5nZCvJ+iH0sfUvR9owDpqM53Y4Ez4q43q7omVq+zLf/AKZk6QdM2h/M8ih3i7IFav1CKebu0kga4+0x0R1CqN08cCdv8QR/tc0fZLiI1EFszyAT6pLsT079So9sGg910RsHtB9FPWr0K6V+prT9r2faZUEzchpEciUdZHumLpn6nVvadu7AdoJM2Kznfpe6jSFm/wD0wWl7R1CCC4W4y3n4rmV9Uzub9JDsEPzup39bQBziDCfXVM5DpIYwAYn2tqfZqUxBv2XOB6WUz8Qm/daQRtILnIbhvalr57k8oJ6rZX8vQzdpEzr59UBmZG2kAz89lnK7qclxt4cA7837JcXOF5ggST67eSzdWclnJpojHbANWzQm7W6x4vgNB5k7KPMkPSjqZqvOoNaerzPkIUYbeUi8pLBP8THZa2NpHbA+UjpCagGshwrFo0houZ0kOIHI7IUGJyRLcJVAJDqoMGNex/MESjtyCZLMM49l0TEkjSQ3nffdNcbg85K4fLhrkFpJtDoMjnF+nmpSWcjeTLNcna6IfojZum2rjuhtLdBhvk0pNngHAbucGyJ4eJS1tselJE4Qw4tDCReSBqG0QU1nImZYo0y06Wh8nTpFyHHnNwI4iRZDw0C2YHVDhUpmA3TB7bHGWjn5cUJbrIN7DH6aoc6XpV/9U/Op/mfsTokQzb8v6ldPYx7nn8Z3/wApWD5New7wv1DP3xV9ie4Mf7qSilff0SY0Xwn1db98VvT4MZizEd7yH6J1BQ4MHbt/EPkuVe8bvgeYn6tnktavBFPkp9h3msFwzaXIlPf9FizRDV3cPX9FbJQE/Z3kqp8kTC8v7jfxfojsivUaM+r/ADraXumUeQOruz8TfmiATDKPdq/7o/RNiQ6dsOiGCO/fwQhsvh+87qkARS2VIlibMOPQrCfJtHgE/wAfokhsIzTu+iJDRTLfq39T/SVNPgUuTqX1jPP+lbxM2CYn/qqnn/SVE/fZUeEdj/qaf+875sVL3F8yX7zPNJDP/9k=",
+    "price": 999,
+    "quantity": 1
+  },
+  {
+    "id": 9,
+    "category": "Organic Skincare",
+    "name": "Charcoal Face Scrub",
+    "description": "Organic face scrub with activated charcoal for deep cleansing and detoxifying.",
+    "image_url": "https://m.media-amazon.com/images/I/51hZY+ueuTL.jpg",
+    "price": 649,
+    "quantity": 1
+  },
+  {
+    "id": 10,
+    "category": "Reusable Home Essentials",
+    "name": "Beeswax Wraps",
+    "description": "Eco-friendly food wraps made with beeswax. Perfect for keeping your leftovers fresh without plastic waste.",
+    "image_url": "https://assets.epicurious.com/photos/60be5721eac592d6afe7ffe8/16:9/w_6688,h_3762,c_limit/Beeswrap-hero-06022019_VOG.jpg",
+    "price": 599,
+    "quantity": 1
+  },
+  {
+    "id": 11,
+    "category": "Reusable Home Essentials",
+    "name": "Stainless Steel Straw Set",
+    "description": "A set of reusable straws with a cleaning brush. A small step towards reducing single-use plastic.",
+    "image_url": "https://brownliving.in/cdn/shop/products/steel-straws-reusable-straws-2-bent-2-straight-1-cleaner-1-pouch-eco-friendly-straws-tbb-66-straw-brown-living-330037.jpg?v=1682968290",
+    "price": 399,
+    "quantity": 1
+  },
+  {
+    "id": 12,
+    "category": "Reusable Home Essentials",
+    "name": "Bamboo Kitchen Towels",
+    "description": "Durable and washable bamboo towels for your kitchen. Eco-friendly and cost-effective.",
+    "image_url": "https://www.jiomart.com/images/product/original/rv3yn7ybfs/bamboo-kitchen-towel-pack-of-20-product-images-orv3yn7ybfs-p591537898-0-202205231334.jpg?im=Resize=(1000,1000)",
+    "price": 699,
+    "quantity": 1
+  },
+  {
+    "id": 13,
+    "category": "Eco-Activewear",
+    "name": "Recycled Polyester Leggings",
+    "description": "High-performance leggings made from recycled polyester. Durable, stretchable, and planet-friendly.",
+    "image_url": "https://www.passenger-clothing.com/cdn/shop/files/zFr1UBRXBCkGuj4IWrQu7td2OFyywuxwPoriTEa2j3U.jpg?v=1728310867&width=1445",
+    "price": 1599,
+    "quantity": 1
+  },
+  {
+    "id": 14,
+    "category": "Eco-Activewear",
+    "name": "Sustainable Yoga Mat",
+    "description": "A non-toxic, biodegradable yoga mat made from natural rubber. Perfect for mindful workouts.",
+    "image_url": "https://static.wixstatic.com/media/f116ff_2b902cf699b84eb68c203bc1197d739b~mv2.webp/v1/fill/w_980,h_980,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/f116ff_2b902cf699b84eb68c203bc1197d739b~mv2.webp",
+    "price": 1999,
+    "quantity": 1
+  },
+  {
+    "id": 15,
+    "category": "Eco-Activewear",
+    "name": "Organic Cotton Sports Bra",
+    "description": "A breathable sports bra made from organic cotton. Provides comfort during intense workouts.",
+    "image_url": "https://i.etsystatic.com/6043577/r/il/4f7642/3116453462/il_570xN.3116453462_j8rs.jpg",
+    "price": 1299,
+    "quantity": 1
+  },
+  {
+    "id": 16,
+    "category": "Natural Wellness Products",
+    "name": "Herbal Essential Oil Kit",
+    "description": "A set of pure, therapeutic-grade essential oils for relaxation and wellness.",
+    "image_url": "https://www.soulflower.in/cdn/shop/files/IMG_9890-Recovered.jpg?v=1703075480",
+    "price": 2299,
+    "quantity": 1
+  },
+  {
+    "id": 17,
+    "category": "Natural Wellness Products",
+    "name": "Ayurvedic Herbal Tea",
+    "description": "A blend of Ayurvedic herbs for a calming tea experience. Packed with health benefits.",
+    "image_url": "https://rukminim2.flixcart.com/image/850/1000/l09w8sw0/tea/g/n/w/25-ayurveda-herbal-tea-god-s-chai-tea-bags-25-pyramid-tea-bags-original-imagc3my8szdqcz2.jpeg?q=90&crop=false",
+    "price": 899,
+    "quantity": 1
+  },
+  {
+    "id": 18,
+    "category": "Handcrafted Decor",
+    "name": "Macrame Wall Hanging",
+    "description": "Stylish Bohemian Handcrafted wall Decor",
+    "image_url": "https://rukminim2.flixcart.com/image/850/1000/ksdjma80/wall-decoration/a/0/v/handicrafts-trader-boho-wall-hanging-decor-woven-pure-cotton-original-imag5y8ewjvebr7g.jpeg?q=90&crop=false",
+    "price": 1800,
+    "quantity": 1
+  },
+  {
+    "id": 19,
+    "category": "Sustainable Clothing",
+    "name": "Organic Cotton T-Shirt",
+    "description": "Soft and breathable unisex t-shirt made with 100% organic cotton.",
+    "image_url": "https://images.bestsellerclothing.in/data/only/march-29-2023/234807301_g0.jpg?width=1080&height=1355&mode=fill&fill=blur&format=auto",
+    "price": 999,
+    "quantity": 1
+  },
+  {
+    "id": 20,
+    "category": "Sustainable Clothing",
+    "name": "Hemp Casual Pants",
+    "description": "Lightweight and durable pants made from eco-friendly hemp fabric.",
+    "image_url": "https://ae01.alicdn.com/kf/S2231a9ef9aa24d5eaeda9462f9394b72i/Summer-Cotton-Harem-Pants-Mens-Hemp-Casual-Trousers-Male-Loose-Wide-Leg-Pants-Folk-Style-Lantern.jpg",
+    "price": 1899,
+    "quantity": 1
+  },
+  {
+    "id": 21,
+    "category": "Sustainable Clothing",
+    "name": "Recycled Polyester Jacket",
+    "description": "Warm and stylish jacket crafted from recycled polyester.",
+    "image_url": "https://www.weekendbee.com/cdn/shop/files/ms-picture-object-jacket-recycled-polyester-jacket-picture-organic-519788.jpg?v=1699106415&width=800",
+    "price": 2999,
+    "quantity": 1
+  },
+  {
+    "id": 22,
+    "category": "Sustainable Clothing",
+    "name": "Linen Summer Dress",
+    "description": "Elegant and airy dress made from sustainable linen.",
+    "image_url": "https://m.media-amazon.com/images/I/71XbqdvuPIL._AC_UY1000_.jpg",
+    "price": 1499,
+    "quantity": 1
+  },
+  {
+    "id": 23,
+    "category": "Sustainable Clothing",
+    "name": "Bamboo Socks",
+    "description": "Comfortable and antibacterial socks made from bamboo fibers.",
+    "image_url": "https://heelium.in/cdn/shop/files/ProductFeatures-17-min_1_1200x1200.webp?v=17000",
+    "price": 399,
+    "quantity": 1
+  },
+  {
+    "id": 24,
+    "category": "Eco-Friendly Accessories",
+    "name": "Cork Wallet",
+    "description": "Lightweight and durable wallet crafted from cork material.",
+    "image_url": "https://brownliving.in/cdn/shop/products/ravine-premium-cork-wallet-with-money-clip-307-18082-fscow-1-wallet-brown-living-998661_600x600_crop_center.jpg?v=1689687023",
+    "price": 899,
+    "quantity": 1
+  },
+  {
+    "id": 25,
+    "category": "Eco-Friendly Accessories",
+    "name": "Recycled Paper Notebook",
+    "description": "Handcrafted notebook made from 100% recycled paper.",
+    "image_url": "https://www.futuresustain.app/wp-content/uploads/2024/01/wiro-notepad-stack-3-600x400.jpg",
+    "price": 249,
+    "quantity": 1
+  },
+  {
+    "id": 26,
+    "category": "Eco-Friendly Accessories",
+    "name": "Jute Tote Bag",
+    "description": "Stylish and reusable tote bag made from natural jute fibers.",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3k16xGn-0o0R92MgizR0MkP6nZT5tDn4LZQ&s",
+    "price": 599,
+    "quantity": 1
+  },
+  {
+    "id": 27,
+    "category": "Eco-Friendly Accessories",
+    "name": "Bamboo Sunglasses",
+    "description": "Sustainable sunglasses with a frame crafted from bamboo.",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6InCGe8kF5nYnPDJDnnIKr6pWFq2lIIe_Wg&s",
+    "price": 1299,
+    "quantity": 1
+  },
+  {
+    "id": 28,
+    "category": "Eco-Friendly Accessories",
+    "name": "Reusable Metal Straw Set",
+    "description": "Eco-friendly straw set with cleaning brushes in a portable pouch.",
+    "image_url": "https://www.jiomart.com/images/product/original/rvf675w8fi/mapperz-stainless-steel-straws-for-drinking-with-brushes-reusable-stainless-steel-straw-with-cleaning-brush-long-metal-straws-for-drinking-set-of-5-2-bend-pipe-2-long-straw-1-cleaning-brush-silver-product-images-orvf675w8fi-p604572121-2-202309141455.jpg?im=Resize=(420,420)",
+    "price": 299,
+    "quantity": 1
+  },
+  {
+    "id": 29,
+    "category": "Organic Skincare",
+    "name": "Aloe Vera Face Gel",
+    "description": "Hydrating and soothing gel made with organic aloe vera.",
+    "image_url": "https://duskyindia.in/media/catalog/product/cache/a29849ab0ce2b8060df6cab3478018e0/s/o/soothing-aloe-vera-gel2.jpg",
+    "price": 399,
+    "quantity": 1
+  },
+  {
+    "id": 30,
+    "category": "Organic Skincare",
+    "name": "Charcoal Detox Soap",
+    "description": "Handmade detox soap infused with activated charcoal and essential oils.",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiW0w-bvSLFsu6u0-wkJU72OTHBPWHZlqirw&s",
+    "price": 199,
+    "quantity": 1
+  },
+  {
+    "id": 31,
+    "category": "Organic Skincare",
+    "name": "Rose Water Mist",
+    "description": "Refreshing facial mist made from 100% natural rose water.",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRG7bn7WNkip3KqhR10Jt9BtLpXURXr1ZvJ3g&s",
+    "price": 499,
+    "quantity": 1
+  },
+  {
+    "id": 32,
+    "category": "Organic Skincare",
+    "name": "Cocoa Butter Lip Balm",
+    "description": "Nourishing lip balm made from organic cocoa butter.",
+    "image_url": "https://brownliving.in/cdn/shop/products/mason-co-x-bare-cocoa-butter-lip-balm-for-chapped-lips-20g-verified-sustainable-products-on-brown-living-288486_800x.jpg?v=1702029662",
+    "price": 149,
+    "quantity": 1
+  },
+  {
+    "id": 33,
+    "category": "Organic Skincare",
+    "name": "Neem Anti-Acne Cream",
+    "description": "Natural anti-acne cream infused with neem and tea tree oil.",
+    "image_url": "https://vanauraorganics.com/cdn/shop/files/600600images_49.png?v=1709096957",
+    "price": 549,
+    "quantity": 1
+  },
+  {
+    "id": 34,
+    "category": "Reusable Home Essentials",
+    "name": "Bamboo Cutlery Set",
+    "description": "Eco-friendly and reusable cutlery set made from bamboo.",
+    "image_url": "https://envaplax.com/cdn/shop/files/BambooCutlerySet_1__1.jpg?crop=center&height=600&v=1704435503&width=600",
+    "price": 399,
+    "quantity": 1
+  },
+  {
+    "id": 35,
+    "category": "Reusable Home Essentials",
+    "name": "Silicone Food Storage Bags",
+    "description": "Reusable and durable food-grade silicone storage bags.",
+    "image_url": "https://content.jdmagicbox.com/rep/b2b/food-storage-bags/food-storage-bags-1.jpg?impolicy=queryparam&im=Resize=(360,360),aspect=fit",
+    "price": 999,
+    "quantity": 1
+  },
+  {
+    "id": 36,
+    "category": "Reusable Home Essentials",
+    "name": "Compostable Garbage Bags",
+    "description": "Eco-friendly garbage bags made from biodegradable materials.",
+    "image_url": "https://m.media-amazon.com/images/I/61BVG4v3uuL._AC_UF1000,1000_QL80_.jpg",
+    "price": 299,
+    "quantity": 1
+  },
+  {
+    "id": 37,
+    "category": "Reusable Home Essentials",
+    "name": "Glass Food Containers",
+    "description": "Durable and eco-friendly glass containers for food storage.",
+    "image_url": "https://image.made-in-china.com/202f0j00ykYrlpEnvHuf/Glass-Food-Storage-Containers-with-Airtight-Locking-Lids-for-Storing-Serving-Food-BPA-Free-Leak-Proof-Microwave-Dishwasher-Fridge-Freezer-and-Oven-Safe.webp",
+    "price": 1599,
+    "quantity": 1
+  },
+  {
+    "id": 38,
+    "category": "Reusable Home Essentials",
+    "name": "Cotton Dish Cloths",
+    "description": "Eco-friendly reusable dish cloths made from 100% cotton.",
+    "image_url": "https://ashivelyandco.com/cdn/shop/files/IMG_2380_2048x.jpg?v=1716317606",
+    "price": 299,
+    "quantity": 1
+  },
+  {
+    "id": 39,
+    "category": "Eco-Activewear",
+    "name": "Recycled Yoga Leggings",
+    "description": "High-performance yoga leggings made from recycled materials.",
+    "image_url": "https://pinkscharming.com/wp-content/uploads/2019/08/Organic-Basics-recycled-yoga-wear-1440x1375.jpg",
+    "price": 1799,
+    "quantity": 1
+  },
+  {
+    "id": 40,
+    "category": "Eco-Activewear",
+    "name": "Bamboo Sports T-Shirt",
+    "description": "Breathable and soft sports t-shirt crafted from bamboo fabric.",
+    "image_url": "https://offnorth.com/cdn/shop/files/green01_43302743-e828-48c5-a89a-acb9e141fd3a.png?v=1721741421&width=1000",
+    "price": 899,
+    "quantity": 1
+  },
+  {
+    "id": 41,
+    "category": "Eco-Activewear",
+    "name": "Organic Cotton Sports Bra",
+    "description": "Comfortable and supportive sports bra made from organic cotton.",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoLTqFErItWW2uacfUv0J8LLGl61B-gbXBfQ&s",
+    "price": 1299,
+    "quantity": 1
+  },
+  {
+    "id": 42,
+    "category": "Eco-Activewear",
+    "name": "Hemp Running Shorts",
+    "description": "Lightweight and sustainable running shorts made with hemp.",
+    "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjPgW1hmLklAMg4ncq3ikvadsWEwdS8id52w&s",
+    "price": 999,
+    "quantity": 1
+  },
+  {
+    "id": 43,
+    "category": "Eco-Activewear",
+    "name": "Recycled Polyester Windbreaker",
+    "description": "Weather-resistant windbreaker crafted from recycled polyester.",
+    "image_url": "https://www.projectcece.com/static/_versions/_versions/blogs/outdoor_recycled_polyester_clothing_instead_of_virgin_polyester_large_large.jpg",
+    "price": 2499,
+    "quantity": 1
+  },
+  {
+    "id": 44,
+    "category": "Handcrafted Decor",
+    "name": "Clay Terracotta Vase",
+    "description": "Handcrafted vase made from natural terracotta clay.",
+    "image_url": "https://images-cdn.ubuy.co.in/6682f5925bf3e81879376e2b-siducal-ceramic-rustic-vase.jpg",
+    "price": 999,
+    "quantity": 1
+  },
+  {
+    "id": 45,
+    "category": "Handcrafted Decor",
+    "name": "Recycled Wood Wall Art",
+    "description": "Beautiful wall art made from reclaimed wood.",
+    "image_url": "https://i.pinimg.com/736x/9b/d8/99/9bd899504d1589b425c5d4e8e58b290d.jpg",
+    "price": 1499,
+    "quantity": 1
+  },
+  {
+    "id": 46,
+    "category": "Handcrafted Decor",
+    "name": "Coconut Shell Candle Holder",
+    "description": "Unique candle holder crafted from repurposed coconut shells.",
+    "image_url": "https://5.imimg.com/data5/ANDROID/Default/2023/9/343004300/WH/PS/OV/181186998/product-jpeg-500x500.jpg",
+    "price": 599,
+    "quantity": 1
+  },
+  {
+    "id": 47,
+    "category": "Handcrafted Decor",
+    "name": "Handwoven Bamboo Basket",
+    "description": "Decorative and functional basket made from bamboo.",
+    "image_url": "https://www.borderlessbutter.com/cdn/shop/files/41ZhU0xYlJL._AC_UF1000_1000_QL80.jpg?v=1724293296&width=1445",
+    "price": 799,
+    "quantity": 1
+  },
+  {
+    "id": 48,
+    "category": "Handcrafted Decor",
+    "name": "Seagrass Storage Bins",
+    "description": "Eco-friendly storage bins made from natural seagrass.",
+    "image_url": "https://image.made-in-china.com/203f0j00MqmutpCaagre/Natural-Flower-Pot-Seagrass-Wicker-Basket-Home-Decor-Garden-Laundry-Bamboo-Seagrass-Storage-Baskets.webp",
+    "price": 1299,
+    "quantity": 1
+  },
+  {
+    "id": 49,
+    "category": "Natural Wellness Products",
+    "name": "Herbal Stress Relief Tea",
+    "description": "Relaxing herbal tea blend for stress relief.",
+    "image_url": "https://jivisa.in/cdn/shop/files/Stress-Relief-Herbal-Tea-Tisane-JiViSa-216.jpg?v=1684809198&width=1080",
+    "price": 299,
+    "quantity": 1
+  },
+  {
+    "id": 50,
+    "category": "Natural Wellness Products",
+    "name": "Lavender Essential Oil",
+    "description": "100% pure lavender essential oil for relaxation and aromatherapy.",
+    "image_url": "https://puracy.com/cdn/shop/articles/lavender_9204b583-59ac-466b-b655-26500ace4dd0.jpg?v=1651071276",
+    "price": 799,
+    "quantity": 1
+  },
+  {
+    "id": 51,
+    "category": "Natural Wellness Products",
+    "name": "Handmade Herbal Bath Soap",
+    "description": "Luxurious bath soap infused with natural herbs and essential oils.",
+    "image_url": "https://thumbs.dreamstime.com/b/natural-handmade-herbal-soap-bath-salt-17461437.jpg",
+    "price": 249,
+    "quantity": 1
+  },
+  {
+    "id": 52,
+    "category": "Natural Wellness Products",
+    "name": "Organic Aloe Vera Juice",
+    "description": "Hydrating and nourishing juice made from organic aloe vera.",
+    "image_url": "https://media.istockphoto.com/id/532172108/photo/aloe-vera-leaves.jpg?s=612x612&w=0&k=20&c=S9LPdBat4tN1fV_sjFVJ9gQTnmmy-cBl9S57sEPg0Gg=",
+    "price": 499,
+    "quantity": 1
+  },
+  {
+    "id": 53,
+    "category": "Natural Wellness Products",
+    "name": "Neem Powder Capsules",
+    "description": "Natural supplement capsules made from organic neem leaves.",
+    "image_url": "https://cdn.raffeldeals.com/media/24604/catalog/8904256300629-pdp-3_2.jpg",
+    "price": 349,
+    "quantity": 2
+  }
+]
