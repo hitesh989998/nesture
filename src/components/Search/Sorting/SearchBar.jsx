@@ -33,11 +33,11 @@ const SearchBar = () => {
   return (
     <div ref={containerRef}>
       <input
-        className="p-3 focus:outline-none w-full m-2"
+        className="bg-[#F6F6F6] rounded-xl h-10 w-80 focus:outline-none px-4"
         onFocus={handleFocus}
         onChange={(e) => dispatch(updateInput(e.target.value))}
         autoFocus
-        placeholder="Shop Cotton T-shirts, Organic Soaps, or Search by Product Code."
+        placeholder="Find something extraordinary"
       />
       {localState && currentState && (
         <div className="h-94 w-94 bg-green-700">
