@@ -19,9 +19,6 @@ const addtoCartSlice = createSlice({
      const finalPrice = payloadstorer.discount? Math.floor(payloadstorer.price - (payloadstorer.price * payloadstorer.discount)/100) : payloadstorer.price
       
 
-      console.log("payload", payloadstorer);
-      console.log("id of payload", payloadstorer.id);
-
       if (filtereddata) {
         filtereddata.quantity += payloadstorer.quantity;
         state.totalItems += payloadstorer.quantity;
@@ -35,6 +32,7 @@ const addtoCartSlice = createSlice({
           quantity: payloadstorer.quantity,
           image_url: payloadstorer.image_url,
           price: payloadstorer.price,
+          discount:payloadstorer?.discount??null
         });
 
         state.totalItems += payloadstorer.quantity;
@@ -50,10 +48,6 @@ const addtoCartSlice = createSlice({
 
       const finalPrice = payloadstorer.discount? Math.floor(payloadstorer.price - (payloadstorer.price * payloadstorer.discount)/100) : payloadstorer.price
 
-
-      if (payloadstorer.discount){ 
-        payloadstorer.price = Math.floor(payloadstorer.price - (payloadstorer.price * filtereddata.discount)/100 )
-      }
 
       if (filtereddata) {
         state.totalItems -= filtereddata.quantity;
