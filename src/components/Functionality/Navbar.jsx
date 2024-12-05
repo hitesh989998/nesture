@@ -18,6 +18,10 @@ import { TbUserCircle } from "react-icons/tb";
 import { RiUserSmileLine } from "react-icons/ri";
 import { CiLogin } from "react-icons/ci";
 import NavbarButtons from "./NavbarButtons";
+import { MdOutlineCloseFullscreen } from "react-icons/md";
+import PrivacyPolicy from "../Webpages/PrivacyPolicy";
+import TermsOfUse from "../Webpages/TermsOfUse";
+
 
 const Navbar = () => {
   const [isHover, changeHoverState] = useState(false);
@@ -32,28 +36,55 @@ const Navbar = () => {
     }
   };
 
+  let autoClose = (e) => {
+    if(e.target.tagName === 'BUTTON' || e.target.tagName === 'A' ||e.target.tagName === 'H2'){
+      setHamburger("hidden");
+    }    
+  };
+
   return (
     <>
-      {" "}
-      <div className={`w-screen h-screen ${hamburger} top-0 fixed z-50`}>
-        {/* Navbar Menu Section */}
-        <div className="w-1/3 h-full bg-[#E3E6EA] shadow-lg flex flex-col items-start p-8">
-          <button
-            onClick={handleVisiblity}
-            className="flex items-center bg-[#009b7e] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#8FDAC5] shadow-md mb-6"
-          >
-            <HiOutlineMenuAlt2 className="mr-2 text-xl" /> Close
-          </button>
-          <NavbarButtons className="flex flex-col gap-4 text-[#5A5F6A] font-medium text-lg" />
+      <div className={`w-screen h-screen ${hamburger} top-0 fixed z-50`} onClick={autoClose}>
+        <button
+          onClick={handleVisiblity}
+          className="flex items-center bg-[#009b7e] text-white font-semibold px-6 py-3 ml-1 rounded-lg my-1  hover:bg-[#00765e] shadow-md"
+        >
+          <MdOutlineCloseFullscreen className="mr-2 text-2xl" /> Close
+        </button>
+
+        <div className="w-3/6 h-full bg-[#E3E6EA] shadow-lg flex flex-col justify-center p-8 gap-10 space-y-3">
+          <div>
+            <h3 className="text-[#5A5F6A] text-3xl">Category</h3>
+            <NavbarButtons className="flex flex-col gap-4 text-[#5A5F6A] hover:bg-[#00765e] hover:text-white font-medium text-lg tracking-wide" />
+          </div>
+
+          <div className="w-fit space-y-3 ">
+            <h3 className="text-[#5A5F6A] text-3xl">Cart</h3>
+              <CartPage />
+          </div>
         </div>
 
-        {/* Sample Menu Section */}
-        <div className="w-1/3 h-full bg-white shadow-lg flex flex-col justify-center p-8">
-          <ul className="text-[#5A5F6A] font-medium text-lg space-y-5">
-            <li className="hover:text-[#009b7e] cursor-pointer">Menu Item 1</li>
-            <li className="hover:text-[#009b7e] cursor-pointer">Menu Item 2</li>
-            <li className="hover:text-[#009b7e] cursor-pointer">Menu Item 3</li>
-            <li className="hover:text-[#009b7e] cursor-pointer">Menu Item 4</li>
+        <div className="w-1/3 h-full bg-white shadow-lg flex flex-col justify-center p-8 space-y-3">
+          <h3 className="text-[#5A5F6A] text-3xl">Index</h3>
+          <ul className="text-[#5A5F6A] font-medium text-xl space-y-1 tracking-wide">
+            <li className="hover:text-[#009b7e] flex items-center gap-1">
+             <Link to="/">Homepage</Link>
+            </li>
+            <li className="hover:text-[#009b7e] flex items-center gap-1">
+             <Link to="//about-us">About Us</Link>
+            </li>
+            <li className="hover:text-[#009b7e] flex items-center gap-1">
+            <Link to="/contact-us">Contact Us</Link>
+            </li>
+            <li className="hover:text-[#009b7e] flex items-center gap-1">
+           <Link to="/privacy-policy">Privacy Policy</Link>
+            </li>
+            <li className="hover:text-[#009b7e] flex items-center gap-1">
+             <Link to="/terms-of-use">Terms of Use</Link>
+            </li>
+            <li className="hover:text-[#009b7e] flex items-center gap-1">
+            <Link to="/sitemap.xml">Sitemap</Link>
+            </li>
           </ul>
         </div>
 
@@ -65,9 +96,8 @@ const Navbar = () => {
             className="relative w-3/4 h-3/4 object-contain drop-shadow-2xl z-10"
           />
         </div>
-        
       </div>
-      <nav className="shadow-md h-20 w-full flex items-center px-6">
+      <nav className=" h-20 w-full flex items-center px-6 fixed top-0 bg-white z-10">
         <div className="flex gap-4">
           <button
             className="flex bg-[#F6F6F6] hover:bg-[#00765e] hover:text-white px-5 h-10 w-30 items-center gap-1 rounded-xl"
@@ -130,8 +160,11 @@ const Navbar = () => {
       </nav>
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/aboutus" element={<AboutUs />} />
-        <Route path="/contactus" element={<ContactUs />} />
+        <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/sitemap.xml"/>
+        <Route path="/terms-of-use" element={<TermsOfUse />} />
         <Route path="/category/:prds" element={<CategoryPage />} />
         <Route path="/category/:prds/:id" element={<ProductDetailPage />} />
         <Route path="/cart" element={<CartPage />} />
