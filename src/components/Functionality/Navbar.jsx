@@ -21,6 +21,7 @@ import NavbarButtons from "./NavbarButtons";
 import { MdOutlineCloseFullscreen } from "react-icons/md";
 import PrivacyPolicy from "../Webpages/PrivacyPolicy";
 import TermsOfUse from "../Webpages/TermsOfUse";
+import AllProductsPage from "../Products/AllProductsPage";
 
 
 const Navbar = () => {
@@ -166,6 +167,7 @@ const Navbar = () => {
         <Route path="/sitemap.xml"/>
         <Route path="/terms-of-use" element={<TermsOfUse />} />
         <Route path="/category/:prds" element={<CategoryPage />} />
+        <Route path="/all-products" element={<AllProductsPage/>} />
         <Route path="/category/:prds/:id" element={<ProductDetailPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="*" element={<>This is 404</>} />

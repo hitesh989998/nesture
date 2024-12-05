@@ -8,10 +8,10 @@ import CartPage from "../Cart/CartPage";
 const Homepage = () => {
   let AllProducts= useSelector((state)=>state.navProdMenu.allproducts)
   return <>
-  <SliderHomepage/> <div className="flex justify-center p-3">
-  <NavbarButtons className={"bg-[#F6F6F6] tracking-wide px-[22px] py-3 rounded-3xl mx-1 relative hover:bg-[#00765e] hover:text-white shadow-sm"}/>
+  <SliderHomepage/> <div className="flex justify-center p-3"><Link to="/all-products"><button className="bg-[#009b7e] text-white tracking-wide px-[22px] py-3 rounded-3xl mx-1 relative hover:bg-[#00765e] hover:text-white shadow-sm">All Products</button></Link>
+  <NavbarButtons className={"bg-[#F6F6F6] tracking-wide px-[11px] py-3 rounded-3xl mx-1 relative hover:bg-[#00765e] hover:text-white shadow-sm"}/>
   </div>
-  <div className="flex flex-wrap gap-6 justify-center bg-gray-100 p-6 min-h-screen">
+  <div className="flex flex-wrap gap-6 justify-center p-6 min-h-screen">
   {AllProducts.map((item)=>{return <Link key={item.id} to={`/category/${item.category}/${item.id}`}> <div key={item.id} className="bg-white shadow-md rounded-lg overflow-hidden w-72 flex flex-col items-center">
     <img className='h-72 w-72'src={item.image_url}></img>
     <h2>{item.name}</h2>
