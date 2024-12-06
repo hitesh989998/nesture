@@ -38,7 +38,7 @@ const SearchBar = () => {
         placeholder="Find something extraordinary.."
       />
       {localState && currentState && (
-        <div className="h-auto w-96 absolute top-12 left-0 max-h-64 bg-white bg-opacity-10 backdrop-blur-lg p-4 m-4 overflow-y-auto shadow-lg">
+        <div className="h-auto w-96 absolute top-12 left-0 max-h-64 bg-white bg-opacity-10 backdrop-blur-lg p-4 m-4 overflow-y-auto shadow-lg rounded-3xl">
           <ul>
             {searchresults
               .filter((items) => {

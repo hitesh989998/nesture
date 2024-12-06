@@ -14,7 +14,8 @@ const SliderHomepage = () => {
     const slides = useSelector((state)=>state.slider.length)
 
     useEffect(()=>{Dispatch(SliceData(dummydata))
-        setInterval(()=>{Dispatch(NextSlide())},7000)
+      const autoclear= setInterval(()=>{Dispatch(NextSlide())},7000)
+      return ()=>{clearInterval(autoclear)}
     },[])
    
 
@@ -22,7 +23,7 @@ const SliderHomepage = () => {
   return (
    <>
    <div className='w-full h-[650px] bg-white py-1 px-8'>
-    {slides.length>0&&<div className='relative top-[78px]'>
+    {slides.length>0&&<div className='relative top-[78px] drop-shadow-lg'>
         <img className='h-[550px] w-full rounded-[28px] drop-shadow-sm'src={dummydata[currentSlide].image_url}/>
         <div className='absolute flex justify-between w-full px-2 top-[45%]'>
    <button className='text-3xl rounded-full m-1 bg-opacity-20 backdrop-blur-lg shadow-lg text-[#009b7e] hover:bg-[#009b7e] hover:text-white' onClick={()=>{Dispatch(PrevSlide())}}><MdKeyboardArrowLeft /></button>

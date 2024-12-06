@@ -127,7 +127,7 @@ const Navbar = () => {
           <TbShoppingBag className="relative -mr-4 hover:bg-[#00765e] hover:text-white text-2xl bg-[#8FDAC5] h-10 w-10 p-2 rounded-full" />
 
           {isHoverCart && (
-            <div className="absolute right-32 top-16 h-auto w-30 bg-white bg-opacity-10 backdrop-blur-lg overflow-y-auto shadow-lg rounded-2xl p-5 m-2">
+            <div className="absolute right-32 top-16 h-auto w-30 bg-white bg-opacity-10 backdrop-blur-lg overflow-y-auto shadow-lg rounded-3xl p-5 m-2">
               <CartPage />
             </div>
           )}
@@ -148,7 +148,7 @@ const Navbar = () => {
             <div className="absolute flex flex-col items-center left-0 bg-opacity-10 backdrop-blur-lg  bg-white h-38 w-38 shadow-sm rounded-2xl p-5 m-1.5 text-black">
               <RiUserSmileLine className="text-4xl text-[#00765e]" />
               <h3 className="text-lg font-semibold">User Account</h3>
-              <h4 className="text-[#E3E6EA] text-sm text-center">
+              <h4 className="text-sm text-center">
                 Access your Nesture account
               </h4>
               <button className="bg-[#00765e] hover:bg-[#6ABBA5] hover:text-white rounded-2xl p-2 mt-3 text-white flex text-base items-center">
