@@ -72,7 +72,7 @@ const Navbar = () => {
              <Link to="/">Homepage</Link>
             </li>
             <li className="hover:text-[#009b7e] flex items-center gap-1">
-             <Link to="//about-us">About Us</Link>
+             <Link to="/about-us">About Us</Link>
             </li>
             <li className="hover:text-[#009b7e] flex items-center gap-1">
             <Link to="/contact-us">Contact Us</Link>
