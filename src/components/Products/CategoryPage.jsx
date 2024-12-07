@@ -40,24 +40,24 @@ const handleClick =(items)=>{
         return <ProdDisplay key= {items.id} name={items.name} id={items.id} description={items.description} image_url={items.image_url} price={items.price} category={items.category}/>
 })}
 
-<div>
-  <div>
-    <div>Discount</div>
-    <div>{['10% Off or More','20% Off or More','30% Off or More','40% Off or More','50% Off or More'].map((items)=>{
-      return <button key={items} onClick={()=>handleClick(items)}>{items}</button>})}
+<div className='absolute left-0 top-1/3 w-80 m-5 h-full'>
+  <div className='flex flex-col gap-5 bg-[#E3E6EA] rounded-2xl shadow-lg '>
+    <div className='text-lg p-3 -mb-5'>Discount</div>
+    <div className='flex flex-wrap gap-2'>{['10% Off or More','20% Off or More','30% Off or More','40% Off or More','50% Off or More'].map((items)=>{
+      return <button className='p-2 mx-1 bg-[#009b7e] text-white rounded-3xl text-sm' key={items} onClick={()=>handleClick(items)}>{items}</button>})}
     </div>
 
-    <div>Price</div>
+    <div className='text-lg p-3 -mb-5'>Price</div>
     <div>{['Under ₹500','₹500 - ₹1,000','₹1,000 - ₹2,000','₹2,000 - ₹3,000','Over ₹3,000'].map((items)=>{
       return <button key={items} onClick={()=>handleClick(items)}>{items}</button>})}
     </div>
 
-    <div>Sort by</div>
+    <div className='text-lg p-3 -mb-5 flex flex-col'>Sort by</div>
     <div>{['Price -- Low to High','Price -- High to Low','Newest First'].map((items)=>{
       return <button key={items} onClick={()=>handleClick(items)}>{items}</button>})}
     </div>
 
-    <button onClick={()=>{setitemsdisplay(newfilter)}}>Clear All Filters</button>
+    <button className='text-[#5A5F6A]' onClick={()=>{setitemsdisplay(newfilter)}}>Clear All Filters</button>
   
   </div>
 </div>
