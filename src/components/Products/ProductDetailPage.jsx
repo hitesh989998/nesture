@@ -26,9 +26,7 @@ const ProductDetailPage = () => {
       <button onClick={() => {dispatch(EditQuantity({ item: items, quantityChange: -1 }))}}>-Edit Quantity</button>
       <button onClick={()=>{dispatch(ClearCart())}}>ClearCart</button>
       
-      </div>})}
-      <CartPage/>
-     
+      </div>})}     
     </>
   )
 }
