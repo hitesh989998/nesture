@@ -31,4 +31,4 @@ jobs:
 
     # Step 5: Deploy to Firebase Hosting
     - name: Deploy to Firebase
-      run: firebase deploy --only hosting --token ${{ secrets.FIREBASE_AUTH_TOKEN }}
+      run: firebase deploy
