@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector,useDispatch } from 'react-redux'
-import { AddToCart,RemoveFromCart,EditQuantity,ClearCart } from '../Redux/AddtoCartSlice';
+import { RemoveFromCart,EditQuantity,ClearCart } from '../Redux/AddtoCartSlice';
 import { TbShoppingBagExclamation } from "react-icons/tb";
 import { TbShoppingBagPlus } from "react-icons/tb";
 import { TbShoppingBagMinus } from "react-icons/tb";

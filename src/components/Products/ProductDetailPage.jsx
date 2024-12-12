@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import { AddToCart,RemoveFromCart,EditQuantity,ClearCart } from '../Redux/AddtoCartSlice';
 import { useParams } from 'react-router';
-import CartPage from '../Cart/CartPage';
 
 const ProductDetailPage = () => {
     let dispatch = useDispatch();

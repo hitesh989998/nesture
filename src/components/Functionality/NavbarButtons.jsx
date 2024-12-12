@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { openpage } from '../Redux/navProdSlice'
+import { openpage } from '../Redux/NavProdSlice'
 import { Link } from 'react-router-dom'
 
 
