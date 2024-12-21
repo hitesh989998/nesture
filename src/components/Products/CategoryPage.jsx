@@ -53,14 +53,14 @@ let sortConditionsHandler = (items)=>{
   return (
     <> <div className='flex w-full flex-col overflow-hidden relative top-20 mb-64'>
 
-<header className="relative h-72 w-[97%] flex items-center justify-center shadow-md rounded-3xl mx-auto pl-20 bg-white">
-        <h1 className='text-[#E3E6EA] bg-clip-text text-transparent bg-cover bg-center text-7xl font-bold tracking-wide p-3'style={{backgroundImage: `url('/${prds}.jpg')`}}>{prds}</h1>
+<header className="relative h-72 w-[97%] flex items-center justify-center shadow-md rounded-3xl mx-auto pl-20 ">
+        <h1 className='text-[#E3E6EA] bg-clip-text text-transparent bg-cover bg-center text-7xl font-bold tracking-wide p-3 'style={{backgroundImage: `url('/${prds}.jpg')`}}>{prds}</h1>
       </header> 
 
     <main className='flex'>
     
 
-      <aside className='sticky top-1/4 w-1/4 left-2'>
+      <aside className='relative w-1/4 left-2'>
 <div className='w-80 m-5 h-10'>
   <div className='flex flex-col gap-5 bg-[#E3E6EA] rounded-2xl shadow-lg '>
     <div className='text-lg p-3 -mb-5'>Discount</div>

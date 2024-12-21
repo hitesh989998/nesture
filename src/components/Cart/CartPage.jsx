@@ -30,9 +30,9 @@ const CartPage = () => {
         <span className='font-bold absolute left-[210px] bottom-1'>Now at Rs{Math.floor(items.price - (items.price * items.discount) / 100)}</span>
         <div className='text-[#009b7e] font-extrabold p-1'>{items.discount}% Off</div></div> : <div className='absolute left-[153px] text-base bottom-1 font-bold'>Rs{items.price}</div>}
       
-        <div className='absolute ml-56 top-3/4 text-xl flex right-2'><button className="bg-[#8FDAC5] hover:bg-[#009b7e] hover:text-white rounded p-1 m-0.5" onClick={(e) => {dispatch(EditQuantity({ item: items, quantityChange: 1 })); e.stopPropagation(); e.preventDefault()}}><TbShoppingBagPlus /></button>
-      <button className="bg-[#F6F6F6] hover:bg-[#E3E6EA] hover:text-white rounded p-1 m-0.5" onClick={(e) => {dispatch(EditQuantity({ item: items, quantityChange: -1 }));e.stopPropagation(); e.preventDefault()}}><TbShoppingBagMinus /></button>
-      <button className='text-red-400 hover:bg-red-600 hover:text-white rounded' onClick={(e) => {dispatch(RemoveFromCart(items));e.stopPropagation(); e.preventDefault() }}><AiOutlineDelete /></button></div>
+        <div className='absolute ml-56 top-3/4 text-xl flex right-2'><button title="+Edit Quantity" className="bg-[#8FDAC5] hover:bg-[#009b7e] hover:text-white rounded p-1 m-0.5" onClick={(e) => {dispatch(EditQuantity({ item: items, quantityChange: 1 })); e.stopPropagation(); e.preventDefault()}}><TbShoppingBagPlus /></button>
+      <button title="-Edit Quantity" className="bg-[#F6F6F6] hover:bg-[#E3E6EA] hover:text-white rounded p-1 m-0.5" onClick={(e) => {dispatch(EditQuantity({ item: items, quantityChange: -1 }));e.stopPropagation(); e.preventDefault()}}><TbShoppingBagMinus /></button>
+      <button title="Clear Cart" className='text-red-400 hover:bg-red-600 hover:text-white rounded' onClick={(e) => {dispatch(RemoveFromCart(items));e.stopPropagation(); e.preventDefault() }}><AiOutlineDelete /></button></div>
       </div></Link>
       
     

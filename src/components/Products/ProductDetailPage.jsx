@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
+import { TbShoppingBagExclamation } from "react-icons/tb";
+import { TbShoppingBag } from "react-icons/tb";
+import { TbShoppingBagPlus } from "react-icons/tb";
+import { TbShoppingBagMinus } from "react-icons/tb";
+import { AiOutlineDelete } from "react-icons/ai";
+import { MdOutlineDeleteForever } from "react-icons/md";
 import { AddToCart,RemoveFromCart,EditQuantity,ClearCart } from '../Redux/AddtoCartSlice';
 import { useParams } from 'react-router';
 
@@ -9,24 +15,92 @@ const ProductDetailPage = () => {
     let {id}= useParams()
 
   return (<>
-    <div>ProductDetailPage</div>    
-    {productdisplay.filter((items)=>items.id==id).map((items)=> {return <div key={items.id}>
-    <img src={items.image_url}></img>
-      <div>{items.name}</div>
-      <div>{items.description}</div>
-      <div>{items.category}</div>
-      {items.discount?<div><div className='line-through	'>{items.price}</div>
-        Now at {Math.floor(items.price - (items.price * items.discount) / 100)}
-        <div>{items.discount}% Off</div></div> : <div>{items.price}</div>}
+ <main className="relative flex flex-col lg:flex-row gap-4 items-center justify-center h-[70vh] w-[98%] rounded-3xl mx-6 top-24 bg-[url('/wmremove-transformed.jpeg')] bg-cover bg-center right-2">
+  {productdisplay
+    .filter((items) => items.id == id)
+    .map((items) => (
+      <div key={items.id} className="flex flex-col lg:flex-row gap-4 items-center justify-center w-full">
+       <section className="relative flex flex-col items-center gap-4 backdrop-blur-lg bg-white/10 rounded-3xl h-[450px] w-[370px] justify-center">
+          <figure className="relative h-[300px] w-[300px] mb-1">
+            <img
+              className="rounded-3xl object-cover h-full w-full"
+              src={items.image_url}
+              alt={items.name}
+            />
+          </figure>
 
-      <button onClick={()=>{dispatch(AddToCart(items))}}>Add to Cart</button>
-      <button onClick={() => {dispatch(RemoveFromCart(items)) }}>Remove From Cart</button>
-      <button onClick={() => {dispatch(EditQuantity({ item: items, quantityChange: 1, }))}}>+Edit Quantity</button>
-      <button onClick={() => {dispatch(EditQuantity({ item: items, quantityChange: -1 }))}}>-Edit Quantity</button>
-      <button onClick={()=>{dispatch(ClearCart())}}>ClearCart</button>
-      
-      </div>})}     
-    </>
+      <figure className="grid grid-cols-4 gap-2">
+       <img className="rounded-2xl object-cover h-[70px] w-[70px] filter grayscale" src={items.image_url} alt={items.name}/>
+       <img className="rounded-2xl object-cover h-[70px] w-[70px] filter sepia" src={items.image_url} alt={items.name}/>
+       <img className="rounded-2xl object-cover h-[70px] w-[70px] filter saturate-80" src={items.image_url} alt={items.name}/>
+       <img className="rounded-2xl object-cover h-[70px] w-[70px] filter invert" src={items.image_url} alt={items.name}/>
+      </figure>
+
+
+        </section>
+
+        <section className="flex flex-col gap-4 p-4 bg-white rounded-3xl shadow-2xl backdrop-blur-xl hover:shadow-3xl">
+          <h2 className="text-3xl  font-semibold">{items.name}</h2>
+          <p className="text-[#5A5F6A]">{items.description}</p>
+          <div className="text-sm font-medium tracking-wide text-[#009b7e]">{items.category}</div>
+
+          {items.discount ? (
+            <div className="text-lg font-semibold text-[#00765e]">
+              <div className="line-through text-red-500">Rs {items.price}</div>
+              <div className='text-2xl'>
+                Now at Rs {Math.floor(items.price - (items.price * items.discount) / 100)}
+              </div>
+              <div className="text-lg text-[#00765e]">{items.discount}% Off</div>
+            </div>
+          ) : (
+            <div className="text-2xl font-semibold text-gray-800">Rs {items.price}</div>
+          )}
+
+          <div className="flex gap-2 mt-4">
+            <button
+              onClick={() => dispatch(AddToCart(items))}
+              className="flex items-center gap-2 bg-[#00765e] text-white hover:bg-[#009b7e] hover:text-white py-2 px-4 rounded-full"
+            >
+              Add to Cart
+              <TbShoppingBag className="text-2xl" />
+            </button>
+            <button
+              onClick={() => dispatch(RemoveFromCart(items))}
+              className="bg-[#F6F6F6] hover:bg-[#E3E6EA] text-gray-800 rounded py-2 px-4"
+            >
+              Remove From Cart
+            </button>
+            <button
+              title="+Edit Quantity"
+              className="bg-[#8FDAC5] hover:bg-[#009b7e] hover:text-white rounded p-2"
+              onClick={() => {
+                dispatch(EditQuantity({ item: items, quantityChange: 1 }));
+              }}
+            >
+              <TbShoppingBagPlus />
+            </button>
+            <button
+              title="-Edit Quantity"
+              className="bg-[#F6F6F6] hover:bg-[#E3E6EA] hover:text-white rounded p-2"
+              onClick={() => {
+                dispatch(EditQuantity({ item: items, quantityChange: -1 }));
+              }}
+            >
+              <TbShoppingBagMinus />
+            </button>
+            <button
+              title="Clear Cart"
+              className="text-red-400 hover:bg-red-600 hover:text-white rounded p-2"
+              onClick={() => dispatch(ClearCart())}
+            >
+              <AiOutlineDelete />
+            </button>
+          </div>
+        </section>
+      </div>
+    ))}
+</main>
+ </>
   )
 }
 

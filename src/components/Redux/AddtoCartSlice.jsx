@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 const persistedState = JSON.parse(localStorage.getItem('cartState'))
 
@@ -39,6 +40,8 @@ const addtoCartSlice = createSlice({
         state.totalPrice += payloadstorer.quantity * finalPrice;
       }
       localStorage.setItem('cartState', JSON.stringify(state))
+      toast('Added to cart successfully')
+
     },
     RemoveFromCart: (state, action) => {
       const payloadstorer = action.payload;
@@ -55,6 +58,8 @@ const addtoCartSlice = createSlice({
 
         state.items= state.items.filter(items=>items.id !==payloadstorer.id)
         localStorage.setItem('cartState', JSON.stringify(state))
+        toast('Removed from cart successfully')
+
 
       } 
 
@@ -74,7 +79,7 @@ const addtoCartSlice = createSlice({
           state.totalItems += quantityChange;
           state.totalPrice += quantityChange * finalPrice;
           localStorage.setItem('cartState', JSON.stringify(state))
-
+          toast(`Updated quantity of ${filtereddata.name} to ${filtereddata.quantity}`)
         }
       }
     },
@@ -84,6 +89,8 @@ const addtoCartSlice = createSlice({
       state.totalItems = 0;
       state.totalPrice = 0;
       localStorage.removeItem('cartState')
+      toast('Cleared cart successfully')
+
 
     },
   },
