@@ -22,12 +22,17 @@ import { MdOutlineCloseFullscreen } from "react-icons/md";
 import PrivacyPolicy from "../Webpages/PrivacyPolicy";
 import TermsOfUse from "../Webpages/TermsOfUse";
 import AllProductsPage from "../Products/AllProductsPage";
+import { toast } from "react-toastify";
+import CreateAccount from "../LoggedInUserPages/CreateAccount";
+
 
 
 const Navbar = () => {
   const [isHover, changeHoverState] = useState(false);
   const [isHoverCart, changeHoverStateCart] = useState(false);
   const [hamburger, setHamburger] = useState("hidden");
+  const [loginVisiblity,setloginVisiblity] = useState("hidden");
+  const [createAccountVisiblity,setcreateAccountVisiblity] = useState(true);
 
   let handleVisiblity = () => {
     if (hamburger == "hidden") {
@@ -38,10 +43,16 @@ const Navbar = () => {
   };
 
   let autoClose = (e) => {
-    if(e.target.tagName === 'BUTTON' || e.target.tagName === 'A' ||e.target.tagName === 'H2'){
+    if(e.target.tagName === 'BUTTON' || e.target.tagName === 'A' ||e.target.tagName === 'H2' || e.target.tagName == "path"){
       setHamburger("hidden");
     }    
+    console.log('button clicked',e)
+    console.log('func reached')
   };
+
+  let loginScreen = ()=>{
+    setloginVisiblity("flex")
+  }
 
   return (
     <>
@@ -151,7 +162,7 @@ const Navbar = () => {
               <h4 className="text-sm text-center">
                 Access your Nesture account
               </h4>
-              <button className="bg-[#00765e] hover:bg-[#6ABBA5] hover:text-white rounded-2xl p-2 mt-3 text-white flex text-base items-center">
+              <button className="bg-[#00765e] hover:bg-[#6ABBA5] hover:text-white rounded-2xl p-2 mt-3 text-white flex text-base items-center" onClick={()=>{loginScreen(); toast(`To skip account creation, kindly use Username-123 and Password-123`)}}>
                 Login
                 <CiLogin className="text-xl" />
               </button>
@@ -159,6 +170,62 @@ const Navbar = () => {
           )}
         </div>
       </nav>
+      <div className={`w-screen h-screen ${loginVisiblity} top-0 fixed z-50 bg-opacity-10 backdrop-blur-lg bg-white items-center justify-center`} onClick={autoClose}>
+      <section className="bg-white shadow-lg rounded-3xl flex flex-col items-center justify-center h-96 w-96 p-8 relative">
+
+      
+  <form >
+  <button onClick={autoClose} title="Close" ><MdOutlineCloseFullscreen className="text-2xl text-[#E3E6EA] absolute top-0 left-0 m-4 hover:text-red-700 " /></button>
+  </form>
+
+  <img className="h-20 top-8 mx-auto absolute" src="/nesture-tr-main.png" alt="nesture logo" />
+
+  <div className="absolute top-28">{createAccountVisiblity?<h4 className="text-gray-800 text-lg mb-4 text-center">
+      New user?{" "}
+      <button
+        onClick={() => {
+          setcreateAccountVisiblity(false);
+        }}
+        className="text-[#00765e] text-lg hover:underline ml-1"
+      >
+        Sign up here.
+      </button>
+    </h4>: <h4 className='text-gray-800 text-lg mb-4 text-center'>Create your Account.<button onClick={() => {setcreateAccountVisiblity(true);}} className="text-[#00765e] text-lg hover:underline ml-1">Back to login?</button></h4>}</div>
+
+{createAccountVisiblity?
+
+<section className="flex justify-center items-center min-h-screen p-5 mt-28">
+<div className="">
+  <form className="">
+    
+    <input
+      type="text"
+      name="usname"
+      placeholder="Username"
+      className="w-full bg-white border border-gray-300 rounded-lg py-2 px-4 text-gray-900 mb-4 focus:outline-none focus:ring-2 focus:ring-[#00765e] focus:border-transparent"
+    />
+    <input
+      type="password"
+      name="pswd"
+      placeholder="Password"
+      className="w-full bg-white border border-gray-300 rounded-lg py-2 px-4 text-gray-900 mb-4 focus:outline-none focus:ring-2 focus:ring-[#00765e] focus:border-transparent"
+    />
+    <button
+      type="submit"
+      className="w-full bg-[#00765e] text-white rounded-full py-2 font-semibold text-lg hover:bg-[#005c4a]"
+    >
+      Login
+    </button>
+  </form>
+</div>
+</section>
+:
+  <CreateAccount state={setcreateAccountVisiblity}/>}
+</section>
+
+
+
+      </div>
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/about-us" element={<AboutUs />} />
@@ -170,6 +237,7 @@ const Navbar = () => {
         <Route path="/all-products" element={<AllProductsPage/>} />
         <Route path="/category/:prds/:id" element={<ProductDetailPage />} />
         <Route path="/cart" element={<CartPage />} />
+        <Route path="/create-account" element={<CreateAccount/>} />
         <Route path="*" element={<>This is 404</>} />
       </Routes>
     </>

@@ -45,7 +45,7 @@ const SearchBar = () => {
                 return items.name.toLowerCase().includes(currentState.toLowerCase());
               })
               .map((items, index) => {
-                return <Link to={`category/${items.category}/${items.id}`}> <div className="flex items-center w-full"><div className=" hover:bg-[#00765e] hover:text-white rounded-3xl flex items-center w-full px-1"><img src={items.image_url} alt={items.name} className="h-8 w-8 rounded-full" /><li key={index} className="p-2 w-full" >{items.name}</li><div className="ml-auto p-1">Rs{items.price}</div></div></div></Link>;
+                return <Link to={`category/${items.category}/${items.id}`}> <div className="flex items-center w-full"><div className=" hover:bg-[#00765e] hover:text-white rounded-3xl flex items-center w-full px-1"><img src={items.image_url} alt={items.name} className="h-8 w-8 rounded-full object-cover aspect-square" /><li key={index} className="p-2 w-full" >{items.name}</li><div className="ml-auto p-1">Rs{items.price}</div></div></div></Link>;
               })}
           </ul>
         </div>
