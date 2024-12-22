@@ -17,7 +17,7 @@ const ContactUs = () => {
 
   return (
     <div className="contactus">
-      <div>ContactUs</div>
+      <div>Contact Us</div>
       <form action="">
         <label htmlFor="Name">Name</label>
         <input type="text" name="Name" onChange={handleFunc} required />
