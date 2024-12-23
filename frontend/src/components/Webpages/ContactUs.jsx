@@ -15,6 +15,8 @@ const ContactUs = () => {
     console.log(statestore)
   };
 
+fetch('http://127.0.0.1:3000/api').then((res)=>res.json()).then((data)=>console.log('data from api', data))
+
   return (
     <div className="contactus">
       <div>Contact Us</div>
