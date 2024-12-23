@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Red Apple",
+    "description": "A fresh and juicy red apple.",
+    "image_url": "https://i.imghippo.com/files/CBNv1699.png",
+    "price": 1.99
+  },
+  {
+    "id": 2,
+    "name": "Golden Sunset",
+    "description": "A breathtaking view of a golden sunset over the ocean.",
+    "image_url": "https://i.imghippo.com/files/qjZ8095Tg.png",
+    "price": 0.00
+  },
+  {
+    "id": 3,
+    "name": "Mountain Peaks",
+    "description": "Snow-covered mountain peaks under a clear blue sky.",
+    "image_url": "https://i.imghippo.com/files/ShHI7621hw.png",
+    "price": 0.00
+  },
+  {
+    "id": 4,
+    "name": "Coffee Cup",
+    "description": "A steaming cup of coffee on a wooden table.",
+    "image_url": "https://i.imghippo.com/files/Ggul8475wE.png",
+    "price": 2.49
+  }
+]
