@@ -24,6 +24,7 @@ import TermsOfUse from "../Webpages/TermsOfUse";
 import AllProductsPage from "../Products/AllProductsPage";
 import { toast } from "react-toastify";
 import CreateAccount from "../LoggedInUserPages/CreateAccount";
+import LoginAccount from "../LoggedInUserPages/LoginAccount";
 
 
 
@@ -194,31 +195,7 @@ const Navbar = () => {
 
 {createAccountVisiblity?
 
-<section className="flex justify-center items-center min-h-screen p-5 mt-28">
-<div className="">
-  <form className="">
-    
-    <input
-      type="text"
-      name="usname"
-      placeholder="Username"
-      className="w-full bg-white border border-gray-300 rounded-lg py-2 px-4 text-gray-900 mb-4 focus:outline-none focus:ring-2 focus:ring-[#00765e] focus:border-transparent"
-    />
-    <input
-      type="password"
-      name="pswd"
-      placeholder="Password"
-      className="w-full bg-white border border-gray-300 rounded-lg py-2 px-4 text-gray-900 mb-4 focus:outline-none focus:ring-2 focus:ring-[#00765e] focus:border-transparent"
-    />
-    <button
-      type="submit"
-      className="w-full bg-[#00765e] text-white rounded-full py-2 font-semibold text-lg hover:bg-[#005c4a]"
-    >
-      Login
-    </button>
-  </form>
-</div>
-</section>
+<LoginAccount/>
 :
   <CreateAccount state={setcreateAccountVisiblity}/>}
 </section>

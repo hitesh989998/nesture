@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { toast } from 'react-toastify';
 
 const CreateAccount = ({state}) => {
     let [localStore, setlocalStore] = useState({
@@ -15,9 +16,7 @@ const CreateAccount = ({state}) => {
         setlocalStore((prev)=>{
         return {...prev, [name]: value}
         })
-        console.log(name,'name is here')
-        console.log(value,'value is here')
-        console.log(localStore,'local store')
+        
     }
     let logincheck = ()=>{
         if(localStore.pswd===localStore.cpswd){
@@ -25,7 +24,7 @@ const CreateAccount = ({state}) => {
           return  console.log('login success')
         }
 
-        return console.log('Not successful')
+        return toast('Passwords do not match')
 
     }
   return (
