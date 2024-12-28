@@ -4,10 +4,16 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors')
+require('dotenv').config()
+
+const SECRET_KEY = process.env.JWT_SECRET_KEY
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var apiRouter = require('./routes/api')
+var authentication = require('./routes/authentication');
+const { access } = require('fs');
 
 var app = express();
 
@@ -21,11 +27,31 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname,'frontend','build')))
-app.use(cors())
+
+
+const corsOptions = {
+  origin: process.env.WEB_URL,
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type'],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+
+
+
+app.use((req, res, next) => {
+  res.setHeader('Content-Security-Policy', "default-src 'self';");
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'DENY');
+  res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+  next();
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/api', apiRouter)
+app.use('/api', apiRouter);
+app.use('/authentication',authentication)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
