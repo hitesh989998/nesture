@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { toast } from 'react-toastify';
+import { CreateUser } from '../Redux/CreateAccountSlice';
 
 const CreateAccount = ({state}) => {
     let [localStore, setlocalStore] = useState({
@@ -8,8 +9,7 @@ const CreateAccount = ({state}) => {
         cpswd: '',
     });
 
-    let [login, setLogin] = useState(false)
-
+    let dispatch = useDispatch();
     let handleinput = (e) => {
         let {name,value} = e.target
 
@@ -20,8 +20,8 @@ const CreateAccount = ({state}) => {
     }
     let logincheck = ()=>{
         if(localStore.pswd===localStore.cpswd){
-            setLogin(true)
-          return  console.log('login success')
+          dispatch(CreateUser(localStore))
+          console.log('login is successful.')
         }
 
         return toast('Passwords do not match')
