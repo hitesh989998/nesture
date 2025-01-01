@@ -1,22 +1,38 @@
-var jwt = require('jsonwebtoken')
+const userSchema = require('../model/userSchema');
+const bcrypt = require('bcryptjs');
+const generateToken = require('../utils/generatetokenJWT');
 
+const loginUser = async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    console.log(username, password,'received from there');
 
+    const user = await userSchema.findOne({ username });
+    console.log(user,'user is here')
 
-const authentication = (req,res)=>{
-
-    let {username, password} = req.body
-    let sampleData = {'username':'123','password':'123'}
-    const SECRET_KEY = process.env.JWT_SECRET_KEY
-    console.log('req received on authentication')
-
-
-    if(sampleData.username===username && sampleData.password===password){
-        console.log('if statement clg')
-        res.cookie('token',jwt.sign(sampleData,SECRET_KEY))
-
+    if (!user) {
+      return res.status(400).json({ message: 'User does not exist' });
     }
 
-    res.send('new route authorisation.')
-}
+    const UserMatch = await bcrypt.compare(password, user.password);
 
-module.exports = authentication
+    if (!UserMatch) {
+      return res.status(400).json({ message: 'Invalid username/password combination' });
+    }
+
+    const token = generateToken(user._id);
+
+    res.cookie('token', token, {
+      httpOnly: true,          
+      maxAge: 2592000000,      // 30 days in milliseconds
+      sameSite: 'strict',      
+      secure: true,            
+    });
+
+    return res.status(200).json({ message: 'Login successful'});
+  } catch (error) {
+    return res.status(500).json({ message: 'Something went wrong', error: error.message });
+  }
+};
+
+module.exports = loginUser;

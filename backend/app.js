@@ -9,13 +9,9 @@ var mongoose = require('mongoose')
 
 const SECRET_KEY = process.env.JWT_SECRET_KEY
 
-
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var apiRouter = require('./routes/api')
 var authentication = require('./routes/authentication');
 var createUser = require('./routes/createuser')
-const { access } = require('fs');
 
 var app = express();
 
@@ -52,8 +48,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/api', apiRouter);
 app.use('/authentication',authentication)
 app.use('/createuser',createUser)

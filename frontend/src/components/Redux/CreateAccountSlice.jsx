@@ -4,10 +4,10 @@ import { toast } from 'react-toastify';
 
 export const CreateUser = createAsyncThunk('auth/CreateUser', async (credentials) => {
   try {
-    const response = await axios.post(`${import.meta.env.VITE_BACKEND_WEB_URL}/createuser`,credentials, { withCredentials: true });
-    console.log('post req sent')
+    const response = await axios.post(`${import.meta.env.VITE_BACKEND_WEB_URL}/createuser`,credentials, { withCredentials: true });    
     return response.data;
   } catch (error) {
+    toast.error(error.response.data.message)
     throw new Error(error);
   }
 });

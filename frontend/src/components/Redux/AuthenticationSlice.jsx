@@ -5,10 +5,10 @@ import { toast } from 'react-toastify';
 export const AuthenticateUser = createAsyncThunk('auth/AuthenticateUser', async (credentials) => {
   try {
     const response = await axios.post(`${import.meta.env.VITE_BACKEND_WEB_URL}/authentication`,credentials, { withCredentials: true });
-    console.log('post req sent')
     return response.data;
   } catch (error) {
-    throw new Error(error);
+    toast.error(error.response.data.message)
+    throw new Error(error.response.data.message);
   }
 });
 
@@ -28,16 +28,16 @@ const authSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(AuthenticateUser.pending, (state) => {
-        state.status = 'loading';
+        state.status = 'pending';
       })
       .addCase(AuthenticateUser.fulfilled, (state, action) => {
         state.user = action.payload;
-        state.status = 'succeeded';
+        state.status = 'authenticated';
         toast.success('Authenticated successfully')
       })
       .addCase(AuthenticateUser.rejected, (state, action) => {
         state.error = action.payload;
-        state.status = 'failed';
+        state.status = 'logged out';
         toast.error('Authentication failed')
         console.log(state.error);
       });
