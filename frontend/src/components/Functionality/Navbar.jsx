@@ -195,7 +195,7 @@ const Navbar = () => {
 
 {createAccountVisiblity?
 
-<LoginAccount/>
+<LoginAccount newstate={setloginVisiblity}/>
 :
   <CreateAccount state={setcreateAccountVisiblity}/>}
 </section>
