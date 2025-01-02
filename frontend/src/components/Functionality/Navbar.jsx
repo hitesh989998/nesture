@@ -25,6 +25,13 @@ import AllProductsPage from "../Products/AllProductsPage";
 import { toast } from "react-toastify";
 import CreateAccount from "../LoggedInUserPages/CreateAccount";
 import LoginAccount from "../LoggedInUserPages/LoginAccount";
+import UserDashboard from "../LoggedInUserPages/UserDashboard";
+import AdminDashboard from "../LoggedInUserPages/AdminDashboard";
+import { useSelector } from "react-redux";
+import { LuLayoutDashboard } from "react-icons/lu";
+import { IoLogoTableau } from "react-icons/io5";
+
+
 
 
 
@@ -34,6 +41,9 @@ const Navbar = () => {
   const [hamburger, setHamburger] = useState("hidden");
   const [loginVisiblity,setloginVisiblity] = useState("hidden");
   const [createAccountVisiblity,setcreateAccountVisiblity] = useState(true);
+
+  const userLoginStatus = useSelector((state) => state.auth.user);
+
 
   let handleVisiblity = () => {
     if (hamburger == "hidden") {
@@ -150,13 +160,22 @@ const Navbar = () => {
           onMouseOver={() => changeHoverState(true)}
           onMouseLeave={() => changeHoverState(false)}
         >
+        {userLoginStatus?  <section>
+          <img src={userLoginStatus.profilePicture}  onError={(e) => e.target.src = '/defaultpicture.jpg'} className="absolute text-2xl h-10 w-10 text-white p-[1px] bg-[#E3E6EA] rounded-full right-32 mr-[2px] top-0.5" />
+          <div className="py-1">
+            <h3 className="text-sm font-medium pl-1">Welcome,{userLoginStatus.username}!</h3>
+            <h4 className="text-xs pl-1">Access your account</h4>
+          </div>
+            </section> :
+        <section>
           <TbUserCircle className="absolute text-2xl h-10 w-10 text-white p-1 bg-[#E3E6EA] rounded-full right-32 mr-[1px] top-0.5" />
           <div className="py-1">
             <h3 className="text-sm font-medium pl-1">Welcome, Guest!</h3>
             <h4 className="text-xs pl-1">Access your account</h4>
           </div>
+            </section>}
 
-          {isHover && (
+          {isHover && !userLoginStatus && <section>
             <div className="absolute flex flex-col items-center left-0 bg-opacity-10 backdrop-blur-lg  bg-white h-38 w-38 shadow-sm rounded-2xl p-5 m-1.5 text-black">
               <RiUserSmileLine className="text-4xl text-[#00765e]" />
               <h3 className="text-lg font-semibold">User Account</h3>
@@ -168,7 +187,23 @@ const Navbar = () => {
                 <CiLogin className="text-xl" />
               </button>
             </div>
-          )}
+            </section>
+          }
+          {isHover && userLoginStatus && <section>
+            <div className="absolute flex flex-col items-center left-0 bg-opacity-10 backdrop-blur-lg  bg-white h-38 w-38 shadow-sm rounded-2xl p-5 m-1.5 text-black">
+              <LuLayoutDashboard className="text-4xl text-[#00765e]" />
+              <h3 className="text-lg font-semibold">User Account</h3>
+              <h4 className="text-sm text-center">
+                Access your Dashboard
+              </h4>
+              <Link to={userLoginStatus.role==="admin"?'/admin/dashboard':'/user/dashboard'}>
+              <button className="bg-[#00765e] hover:bg-[#6ABBA5] hover:text-white rounded-2xl p-2 mt-3 text-white flex text-base items-center" >
+                Explore
+                <IoLogoTableau className="text-xl p-[1px] ml-[2px]" />
+              </button></Link>
+            </div>
+            </section>
+          }
         </div>
       </nav>
       <div className={`w-screen h-screen ${loginVisiblity} top-0 fixed z-50 bg-opacity-10 backdrop-blur-lg bg-white items-center justify-center`} onClick={autoClose}>
@@ -215,6 +250,8 @@ const Navbar = () => {
         <Route path="/category/:prds/:id" element={<ProductDetailPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/create-account" element={<CreateAccount/>} />
+        <Route path="/user/dashboard" element={<UserDashboard/>} />
+        <Route path="/admin/dashboard" element={<AdminDashboard/>} />
         <Route path="*" element={<>This is 404</>} />
       </Routes>
     </>

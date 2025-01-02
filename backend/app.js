@@ -7,12 +7,14 @@ var cors = require('cors')
 require('dotenv').config()
 var mongoose = require('mongoose')
 
-const SECRET_KEY = process.env.JWT_SECRET_KEY
 
 var apiRouter = require('./routes/api')
 var authentication = require('./routes/authentication');
 var createUser = require('./routes/createuser')
 var home = require('./routes/home')
+var userRoutes = require('./routes/user')
+
+var authMiddleware = require('./middlewares/AuthorizationMW')
 
 var app = express();
 
@@ -54,6 +56,8 @@ app.use('/authentication',authentication)
 app.use('/createuser',createUser)
 app.use('/',home)
 
+
+app.use('/user',authMiddleware, userRoutes)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

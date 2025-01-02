@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", (req, res)=>{
-  res.json("This is from express");
+  res.json("Nesture Backend Server says Hi!");
 });
 
 module.exports = router;
