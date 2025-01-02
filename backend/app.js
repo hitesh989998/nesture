@@ -12,6 +12,7 @@ const SECRET_KEY = process.env.JWT_SECRET_KEY
 var apiRouter = require('./routes/api')
 var authentication = require('./routes/authentication');
 var createUser = require('./routes/createuser')
+var home = require('./routes/home')
 
 var app = express();
 
@@ -51,6 +52,7 @@ app.use((req, res, next) => {
 app.use('/api', apiRouter);
 app.use('/authentication',authentication)
 app.use('/createuser',createUser)
+app.use('/',home)
 
 
 // catch 404 and forward to error handler
@@ -68,6 +70,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 app.get('*', (req,res)=>{
   res.sendFile(path.join(__dirname,'frontend','build','index.html'))
