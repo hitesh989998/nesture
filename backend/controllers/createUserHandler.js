@@ -3,7 +3,6 @@ const userSchema = require("../model/userSchema");
 const createUser = async (req, res) => {
   try {
     const {username, password} = req.body;
-    console.log("Request data:", username, password);
 
     const existingUser = await userSchema.findOne({username});
     if (existingUser) {
@@ -14,13 +13,10 @@ const createUser = async (req, res) => {
       username,
       password,
     });
+    await User.save();
 
-    console.log("Attempting to save user:", User);
-
-    await user.save();
     res.status(201).json({message: "User created successfully"});
   } catch (error) {
-    console.error("Error creating user:", error.message);
     res.status(500).json({message: "Error saving user", error: error.message});
   }
 };
