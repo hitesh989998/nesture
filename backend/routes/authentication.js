@@ -1,9 +1,9 @@
-var express = require('express')
-var router = express.Router()
-var authentication = require('../controllers/authenticationHandler')
+const express = require("express");
+const router = express.Router();
+const authentication = require("../controllers/authenticationHandler");
 
 
-router.route('/').post(authentication);
+router.route("/").post(authentication);
 
 
-module.exports = router
+module.exports = router;
