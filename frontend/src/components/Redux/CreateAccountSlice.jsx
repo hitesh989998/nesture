@@ -3,19 +3,15 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 
 export const CreateUser = createAsyncThunk('auth/CreateUser', async (credentials) => {
-  console.log(import.meta.env.VITE_BACKEND_WEB_URL, 'env data is here');
+  console.log('Backend URL:', import.meta.env.VITE_BACKEND_WEB_URL);
   try {
-    const response = await axios.post(`${import.meta.env.VITE_BACKEND_WEB_URL}/createuser`, credentials, { withCredentials: true });
+    const response = await axios.post(`${import.meta.env.VITE_BACKEND_WEB_URL}/createuser`,credentials, { withCredentials: true });    
     return response.data;
   } catch (error) {
-    // Log the full error to help diagnose
-    console.error('Error:', error.response || error);
-    toast.error(error.response ? error.response.data.message : 'An unknown error occurred');
-    toast(import.meta.env.VITE_BACKEND_WEB_URL)
-    throw new Error(error.response ? error.response.data.message : error.message);
+    toast.error(error.response.data.message)
+    throw new Error(error);
   }
 });
-
 
 
 const createUserSlice = createSlice({
@@ -35,7 +31,7 @@ const createUserSlice = createSlice({
       .addCase(CreateUser.rejected, (state, action) => {
         state.status = 'failed';
         toast.error('Account creation failed')
-        toast(import.meta.env.VITE_BACKEND_WEB_URL)
+        toast(`Backend URL: ${import.meta.env.VITE_BACKEND_WEB_URL}`);
       });
   },
 });
