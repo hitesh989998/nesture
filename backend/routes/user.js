@@ -1,11 +1,11 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const dashboardUser = require("../controllers/userHandler");
+const dashboardUser = require('../controllers/userHandler');
 
-router.route("/").get((req, res) => {
-    res.status(200).send("This is user route")});
+router.route('/').get((req, res) => {
+  res.status(200).send('This is user route');
+});
 
-
-router.route("/dashboard").get(dashboardUser);
+router.route('/dashboard').get(dashboardUser);
 
 module.exports = router;

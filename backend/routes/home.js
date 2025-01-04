@@ -1,8 +1,8 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.status(200).send("This is nesture backend server");
+router.get('/', (req, res) => {
+  res.status(200).send('This is nesture backend server');
 });
 
 module.exports = router;
