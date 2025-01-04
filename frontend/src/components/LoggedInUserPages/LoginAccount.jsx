@@ -1,33 +1,35 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import {useNavigate} from 'react-router-dom'
-import { AuthenticateUser } from "../Redux/AuthenticationSlice";
+import { useState } from 'react';
+import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { AuthenticateUser } from '../Redux/AuthenticationSlice';
 
-const LoginAccount = ({newstate}) => {
+const LoginAccount = ({ newstate }) => {
   let dispatch = useDispatch();
   let navigate = useNavigate();
 
   let [state, setstate] = useState({
-    username: "",
-    password: "",
-  }); 
- 
-  let handleChange = (e)=>{
-    let {name,value}= e.target 
+    username: '',
+    password: '',
+  });
 
-    setstate((prev)=>{console.log(prev,'prev')
-      return {...prev, [name]:value}
-    })
-  }
+  let handleChange = (e) => {
+    let { name, value } = e.target;
 
-  let onSubmitHandler = async (e)=>{
+    setstate((prev) => {
+      console.log(prev, 'prev');
+      return { ...prev, [name]: value };
+    });
+  };
+
+  let onSubmitHandler = async (e) => {
     e.preventDefault();
-   let results = await dispatch(AuthenticateUser(state));
-   if (results.payload.message =='Login successful'){
-    newstate("hidden")
-    return navigate('/')
-   }
-  }
+    let results = await dispatch(AuthenticateUser(state));
+    if (results.payload.message == 'Login successful') {
+      newstate('hidden');
+      return navigate('/');
+    }
+  };
 
   return (
     <section className="flex justify-center items-center min-h-screen p-5 mt-28">
@@ -58,6 +60,9 @@ const LoginAccount = ({newstate}) => {
       </div>
     </section>
   );
+};
+LoginAccount.propTypes = {
+  newstate: PropTypes.func.isRequired,
 };
 
 export default LoginAccount;

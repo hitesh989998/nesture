@@ -1,6 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
-import dummydataprod from "../../assets/dummy_product_data.json";
-
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 const productsWithDiscount = [
   { id: 1, discount: 15 },
@@ -26,32 +25,58 @@ const productsWithDiscount = [
   { id: 49, discount: 15 },
 ];
 
-const filteredProducts = dummydataprod.map((items) => {
-    const discountAvailable = productsWithDiscount.find((item)=>item.id ===items.id);
-
-    if (discountAvailable) {
-      const updatedItem = {
-        ...items,
-        discount: discountAvailable.discount,
-      };
-      return updatedItem;
+export const fetchProducts = createAsyncThunk(
+  'navprodmenu/fetchProducts',
+  async () => {
+    try {
+      const response = await axios.get(
+        `${import.meta.env.VITE_BACKEND_WEB_URL}/api/allproducts`
+      );
+      return response.data;
+    } catch (error) {
+      throw new Error('Failed to fetch products', error.message);
     }
-    return items;
-  });
+  }
+);
 
 const NavProdSlice = createSlice({
-  name: "navprodmenu",
+  name: 'navprodmenu',
   initialState: {
-    value: filteredProducts,
-    allproducts: filteredProducts,
+    allproducts: [],
+    status: 'no data fetched',
   },
   reducers: {
     openpage: (state, action) => {
-      const filteredata = dummydataprod.filter(
-        (items) => items.category === action.payload
+      const filteredData = state.value.filter(
+        (item) => item.category === action.payload
       );
-      state.value = filteredata;
+      state.value = filteredData;
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchProducts.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(fetchProducts.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.allproducts = action.payload.map((items) => {
+          const discountAvailable = productsWithDiscount.find(
+            (product) => product.id === items.id
+          );
+          if (discountAvailable) {
+            const updatedItem = {
+              ...items,
+              discount: discountAvailable.discount,
+            };
+            return updatedItem;
+          }
+          return items;
+        });
+      })
+      .addCase(fetchProducts.rejected, (state) => {
+        state.status = 'failed';
+      });
   },
 });
 

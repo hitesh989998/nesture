@@ -1,73 +1,72 @@
-import React from "react";
-import { Route, Routes } from "react-router";
-import Homepage from "../Webpages/Homepage";
-import AboutUs from "../Webpages/AboutUs";
-import ContactUs from "../Webpages/ContactUs";
-import { CiUser } from "react-icons/ci";
-import { TbShoppingBag } from "react-icons/tb";
-import { useState } from "react";
-import SearchBar from "../Search/Sorting/SearchBar";
-import { Link } from "react-router-dom";
+/* eslint-disable eqeqeq */
+import { Route, Routes } from 'react-router';
+import Homepage from '../Webpages/Homepage';
+import AboutUs from '../Webpages/AboutUs';
+import ContactUs from '../Webpages/ContactUs';
+import { TbShoppingBag, TbUserCircle } from 'react-icons/tb';
+import { useState } from 'react';
+import SearchBar from '../Search/Sorting/SearchBar';
+import { Link } from 'react-router-dom';
 
-import CategoryPage from "../Products/CategoryPage";
-import ProductDetailPage from "../Products/ProductDetailPage";
-import CartPage from "../Cart/CartPage";
-import { HiOutlineMenuAlt2 } from "react-icons/hi";
-import { IoIosSearch } from "react-icons/io";
-import { TbUserCircle } from "react-icons/tb";
-import { RiUserSmileLine } from "react-icons/ri";
-import { CiLogin } from "react-icons/ci";
-import NavbarButtons from "./NavbarButtons";
-import { MdOutlineCloseFullscreen } from "react-icons/md";
-import PrivacyPolicy from "../Webpages/PrivacyPolicy";
-import TermsOfUse from "../Webpages/TermsOfUse";
-import AllProductsPage from "../Products/AllProductsPage";
-import { toast } from "react-toastify";
-import CreateAccount from "../LoggedInUserPages/CreateAccount";
-import LoginAccount from "../LoggedInUserPages/LoginAccount";
-import UserDashboard from "../LoggedInUserPages/UserDashboard";
-import AdminDashboard from "../LoggedInUserPages/AdminDashboard";
-import { useSelector } from "react-redux";
-import { LuLayoutDashboard } from "react-icons/lu";
-import { IoLogoTableau } from "react-icons/io5";
-
-
-
-
+import CategoryPage from '../Products/CategoryPage';
+import ProductDetailPage from '../Products/ProductDetailPage';
+import CartPage from '../Cart/CartPage';
+import { HiOutlineMenuAlt2 } from 'react-icons/hi';
+import { IoIosSearch } from 'react-icons/io';
+import { RiUserSmileLine } from 'react-icons/ri';
+import { CiLogin } from 'react-icons/ci';
+import NavbarButtons from './NavbarButtons';
+import { MdOutlineCloseFullscreen } from 'react-icons/md';
+import PrivacyPolicy from '../Webpages/PrivacyPolicy';
+import TermsOfUse from '../Webpages/TermsOfUse';
+import AllProductsPage from '../Products/AllProductsPage';
+import { toast } from 'react-toastify';
+import CreateAccount from '../LoggedInUserPages/CreateAccount';
+import LoginAccount from '../LoggedInUserPages/LoginAccount';
+import UserDashboard from '../LoggedInUserPages/UserDashboard';
+import AdminDashboard from '../LoggedInUserPages/AdminDashboard';
+import { useSelector } from 'react-redux';
+import { LuLayoutDashboard } from 'react-icons/lu';
+import { IoLogoTableau } from 'react-icons/io5';
 
 const Navbar = () => {
   const [isHover, changeHoverState] = useState(false);
   const [isHoverCart, changeHoverStateCart] = useState(false);
-  const [hamburger, setHamburger] = useState("hidden");
-  const [loginVisiblity,setloginVisiblity] = useState("hidden");
-  const [createAccountVisiblity,setcreateAccountVisiblity] = useState(true);
+  const [hamburger, setHamburger] = useState('hidden');
+  const [loginVisiblity, setloginVisiblity] = useState('hidden');
+  const [createAccountVisiblity, setcreateAccountVisiblity] = useState(true);
 
   const userLoginStatus = useSelector((state) => state.auth.user);
 
-
   let handleVisiblity = () => {
-    if (hamburger == "hidden") {
-      setHamburger("flex");
+    if (hamburger == 'hidden') {
+      setHamburger('flex');
     } else {
-      setHamburger("hidden");
+      setHamburger('hidden');
     }
   };
 
   let autoClose = (e) => {
-    if(e.target.tagName === 'BUTTON' || e.target.tagName === 'A' ||e.target.tagName === 'H2' || e.target.tagName == "path"){
-      setHamburger("hidden");
-    }    
-    console.log('button clicked',e)
-    console.log('func reached')
+    if (
+      e.target.tagName === 'BUTTON' ||
+      e.target.tagName === 'A' ||
+      e.target.tagName === 'H2' ||
+      e.target.tagName == 'path'
+    ) {
+      setHamburger('hidden');
+    }
   };
 
-  let loginScreen = ()=>{
-    setloginVisiblity("flex")
-  }
+  let loginScreen = () => {
+    setloginVisiblity('flex');
+  };
 
   return (
     <>
-      <div className={`w-screen h-screen ${hamburger} top-0 fixed z-50`} onClick={autoClose}>
+      <div
+        className={`w-screen h-screen ${hamburger} top-0 fixed z-50`}
+        onClick={autoClose}
+      >
         <button
           onClick={handleVisiblity}
           className="flex items-center bg-[#009b7e] text-white font-semibold px-6 py-3 ml-1 rounded-lg my-1  hover:bg-[#00765e] shadow-md"
@@ -83,7 +82,7 @@ const Navbar = () => {
 
           <div className="w-fit space-y-3 ">
             <h3 className="text-[#5A5F6A] text-3xl">Cart</h3>
-              <CartPage />
+            <CartPage />
           </div>
         </div>
 
@@ -91,22 +90,22 @@ const Navbar = () => {
           <h3 className="text-[#5A5F6A] text-3xl">Index</h3>
           <ul className="text-[#5A5F6A] font-medium text-xl space-y-1 tracking-wide">
             <li className="hover:text-[#009b7e] flex items-center gap-1">
-             <Link to="/">Homepage</Link>
+              <Link to="/">Homepage</Link>
             </li>
             <li className="hover:text-[#009b7e] flex items-center gap-1">
-             <Link to="/about-us">About Us</Link>
+              <Link to="/about-us">About Us</Link>
             </li>
             <li className="hover:text-[#009b7e] flex items-center gap-1">
-            <Link to="/contact-us">Contact Us</Link>
+              <Link to="/contact-us">Contact Us</Link>
             </li>
             <li className="hover:text-[#009b7e] flex items-center gap-1">
-           <Link to="/privacy-policy">Privacy Policy</Link>
+              <Link to="/privacy-policy">Privacy Policy</Link>
             </li>
             <li className="hover:text-[#009b7e] flex items-center gap-1">
-             <Link to="/terms-of-use">Terms of Use</Link>
+              <Link to="/terms-of-use">Terms of Use</Link>
             </li>
             <li className="hover:text-[#009b7e] flex items-center gap-1">
-            <Link to="/sitemap.xml">Sitemap</Link>
+              <Link to="/sitemap.xml">Sitemap</Link>
             </li>
           </ul>
         </div>
@@ -160,98 +159,142 @@ const Navbar = () => {
           onMouseOver={() => changeHoverState(true)}
           onMouseLeave={() => changeHoverState(false)}
         >
-        {userLoginStatus?  <section>
-          <img src={userLoginStatus.profilePicture}  onError={(e) => e.target.src = '/defaultpicture.jpg'} className="absolute text-2xl h-10 w-10 text-white p-[1px] bg-[#E3E6EA] rounded-full right-32 mr-[2px] top-0.5" />
-          <div className="py-1">
-            <h3 className="text-sm font-medium pl-1">Welcome,{userLoginStatus.username}!</h3>
-            <h4 className="text-xs pl-1">Access your account</h4>
-          </div>
-            </section> :
-        <section>
-          <TbUserCircle className="absolute text-2xl h-10 w-10 text-white p-1 bg-[#E3E6EA] rounded-full right-32 mr-[1px] top-0.5" />
-          <div className="py-1">
-            <h3 className="text-sm font-medium pl-1">Welcome, Guest!</h3>
-            <h4 className="text-xs pl-1">Access your account</h4>
-          </div>
-            </section>}
+          {userLoginStatus ? (
+            <section>
+              <img
+                src={userLoginStatus.profilePicture}
+                onError={(e) => (e.target.src = '/defaultpicture.jpg')}
+                className="absolute text-2xl h-10 w-10 text-white p-[1px] bg-[#E3E6EA] rounded-full right-32 mr-[2px] top-0.5"
+              />
+              <div className="py-1">
+                <h3 className="text-sm font-medium pl-1">
+                  Welcome,{userLoginStatus.username}!
+                </h3>
+                <h4 className="text-xs pl-1">Access your account</h4>
+              </div>
+            </section>
+          ) : (
+            <section>
+              <TbUserCircle className="absolute text-2xl h-10 w-10 text-white p-1 bg-[#E3E6EA] rounded-full right-32 mr-[1px] top-0.5" />
+              <div className="py-1">
+                <h3 className="text-sm font-medium pl-1">Welcome, Guest!</h3>
+                <h4 className="text-xs pl-1">Access your account</h4>
+              </div>
+            </section>
+          )}
 
-          {isHover && !userLoginStatus && <section>
-            <div className="absolute flex flex-col items-center left-0 bg-opacity-10 backdrop-blur-lg  bg-white h-38 w-38 shadow-sm rounded-2xl p-5 m-1.5 text-black">
-              <RiUserSmileLine className="text-4xl text-[#00765e]" />
-              <h3 className="text-lg font-semibold">User Account</h3>
-              <h4 className="text-sm text-center">
-                Access your Nesture account
-              </h4>
-              <button className="bg-[#00765e] hover:bg-[#6ABBA5] hover:text-white rounded-2xl p-2 mt-3 text-white flex text-base items-center" onClick={()=>{loginScreen(); toast(`To skip account creation, kindly use Username-123 and Password-123`)}}>
-                Login
-                <CiLogin className="text-xl" />
-              </button>
-            </div>
+          {isHover && !userLoginStatus && (
+            <section>
+              <div className="absolute flex flex-col items-center left-0 bg-opacity-10 backdrop-blur-lg  bg-white h-38 w-38 shadow-sm rounded-2xl p-5 m-1.5 text-black">
+                <RiUserSmileLine className="text-4xl text-[#00765e]" />
+                <h3 className="text-lg font-semibold">User Account</h3>
+                <h4 className="text-sm text-center">
+                  Access your Nesture account
+                </h4>
+                <button
+                  className="bg-[#00765e] hover:bg-[#6ABBA5] hover:text-white rounded-2xl p-2 mt-3 text-white flex text-base items-center"
+                  onClick={() => {
+                    loginScreen();
+                    toast(
+                      `To skip account creation, kindly use Username-123 and Password-123`
+                    );
+                  }}
+                >
+                  Login
+                  <CiLogin className="text-xl" />
+                </button>
+              </div>
             </section>
-          }
-          {isHover && userLoginStatus && <section>
-            <div className="absolute flex flex-col items-center left-0 bg-opacity-10 backdrop-blur-lg  bg-white h-38 w-38 shadow-sm rounded-2xl p-5 m-1.5 text-black">
-              <LuLayoutDashboard className="text-4xl text-[#00765e]" />
-              <h3 className="text-lg font-semibold">User Account</h3>
-              <h4 className="text-sm text-center">
-                Access your Dashboard
-              </h4>
-              <Link to={userLoginStatus.role==="admin"?'/admin/dashboard':'/user/dashboard'}>
-              <button className="bg-[#00765e] hover:bg-[#6ABBA5] hover:text-white rounded-2xl p-2 mt-3 text-white flex text-base items-center" >
-                Explore
-                <IoLogoTableau className="text-xl p-[1px] ml-[2px]" />
-              </button></Link>
-            </div>
+          )}
+          {isHover && userLoginStatus && (
+            <section>
+              <div className="absolute flex flex-col items-center left-0 bg-opacity-10 backdrop-blur-lg  bg-white h-38 w-38 shadow-sm rounded-2xl p-5 m-1.5 text-black">
+                <LuLayoutDashboard className="text-4xl text-[#00765e]" />
+                <h3 className="text-lg font-semibold">User Account</h3>
+                <h4 className="text-sm text-center">Access your Dashboard</h4>
+                <Link
+                  to={
+                    userLoginStatus.role === 'admin'
+                      ? '/admin/dashboard'
+                      : '/user/dashboard'
+                  }
+                >
+                  <button className="bg-[#00765e] hover:bg-[#6ABBA5] hover:text-white rounded-2xl p-2 mt-3 text-white flex text-base items-center">
+                    Explore
+                    <IoLogoTableau className="text-xl p-[1px] ml-[2px]" />
+                  </button>
+                </Link>
+              </div>
             </section>
-          }
+          )}
         </div>
       </nav>
-      <div className={`w-screen h-screen ${loginVisiblity} top-0 fixed z-50 bg-opacity-10 backdrop-blur-lg bg-white items-center justify-center`} onClick={autoClose}>
-      <section className="bg-white shadow-lg rounded-3xl flex flex-col items-center justify-center h-96 w-96 p-8 relative">
-
-      
-  <form >
-  <button onClick={autoClose} title="Close" ><MdOutlineCloseFullscreen className="text-2xl text-[#E3E6EA] absolute top-0 left-0 m-4 hover:text-red-700 " /></button>
-  </form>
-
-  <img className="h-20 top-8 mx-auto absolute" src="/nesture-tr-main.png" alt="nesture logo" />
-
-  <div className="absolute top-28">{createAccountVisiblity?<h4 className="text-gray-800 text-lg mb-4 text-center">
-      New user?{" "}
-      <button
-        onClick={() => {
-          setcreateAccountVisiblity(false);
-        }}
-        className="text-[#00765e] text-lg hover:underline ml-1"
+      <div
+        className={`w-screen h-screen ${loginVisiblity} top-0 fixed z-50 bg-opacity-10 backdrop-blur-lg bg-white items-center justify-center`}
+        onClick={autoClose}
       >
-        Sign up here.
-      </button>
-    </h4>: <h4 className='text-gray-800 text-lg mb-4 text-center'>Create your Account.<button onClick={() => {setcreateAccountVisiblity(true);}} className="text-[#00765e] text-lg hover:underline ml-1">Back to login?</button></h4>}</div>
+        <section className="bg-white shadow-lg rounded-3xl flex flex-col items-center justify-center h-96 w-96 p-8 relative">
+          <form>
+            <button onClick={autoClose} title="Close">
+              <MdOutlineCloseFullscreen className="text-2xl text-[#E3E6EA] absolute top-0 left-0 m-4 hover:text-red-700 " />
+            </button>
+          </form>
 
-{createAccountVisiblity?
+          <img
+            className="h-20 top-8 mx-auto absolute"
+            src="/nesture-tr-main.png"
+            alt="nesture logo"
+          />
 
-<LoginAccount newstate={setloginVisiblity}/>
-:
-  <CreateAccount state={setcreateAccountVisiblity}/>}
-</section>
+          <div className="absolute top-28">
+            {createAccountVisiblity ? (
+              <h4 className="text-gray-800 text-lg mb-4 text-center">
+                New user?{' '}
+                <button
+                  onClick={() => {
+                    setcreateAccountVisiblity(false);
+                  }}
+                  className="text-[#00765e] text-lg hover:underline ml-1"
+                >
+                  Sign up here.
+                </button>
+              </h4>
+            ) : (
+              <h4 className="text-gray-800 text-lg mb-4 text-center">
+                Create your Account.
+                <button
+                  onClick={() => {
+                    setcreateAccountVisiblity(true);
+                  }}
+                  className="text-[#00765e] text-lg hover:underline ml-1"
+                >
+                  Back to login?
+                </button>
+              </h4>
+            )}
+          </div>
 
-
-
+          {createAccountVisiblity ? (
+            <LoginAccount newstate={setloginVisiblity} />
+          ) : (
+            <CreateAccount state={setcreateAccountVisiblity} />
+          )}
+        </section>
       </div>
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/sitemap.xml"/>
+        <Route path="/sitemap.xml" />
         <Route path="/terms-of-use" element={<TermsOfUse />} />
         <Route path="/category/:prds" element={<CategoryPage />} />
-        <Route path="/all-products" element={<AllProductsPage/>} />
+        <Route path="/all-products" element={<AllProductsPage />} />
         <Route path="/category/:prds/:id" element={<ProductDetailPage />} />
         <Route path="/cart" element={<CartPage />} />
-        <Route path="/create-account" element={<CreateAccount/>} />
-        <Route path="/user/dashboard" element={<UserDashboard/>} />
-        <Route path="/admin/dashboard" element={<AdminDashboard/>} />
+        <Route path="/create-account" element={<CreateAccount />} />
+        <Route path="/user/dashboard" element={<UserDashboard />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="*" element={<>This is 404</>} />
       </Routes>
     </>

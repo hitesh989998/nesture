@@ -1,12 +1,22 @@
-import React from 'react'
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router';
+import { useEffect } from 'react';
 
 const UserDashboard = () => {
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenticated !== 'authenticated') {
+      navigate('/');
+    }
+  }, [isAuthenticated, navigate]);
+
   return (
-    <div className='h-72 w-full bg-gray-600'>UserDashboard
-
-      <h1 className='bg-green-400 top-36'>UserDashboard</h1>
+    <div>
+      <h1>Dashboard</h1>
     </div>
-  )
-}
+  );
+};
 
-export default UserDashboard
+export default UserDashboard;

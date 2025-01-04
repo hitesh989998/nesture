@@ -1,21 +1,23 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const ContactUs = () => {
   let [statestore, statestoreupdater] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: '',
   });
 
   const handleFunc = (e) => {
-    let {name, value} = e.target;
+    let { name, value } = e.target;
     statestoreupdater((oldstate) => ({ ...oldstate, [name]: value }));
-    console.log(statestore)
+    console.log(statestore);
   };
 
-fetch('http://127.0.0.1:3000/api').then((res)=>res.json()).then((data)=>console.log('data from api', data))
+  fetch('http://127.0.0.1:3000/api')
+    .then((res) => res.json())
+    .then((data) => console.log('data from api', data));
 
   return (
     <div className="contactus">
@@ -36,7 +38,8 @@ fetch('http://127.0.0.1:3000/api').then((res)=>res.json()).then((data)=>console.
         <input type="text" name="Subject" onChange={handleFunc} /> <br />
         <br />
         <label htmlFor="Message">Message</label>
-        <input type="text" name="Message" onChange={handleFunc} required /> <br />
+        <input type="text" name="Message" onChange={handleFunc} required />{' '}
+        <br />
         <br />
         <button type="submit">Submit</button>
       </form>

@@ -1,10 +1,10 @@
-import addToCartSlice from "./AddtoCartSlice";
-import SearchBarSlice from "./SearchBarSlice";
-import SliderSlice from "./SliderSlice";
-import NavProdSlice from "./NavProdSlice";
-import {configureStore} from '@reduxjs/toolkit';
-import authSlice from "./AuthenticationSlice";
-import CreateUser from "./CreateAccountSlice";
+import addToCartSlice from './AddtoCartSlice';
+import SearchBarSlice from './SearchBarSlice';
+import SliderSlice from './SliderSlice';
+import NavProdSlice from './NavProdSlice';
+import { configureStore } from '@reduxjs/toolkit';
+import authSlice from './AuthenticationSlice';
+import CreateUser from './CreateAccountSlice';
 
 const ReduxStore = configureStore({
   reducer: {
@@ -14,8 +14,7 @@ const ReduxStore = configureStore({
     searchbar: SearchBarSlice,
     auth: authSlice,
     createNewUser: CreateUser,
-  }
+  },
 });
-
 
 export default ReduxStore;
