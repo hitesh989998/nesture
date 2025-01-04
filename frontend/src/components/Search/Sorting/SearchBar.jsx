@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { updateInput } from "../../Redux/SearchBarSlice";
-import { Link } from "react-router-dom";
+import React, { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateInput } from '../../Redux/SearchBarSlice';
+import { Link } from 'react-router-dom';
 
 const SearchBar = () => {
   const dispatch = useDispatch();
@@ -22,9 +22,9 @@ const SearchBar = () => {
   };
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
 
@@ -42,10 +42,29 @@ const SearchBar = () => {
           <ul>
             {searchresults
               .filter((items) => {
-                return items.name.toLowerCase().includes(currentState.toLowerCase());
+                return items.name
+                  .toLowerCase()
+                  .includes(currentState.toLowerCase());
               })
               .map((items, index) => {
-                return <Link to={`category/${items.category}/${items.id}`}> <div className="flex items-center w-full"><div className=" hover:bg-[#00765e] hover:text-white rounded-3xl flex items-center w-full px-1"><img src={items.image_url} alt={items.name} className="h-8 w-8 rounded-full object-cover aspect-square" /><li key={index} className="p-2 w-full" >{items.name}</li><div className="ml-auto p-1">Rs{items.price}</div></div></div></Link>;
+                return (
+                  <Link to={`category/${items.category}/${items.id}`}>
+                    {' '}
+                    <div className="flex items-center w-full">
+                      <div className=" hover:bg-[#00765e] hover:text-white rounded-3xl flex items-center w-full px-1">
+                        <img
+                          src={items.image_url}
+                          alt={items.name}
+                          className="h-8 w-8 rounded-full object-cover aspect-square"
+                        />
+                        <li key={index} className="p-2 w-full">
+                          {items.name}
+                        </li>
+                        <div className="ml-auto p-1">Rs{items.price}</div>
+                      </div>
+                    </div>
+                  </Link>
+                );
               })}
           </ul>
         </div>
