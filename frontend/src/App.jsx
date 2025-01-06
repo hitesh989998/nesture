@@ -1,9 +1,26 @@
-import Navbar from './components/Functionality/Navbar';
-import Footer from './components/Functionality/footer';
-import { ToastContainer } from 'react-toastify';
 import { useEffect } from 'react';
 import { fetchProducts } from './components/Redux/NavProdSlice';
 import { useDispatch } from 'react-redux';
+import { Route, Routes } from 'react-router';
+import Homepage from './components/Webpages/Homepage';
+import AboutUs from './components/Webpages/AboutUs';
+import ContactUs from './components/Webpages/ContactUs';
+import CategoryPage from './components/Products/CategoryPage';
+import ProductDetailPage from './components/Products/ProductDetailPage';
+import PrivacyPolicy from './components/Webpages/PrivacyPolicy';
+import TermsOfUse from './components/Webpages/TermsOfUse';
+import AllProductsPage from './components/Products/AllProductsPage';
+import UserDashboard from './components/LoggedInUserPages/UserDashboard';
+import AdminDashboard from './components/LoggedInUserPages/AdminDashboard';
+import AdminManageUsers from './components/LoggedInUserPages/AdminManageUsers';
+import AdminManageProducts from './components/LoggedInUserPages/AdminManageProducts';
+import AdminOrders from './components/LoggedInUserPages/AdminOrders';
+import AdminLayout from './components/Layouts/AdminLayout';
+
+import PublicLayout from './components/Layouts/PublicLayout';
+import CartPage from './components/Cart/CartPage';
+import CreateAccount from './components/LoggedInUserPages/CreateAccount';
+import UserLayout from './components/Layouts/UserLayout';
 
 const App = () => {
   let dispatch = useDispatch();
@@ -13,9 +30,34 @@ const App = () => {
 
   return (
     <>
-      <Navbar />
-      <Footer />
-      <ToastContainer position="bottom-right" />
+      <Routes>
+        <Route path="/" element={<PublicLayout />}>
+          <Route path="/" element={<Homepage />}></Route>
+          <Route path="about-us" element={<AboutUs />} />
+          <Route path="contact-us" element={<ContactUs />} />
+          <Route path="privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="sitemap.xml" />
+          <Route path="terms-of-use" element={<TermsOfUse />} />
+          <Route path="category/:prds" element={<CategoryPage />} />
+          <Route path="all-products" element={<AllProductsPage />} />
+          <Route path="category/:prds/:id" element={<ProductDetailPage />} />
+          <Route path="cart" element={<CartPage />} />
+          <Route path="create-account" element={<CreateAccount />} />
+        </Route>
+
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route path="dashboard" element={<AdminDashboard />} />
+          <Route path="manage-users" element={<AdminManageUsers />} />
+          <Route path="manage-products" element={<AdminManageProducts />} />
+          <Route path="orders" element={<AdminOrders />} />
+        </Route>
+
+        <Route path="/user" element={<UserLayout />}>
+          <Route path="dashboard" element={<UserDashboard />} />
+        </Route>
+
+        <Route path="*" element={<>This is 404</>} />
+      </Routes>
     </>
   );
 };
