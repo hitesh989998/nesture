@@ -79,7 +79,6 @@ const UserDashboard = () => {
     <div className="bg-[url('/newgreen.jpeg')] bg-cover bg-center bg-fixed flex justify-center items-center min-h-screen relative top-24 p-5 mb-24">
       <section className="w-11/12 h-full bg-white/10 p-8 rounded-3xl backdrop-blur-sm shadow-lg">
         <div className="grid grid-cols-4 gap-6">
-          {/* Sidebar */}
           <aside className="col-span-1 bg-white p-6 rounded-lg shadow-md relative">
             <div>
               <ul className="space-y-4">
@@ -112,25 +111,22 @@ const UserDashboard = () => {
             </div>
           </aside>
 
-          {/* Main Content */}
           <main className="col-span-3 space-y-6">
-            {/* Header */}
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h2 className="text-2xl font-semibold text-gray-600">
                 Welcome back, {userLoginStatus.username}!
               </h2>
               <h3 className="text-lg font-medium text-gray-500 flex items-center gap-1">
-                Your{' '}
+                Your
                 <img
                   src="/nesture-tr-main.png"
                   alt="logo"
                   className="h-8 w-20"
-                />{' '}
+                />
                 journey so far: <span className="text-[#009b7e]">₹15,400</span>
               </h3>
             </div>
 
-            {/* Overview Cards */}
             <div className="grid grid-cols-3 gap-6">
               {[
                 {
@@ -162,9 +158,7 @@ const UserDashboard = () => {
               ))}
             </div>
 
-            {/* Charts Section */}
             <div className="grid grid-cols-2 gap-6">
-              {/* Sales by Category */}
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <h3 className="text-lg font-semibold text-gray-600 mb-4">
                   Sales by Category
@@ -179,7 +173,6 @@ const UserDashboard = () => {
                 </ResponsiveContainer>
               </div>
 
-              {/* Monthly Orders */}
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <h3 className="text-lg font-semibold text-gray-600 mb-4">
                   Monthly Orders
@@ -194,7 +187,6 @@ const UserDashboard = () => {
                 </ResponsiveContainer>
               </div>
 
-              {/* Returns Breakdown */}
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <h3 className="text-lg font-semibold text-gray-600 mb-4">
                   Reasons for Returns
@@ -222,7 +214,6 @@ const UserDashboard = () => {
                 </ResponsiveContainer>
               </div>
 
-              {/* Product Ratings Chart (4th Chart) */}
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <h3 className="text-lg font-semibold text-gray-600 mb-4">
                   Product Ratings

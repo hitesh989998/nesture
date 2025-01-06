@@ -28,6 +28,9 @@ import AdminDashboard from '../LoggedInUserPages/AdminDashboard';
 import { useSelector } from 'react-redux';
 import { LuLayoutDashboard } from 'react-icons/lu';
 import { IoLogoTableau } from 'react-icons/io5';
+import AdminManageUsers from '../LoggedInUserPages/AdminManageUsers';
+import AdminManageProducts from '../LoggedInUserPages/AdminManageProducts';
+import AdminOrders from '../LoggedInUserPages/AdminOrders';
 
 const Navbar = () => {
   const [isHover, changeHoverState] = useState(false);
@@ -295,6 +298,12 @@ const Navbar = () => {
         <Route path="/create-account" element={<CreateAccount />} />
         <Route path="/user/dashboard" element={<UserDashboard />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        <Route path="/admin/manage-users" element={<AdminManageUsers />} />
+        <Route
+          path="/admin/manage-products"
+          element={<AdminManageProducts />}
+        />
+        <Route path="/admin/orders" element={<AdminOrders />} />
         <Route path="*" element={<>This is 404</>} />
       </Routes>
     </>
