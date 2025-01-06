@@ -1,15 +1,9 @@
 /* eslint-disable eqeqeq */
-import { Route, Routes } from 'react-router';
-import Homepage from '../Webpages/Homepage';
-import AboutUs from '../Webpages/AboutUs';
-import ContactUs from '../Webpages/ContactUs';
 import { TbShoppingBag, TbUserCircle } from 'react-icons/tb';
 import { useState } from 'react';
 import SearchBar from '../Search/Sorting/SearchBar';
 import { Link } from 'react-router-dom';
 
-import CategoryPage from '../Products/CategoryPage';
-import ProductDetailPage from '../Products/ProductDetailPage';
 import CartPage from '../Cart/CartPage';
 import { HiOutlineMenuAlt2 } from 'react-icons/hi';
 import { IoIosSearch } from 'react-icons/io';
@@ -17,20 +11,14 @@ import { RiUserSmileLine } from 'react-icons/ri';
 import { CiLogin } from 'react-icons/ci';
 import NavbarButtons from './NavbarButtons';
 import { MdOutlineCloseFullscreen } from 'react-icons/md';
-import PrivacyPolicy from '../Webpages/PrivacyPolicy';
-import TermsOfUse from '../Webpages/TermsOfUse';
-import AllProductsPage from '../Products/AllProductsPage';
+
 import { toast } from 'react-toastify';
 import CreateAccount from '../LoggedInUserPages/CreateAccount';
 import LoginAccount from '../LoggedInUserPages/LoginAccount';
-import UserDashboard from '../LoggedInUserPages/UserDashboard';
-import AdminDashboard from '../LoggedInUserPages/AdminDashboard';
+
 import { useSelector } from 'react-redux';
 import { LuLayoutDashboard } from 'react-icons/lu';
 import { IoLogoTableau } from 'react-icons/io5';
-import AdminManageUsers from '../LoggedInUserPages/AdminManageUsers';
-import AdminManageProducts from '../LoggedInUserPages/AdminManageProducts';
-import AdminOrders from '../LoggedInUserPages/AdminOrders';
 
 const Navbar = () => {
   const [isHover, changeHoverState] = useState(false);
@@ -284,28 +272,6 @@ const Navbar = () => {
           )}
         </section>
       </div>
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/sitemap.xml" />
-        <Route path="/terms-of-use" element={<TermsOfUse />} />
-        <Route path="/category/:prds" element={<CategoryPage />} />
-        <Route path="/all-products" element={<AllProductsPage />} />
-        <Route path="/category/:prds/:id" element={<ProductDetailPage />} />
-        <Route path="/cart" element={<CartPage />} />
-        <Route path="/create-account" element={<CreateAccount />} />
-        <Route path="/user/dashboard" element={<UserDashboard />} />
-        <Route path="/admin/dashboard" element={<AdminDashboard />} />
-        <Route path="/admin/manage-users" element={<AdminManageUsers />} />
-        <Route
-          path="/admin/manage-products"
-          element={<AdminManageProducts />}
-        />
-        <Route path="/admin/orders" element={<AdminOrders />} />
-        <Route path="*" element={<>This is 404</>} />
-      </Routes>
     </>
   );
 };
