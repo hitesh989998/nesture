@@ -1,5 +1,5 @@
+/* eslint-disable eqeqeq */
 import { useState } from 'react';
-import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { AuthenticateUser } from '../Redux/AuthenticationSlice';
@@ -17,7 +17,6 @@ const LoginAccount = ({ newstate }) => {
     let { name, value } = e.target;
 
     setstate((prev) => {
-      console.log(prev, 'prev');
       return { ...prev, [name]: value };
     });
   };
@@ -26,15 +25,14 @@ const LoginAccount = ({ newstate }) => {
     e.preventDefault();
     let results = await dispatch(AuthenticateUser(state));
     if (results.payload.message == 'Login successful') {
-      newstate('hidden');
-      return navigate('/');
+      navigate('/');
     }
   };
 
   return (
     <section className="flex justify-center items-center min-h-screen p-5 mt-28">
       <div className="">
-        <form className="">
+        <form className="" onSubmit={onSubmitHandler}>
           <input
             type="text"
             name="username"
@@ -50,7 +48,7 @@ const LoginAccount = ({ newstate }) => {
             onChange={handleChange}
           />
           <button
-            onClick={onSubmitHandler}
+            onClick={() => newstate('hidden')}
             type="submit"
             className="w-full bg-[#00765e] text-white rounded-full py-2 font-semibold text-lg hover:bg-[#005c4a]"
           >
@@ -60,9 +58,6 @@ const LoginAccount = ({ newstate }) => {
       </div>
     </section>
   );
-};
-LoginAccount.propTypes = {
-  newstate: PropTypes.func.isRequired,
 };
 
 export default LoginAccount;

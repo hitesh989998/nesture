@@ -20,6 +20,20 @@ export const AuthenticateUser = createAsyncThunk(
   }
 );
 
+export const LogoutUser = createAsyncThunk('auth/LogoutUser', async () => {
+  try {
+    await axios.post(
+      `${import.meta.env.VITE_BACKEND_WEB_URL}/logout`,
+      {},
+      { withCredentials: true }
+    );
+
+    return 'Logout successful';
+  } catch (error) {
+    throw new Error(error);
+  }
+});
+
 let userStatus = JSON.parse(sessionStorage.getItem('userStatus'));
 let userAuthStatus = JSON.parse(sessionStorage.getItem('userAuthStatus'));
 
@@ -31,9 +45,9 @@ const authSlice = createSlice({
     error: null,
   },
   reducers: {
-    logout: (state) => {
-      state.user = null;
-      state.isAuthenticated = null;
+    logout: () => {
+      sessionStorage.removeItem('userStatus');
+      sessionStorage.removeItem('userAuthStatus');
     },
   },
   extraReducers: (builder) => {
@@ -60,6 +74,17 @@ const authSlice = createSlice({
           JSON.stringify(state.isAuthenticated)
         );
         toast.error('Authentication failed');
+      })
+      .addCase(LogoutUser.fulfilled, (state) => {
+        state.user = null;
+        state.isAuthenticated = null;
+        sessionStorage.removeItem('userStatus');
+        sessionStorage.removeItem('userAuthStatus');
+        toast.success('Logged out successfully');
+      })
+      .addCase(LogoutUser.rejected, (state, action) => {
+        state.error = action.payload;
+        toast.error(action.payload);
       });
   },
 });
