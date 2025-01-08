@@ -5,11 +5,9 @@ const authMiddleware = (req, res, next) => {
     const token = req.cookies.token;
     const decodedUser = jwt.verify(token, process.env.JWT_SECRET_KEY);
     req.user = decodedUser;
-    console.log(decodedUser, 'this is the decoded user');
     next();
   } catch (error) {
-    console.log(error);
-    return res.status(403).json({ message: 'Invalid Token' });
+    return res.status(403).json({ message: 'Invalid Token', error: error });
   }
 };
 
