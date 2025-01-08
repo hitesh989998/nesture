@@ -10,7 +10,7 @@ const AdminAddProduct = () => {
     description: '',
     price: '',
     category: '',
-    image: '',
+    image_url: '',
   });
 
   const [updateProductData, setUpdateProductData] = useState({
@@ -19,7 +19,7 @@ const AdminAddProduct = () => {
     description: '',
     price: '',
     category: '',
-    image: '',
+    image_url: '',
   });
 
   const [products, setProducts] = useState([]);
@@ -27,7 +27,7 @@ const AdminAddProduct = () => {
   const fetchProducts = async () => {
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_BACKEND_WEB_URL}/api/allproducts`
+        `${import.meta.env.VITE_BACKEND_WEB_URL}/api/products`
       );
       setProducts(response.data);
     } catch (error) {
@@ -41,16 +41,22 @@ const AdminAddProduct = () => {
   }, []);
 
   const addProductHandler = (e) => {
-    const { name, value } = e.target;
-    setAddProductData((prev) => ({ ...prev, [name]: value }));
+    const { name, value, files } = e.target;
+    if (name === 'image_url') {
+      setAddProductData((prev) => ({ ...prev, [name]: files[0] }));
+    } else {
+      setAddProductData((prev) => ({ ...prev, [name]: value }));
+    }
   };
 
   const addProductSubmit = async (e) => {
+    console.log(addProductData, 'addProductData is here');
     e.preventDefault();
     try {
       await axios.post(
         `${import.meta.env.VITE_BACKEND_WEB_URL}/api/products`,
-        addProductData
+        addProductData,
+        { headers: { 'Content-Type': 'multipart/form-data' } }
       );
       toast.success('Product added successfully');
       setAddProductData({
@@ -58,18 +64,23 @@ const AdminAddProduct = () => {
         description: '',
         price: '',
         category: '',
-        image: '',
+        image_url: '',
       });
       fetchProducts();
     } catch (error) {
       toast.error('Failed to add product');
+      console.log(error, 'this is the error', error);
       throw error;
     }
   };
 
   const updateProductHandler = (e) => {
-    const { name, value } = e.target;
-    setUpdateProductData((prev) => ({ ...prev, [name]: value }));
+    const { name, value, files } = e.target;
+    if (name === 'image_url') {
+      setUpdateProductData((prev) => ({ ...prev, [name]: files[0] }));
+    } else {
+      setUpdateProductData((prev) => ({ ...prev, [name]: value }));
+    }
   };
 
   const updateProductSubmit = async (e) => {
@@ -77,7 +88,8 @@ const AdminAddProduct = () => {
     try {
       await axios.put(
         `${import.meta.env.VITE_BACKEND_WEB_URL}/api/products/${updateProductData.id}`,
-        updateProductData
+        updateProductData,
+        { headers: { 'Content-Type': 'multipart/form-data' } }
       );
       toast.success('Product updated successfully');
       setUpdateProductData({
@@ -86,7 +98,7 @@ const AdminAddProduct = () => {
         description: '',
         price: '',
         category: '',
-        image: '',
+        image_url: '',
       });
       fetchProducts();
     } catch (error) {
@@ -122,7 +134,11 @@ const AdminAddProduct = () => {
           <h2 className="text-2xl font-semibold text-center text-gray-700 mb-6">
             Add Product
           </h2>
-          <form onSubmit={addProductSubmit} className="flex flex-col gap-5">
+          <form
+            onSubmit={addProductSubmit}
+            className="flex flex-col gap-5"
+            encType="multipart/form-data"
+          >
             <input
               type="text"
               name="name"
@@ -131,8 +147,9 @@ const AdminAddProduct = () => {
               onChange={addProductHandler}
               className="w-full border rounded-lg px-4 py-3"
             />
-            <input
+            <textarea
               type="text"
+              size={40}
               name="description"
               placeholder="Product Description"
               value={addProductData.description}
@@ -169,10 +186,9 @@ const AdminAddProduct = () => {
               </option>
             </select>
             <input
-              type="text"
-              name="image"
+              type="file"
+              name="image_url"
               placeholder="Image URL"
-              value={addProductData.image}
               onChange={addProductHandler}
               className="w-full border rounded-lg px-4 py-3"
             />
@@ -189,7 +205,11 @@ const AdminAddProduct = () => {
           <h2 className="text-2xl font-semibold text-center text-gray-700 mb-6">
             Update Product
           </h2>
-          <form onSubmit={updateProductSubmit} className="flex flex-col gap-5">
+          <form
+            onSubmit={updateProductSubmit}
+            className="flex flex-col gap-5"
+            method="multipart/form-data"
+          >
             <input
               type="text"
               name="name"
@@ -198,7 +218,7 @@ const AdminAddProduct = () => {
               onChange={updateProductHandler}
               className="w-full border rounded-lg px-4 py-3"
             />
-            <input
+            <textarea
               type="text"
               name="description"
               placeholder="Product Description"
@@ -236,8 +256,8 @@ const AdminAddProduct = () => {
               </option>
             </select>
             <input
-              type="text"
-              name="image"
+              type="file"
+              name="image_url"
               placeholder="Image URL"
               value={updateProductData.image}
               onChange={updateProductHandler}

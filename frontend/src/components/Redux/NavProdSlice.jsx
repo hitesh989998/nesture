@@ -30,7 +30,7 @@ export const fetchProducts = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_BACKEND_WEB_URL}/api/allproducts`
+        `${import.meta.env.VITE_BACKEND_WEB_URL}/api/products`
       );
       return response.data;
     } catch (error) {

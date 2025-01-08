@@ -24,7 +24,7 @@ const AdminLayout = () => {
   return (
     <>
       <Navbar />
-      <div className="flex relative top-20 p-6 bg-gray-50 h-fit">
+      <div className="flex relative top-20 p-6 bg-white h-fit mb-28">
         <aside className="w-1/4 bg-[#00765e] text-white p-6 shadow-lg rounded-lg flex flex-col justify-between">
           <ul className="space-y-6">
             {[

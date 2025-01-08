@@ -205,7 +205,7 @@ const Navbar = () => {
                 <h4 className="text-sm text-center">Access your Dashboard</h4>
                 <Link
                   to={
-                    userLoginStatus.role === 'admin'
+                    userLoginStatus.role === 'administrator'
                       ? '/admin/dashboard'
                       : '/user/dashboard'
                   }

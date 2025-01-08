@@ -29,7 +29,7 @@ const AdminDashboard = () => {
   const userStats = [
     { role: 'Customers', count: 220 },
     { role: 'Vendors', count: 30 },
-    { role: 'Admins', count: 5 },
+    { role: 'Administrators', count: 5 },
   ];
 
   const productStats = [
