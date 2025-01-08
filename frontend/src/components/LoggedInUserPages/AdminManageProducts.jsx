@@ -1,35 +1,33 @@
+/* eslint-disable no-undef */
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { FiEdit, FiTrash } from 'react-icons/fi';
 
 const AdminAddProduct = () => {
-  // State for Adding Products
   const [addProductData, setAddProductData] = useState({
     name: '',
     description: '',
     price: '',
     category: '',
-    image: '',
+    image_url: '',
   });
 
-  // State for Updating Products
   const [updateProductData, setUpdateProductData] = useState({
     id: '',
     name: '',
     description: '',
     price: '',
     category: '',
-    image: '',
+    image_url: '',
   });
 
-  // State for Viewing Products
   const [products, setProducts] = useState([]);
 
-  // Fetch all products
   const fetchProducts = async () => {
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_BACKEND_WEB_URL}/api/allproducts`
+        `${import.meta.env.VITE_BACKEND_WEB_URL}/api/products`
       );
       setProducts(response.data);
     } catch (error) {
@@ -42,43 +40,56 @@ const AdminAddProduct = () => {
     fetchProducts();
   }, []);
 
-  // Handlers for Add Product
   const addProductHandler = (e) => {
-    const { name, value } = e.target;
-    setAddProductData((prev) => ({ ...prev, [name]: value }));
+    const { name, value, files } = e.target;
+    if (name === 'image_url') {
+      setAddProductData((prev) => ({ ...prev, [name]: files[0] }));
+    } else {
+      setAddProductData((prev) => ({ ...prev, [name]: value }));
+    }
   };
 
   const addProductSubmit = async (e) => {
+    console.log(addProductData, 'addProductData is here');
     e.preventDefault();
     try {
-      await axios.post('/api/products', addProductData);
+      await axios.post(
+        `${import.meta.env.VITE_BACKEND_WEB_URL}/api/products`,
+        addProductData,
+        { headers: { 'Content-Type': 'multipart/form-data' } }
+      );
       toast.success('Product added successfully');
       setAddProductData({
         name: '',
         description: '',
         price: '',
         category: '',
-        image: '',
+        image_url: '',
       });
-      fetchProducts(); // Refresh the product list
+      fetchProducts();
     } catch (error) {
       toast.error('Failed to add product');
+      console.log(error, 'this is the error', error);
       throw error;
     }
   };
 
-  // Handlers for Update Product
   const updateProductHandler = (e) => {
-    const { name, value } = e.target;
-    setUpdateProductData((prev) => ({ ...prev, [name]: value }));
+    const { name, value, files } = e.target;
+    if (name === 'image_url') {
+      setUpdateProductData((prev) => ({ ...prev, [name]: files[0] }));
+    } else {
+      setUpdateProductData((prev) => ({ ...prev, [name]: value }));
+    }
   };
 
   const updateProductSubmit = async (e) => {
     e.preventDefault();
     try {
       await axios.put(
-        `/api/products/${updateProductData.id}`,
-        updateProductData
+        `${import.meta.env.VITE_BACKEND_WEB_URL}/api/products/${updateProductData.id}`,
+        updateProductData,
+        { headers: { 'Content-Type': 'multipart/form-data' } }
       );
       toast.success('Product updated successfully');
       setUpdateProductData({
@@ -87,40 +98,63 @@ const AdminAddProduct = () => {
         description: '',
         price: '',
         category: '',
-        image: '',
+        image_url: '',
       });
-      fetchProducts(); // Refresh the product list
+      fetchProducts();
     } catch (error) {
       toast.error('Failed to update product');
       throw error;
     }
   };
 
+  const handleEdit = (product) => {
+    setUpdateProductData(product);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(
+        `${import.meta.env.VITE_BACKEND_WEB_URL}/api/products/${id}`
+      );
+      toast.success('Product deleted successfully');
+      fetchProducts();
+    } catch (error) {
+      toast.error('Failed to delete product');
+      throw error;
+    }
+  };
+
   return (
-    <div className="top-28 relative mb-24 bg-white min-h-screen flex flex-col items-center gap-8">
-      <h1 className="text-3xl font-semibold text-[#009b7e]">Manage Products</h1>
-      <section className="flex gap-3 w-2/3">
-        {/* Add Product Section */}
-        <div className="w-2/3 max-w-2xl p-10 bg-white shadow-lg rounded-3xl">
-          <h1 className="text-2xl font-semibold text-center text-gray-700 mb-6">
+    <div className="relative bg-white min-h-screen flex flex-col items-center gap-12 px-6 py-8">
+      <h1 className="text-4xl font-bold text-[#009b7e]">Manage Products</h1>
+
+      <section className="flex flex-col md:flex-row gap-6 w-full max-w-5xl">
+        <div className="w-full md:w-1/2 bg-white shadow-lg rounded-xl p-8">
+          <h2 className="text-2xl font-semibold text-center text-gray-700 mb-6">
             Add Product
-          </h1>
-          <form onSubmit={addProductSubmit} className="flex flex-col gap-4">
+          </h2>
+          <form
+            onSubmit={addProductSubmit}
+            className="flex flex-col gap-5"
+            encType="multipart/form-data"
+          >
             <input
               type="text"
               name="name"
               placeholder="Product Name"
               value={addProductData.name}
               onChange={addProductHandler}
-              className="w-full border rounded-md px-3 py-2"
+              className="w-full border rounded-lg px-4 py-3"
             />
-            <input
+            <textarea
               type="text"
+              size={40}
               name="description"
               placeholder="Product Description"
               value={addProductData.description}
               onChange={addProductHandler}
-              className="w-full border rounded-md px-3 py-2"
+              className="w-full border rounded-lg px-4 py-3"
             />
             <input
               type="number"
@@ -128,13 +162,13 @@ const AdminAddProduct = () => {
               placeholder="Price"
               value={addProductData.price}
               onChange={addProductHandler}
-              className="w-full border rounded-md px-3 py-2"
+              className="w-full border rounded-lg px-4 py-3"
             />
             <select
               name="category"
               value={addProductData.category}
               onChange={addProductHandler}
-              className="w-full border rounded-md px-3 py-2"
+              className="w-full border rounded-lg px-4 py-3"
             >
               <option value="">Select Category</option>
               <option value="Sustainable Clothing">Sustainable Clothing</option>
@@ -152,51 +186,45 @@ const AdminAddProduct = () => {
               </option>
             </select>
             <input
-              type="text"
-              name="image"
+              type="file"
+              name="image_url"
               placeholder="Image URL"
-              value={addProductData.image}
               onChange={addProductHandler}
-              className="w-full border rounded-md px-3 py-2"
+              className="w-full border rounded-lg px-4 py-3"
             />
             <button
               type="submit"
-              className="bg-[#009b7e] text-white px-6 py-2 mt-14 rounded-lg shadow-md hover:bg-[#007a65]"
+              className="bg-[#009b7e] text-white font-medium py-2 px-4 rounded-lg hover:bg-[#007b63]"
             >
               Add Product
             </button>
           </form>
         </div>
 
-        {/* Update Product Section */}
-        <div className="w-2/3 max-w-2xl p-10 bg-white shadow-lg rounded-3xl">
-          <h1 className="text-2xl font-semibold text-center text-gray-700 mb-6">
+        <div className="w-full md:w-1/2 bg-white shadow-lg rounded-xl p-8">
+          <h2 className="text-2xl font-semibold text-center text-gray-700 mb-6">
             Update Product
-          </h1>
-          <form onSubmit={updateProductSubmit} className="flex flex-col gap-4">
-            <input
-              type="text"
-              name="id"
-              placeholder="Product ID"
-              value={updateProductData.id}
-              onChange={updateProductHandler}
-              className="w-full border rounded-md px-3 py-2"
-            />
+          </h2>
+          <form
+            onSubmit={updateProductSubmit}
+            className="flex flex-col gap-5"
+            method="multipart/form-data"
+          >
             <input
               type="text"
               name="name"
               placeholder="Product Name"
               value={updateProductData.name}
               onChange={updateProductHandler}
-              className="w-full border rounded-md px-3 py-2"
+              className="w-full border rounded-lg px-4 py-3"
             />
-            <input
+            <textarea
               type="text"
               name="description"
               placeholder="Product Description"
               value={updateProductData.description}
               onChange={updateProductHandler}
-              className="w-full border rounded-md px-3 py-2"
+              className="w-full border rounded-lg px-4 py-3"
             />
             <input
               type="number"
@@ -204,13 +232,13 @@ const AdminAddProduct = () => {
               placeholder="Price"
               value={updateProductData.price}
               onChange={updateProductHandler}
-              className="w-full border rounded-md px-3 py-2"
+              className="w-full border rounded-lg px-4 py-3"
             />
             <select
               name="category"
               value={updateProductData.category}
               onChange={updateProductHandler}
-              className="w-full border rounded-md px-3 py-2"
+              className="w-full border rounded-lg px-4 py-3"
             >
               <option value="">Select Category</option>
               <option value="Sustainable Clothing">Sustainable Clothing</option>
@@ -228,16 +256,16 @@ const AdminAddProduct = () => {
               </option>
             </select>
             <input
-              type="text"
-              name="image"
+              type="file"
+              name="image_url"
               placeholder="Image URL"
               value={updateProductData.image}
               onChange={updateProductHandler}
-              className="w-full border rounded-md px-3 py-2"
+              className="w-full border rounded-lg px-4 py-3"
             />
             <button
               type="submit"
-              className="bg-[#009b7e] text-white px-6 py-2 rounded-lg shadow-md hover:bg-[#007a65]"
+              className="bg-[#009b7e] text-white font-medium py-2 px-4 rounded-lg hover:bg-[#007b63]"
             >
               Update Product
             </button>
@@ -245,30 +273,49 @@ const AdminAddProduct = () => {
         </div>
       </section>
 
-      {/* View All Products Section */}
-      <div className="w-2/3 max-w-2xl p-6 bg-white shadow-lg rounded-3xl">
-        <h1 className="text-2xl font-semibold text-center text-gray-700 mb-4">
+      <section className="w-full max-w-5xl">
+        <h2 className="text-2xl font-semibold text-center text-gray-700 mb-6">
           All Products
-        </h1>
-        <div className="h-64 overflow-y-scroll">
-          {products.length ? (
-            products.map((product) => (
-              <div
-                key={product.id}
-                className="border-b border-gray-200 py-4 flex justify-between items-center"
-              >
-                <div>
-                  <h3 className="text-lg font-semibold">{product.name}</h3>
-                  <p className="text-sm text-gray-500">{product.description}</p>
-                </div>
-                <span className="text-sm text-gray-700">${product.price}</span>
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {products.map((product) => (
+            <div
+              key={product.id}
+              className="relative flex flex-col bg-white shadow-md rounded-lg p-4"
+            >
+              <img
+                src={product.image_url}
+                alt={product.name}
+                className="h-40 w-full object-cover rounded-md mb-4"
+              />
+              <div className="flex flex-col items-start">
+                <h3 className="font-bold text-lg mb-2">{product.name}</h3>
+                <p className="text-gray-600 text-sm mb-2">
+                  {product.description}
+                </p>
+                <p className="text-[#009b7e] font-semibold mb-2">
+                  ₹{product.price}
+                </p>
               </div>
-            ))
-          ) : (
-            <p className="text-center text-gray-500">No products found</p>
-          )}
+
+              <div className="absolute bottom-4 right-4 flex flex-row gap-2">
+                <button
+                  onClick={() => handleEdit(product)}
+                  className="bg-[#009b7e] text-white w-9 h-9 rounded-full flex items-center justify-center shadow-lg hover:bg-[#007b63]"
+                >
+                  <FiEdit className="text-lg" />
+                </button>
+                <button
+                  onClick={() => handleDelete(product.id)}
+                  className="bg-red-600 text-white w-9 h-9 rounded-full flex items-center justify-center shadow-lg hover:bg-red-700"
+                >
+                  <FiTrash className="text-lg" />
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
+      </section>
     </div>
   );
 };

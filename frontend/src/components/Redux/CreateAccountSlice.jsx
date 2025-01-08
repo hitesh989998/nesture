@@ -5,10 +5,9 @@ import { toast } from 'react-toastify';
 export const CreateUser = createAsyncThunk(
   'auth/CreateUser',
   async (credentials) => {
-    console.log('Backend URL:', import.meta.env.VITE_BACKEND_WEB_URL);
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_BACKEND_WEB_URL}/createuser`,
+        `${import.meta.env.VITE_BACKEND_WEB_URL}/create-user`,
         credentials,
         { withCredentials: true }
       );
@@ -30,11 +29,11 @@ const createUserSlice = createSlice({
       .addCase(CreateUser.pending, (state) => {
         state.status = 'loading';
       })
-      .addCase(CreateUser.fulfilled, (state, action) => {
+      .addCase(CreateUser.fulfilled, (state) => {
         state.status = 'succeeded';
         toast.success('Account created successfully, login to continue');
       })
-      .addCase(CreateUser.rejected, (state, action) => {
+      .addCase(CreateUser.rejected, (state) => {
         state.status = 'failed';
         toast.error('Account creation failed');
         toast(`Backend URL: ${import.meta.env.VITE_BACKEND_WEB_URL}`);
