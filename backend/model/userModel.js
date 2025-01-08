@@ -1,12 +1,12 @@
-/* eslint-disable no-undef */
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 const userSchema = new mongoose.Schema(
   {
     username: { type: String, required: true, unique: true },
-    password: { type: String },
+    password: { type: String, required: true },
     profilePicture: { type: String, default: './defaultpicture.jpg' },
+    role: { type: String, default: 'customer' },
   },
   { timestamps: true }
 );

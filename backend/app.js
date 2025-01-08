@@ -9,10 +9,12 @@ var mongoose = require('mongoose');
 
 var apiRouter = require('./routes/api');
 var authentication = require('./routes/authentication');
-var createUser = require('./routes/createuser');
 var home = require('./routes/home');
-var userRoutes = require('./routes/user');
-var addProduct = require('./routes/addproduct');
+var userNameSpace = require('./routes/userNamespace');
+var logout = require('./routes/logout');
+var productRoutes = require('./routes/productRoutes');
+var userRoutes = require('./routes/userRoutes');
+var userCreation = require('./routes/userCreation');
 
 var authMiddleware = require('./middlewares/AuthorizationMW');
 
@@ -28,10 +30,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'frontend', 'build')));
+app.use('/public', express.static('public'));
 
 const corsOptions = {
   origin: process.env.WEB_URL,
-  methods: ['GET', 'POST'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type'],
   credentials: true,
 };
@@ -54,11 +57,14 @@ app.use((req, res, next) => {
 
 app.use('/api', apiRouter);
 app.use('/authentication', authentication);
-app.use('/createuser', createUser);
 app.use('/', home);
 
-app.use('/user', authMiddleware, userRoutes);
-app.use('/add-product', addProduct);
+app.use('/logout', authMiddleware, logout);
+app.use('/user', authMiddleware, userNameSpace);
+app.use('/create-user', userCreation);
+
+app.use('/api/products', productRoutes);
+app.use('/api/users', userRoutes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -70,6 +76,16 @@ app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+  const multerErrorHandler = (err, req, res, next) => {
+    if (err instanceof multer.MulterError) {
+      return res.status(400).json({ error: err.message });
+    }
+    next(err); // Pass any other errors to the next middleware
+  };
+
+  // Apply the error handler in your app
+  app.use(multerErrorHandler);
 
   // render the error page
   res.status(err.status || 500);

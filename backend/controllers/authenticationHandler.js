@@ -1,11 +1,10 @@
-const userSchema = require('../model/userSchema');
+const userSchema = require('../model/userModel');
 const bcrypt = require('bcryptjs');
 const generateToken = require('../utils/generatetokenJWT');
 
 const loginUser = async (req, res) => {
   try {
     const { username, password } = req.body;
-
     const user = await userSchema.findOne({ username });
 
     if (!user) {
