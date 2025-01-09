@@ -12,6 +12,7 @@ import {
   Pie,
   Cell,
   Tooltip,
+  CartesianGrid,
   XAxis,
   YAxis,
   Legend,
@@ -222,6 +223,7 @@ const UserDashboard = () => {
                   <BarChart data={productRatings}>
                     <XAxis dataKey="product" />
                     <YAxis />
+                    <CartesianGrid strokeDasharray="3 3" />
                     <Tooltip />
                     <Bar dataKey="rating" fill="#FFD700" />
                   </BarChart>
