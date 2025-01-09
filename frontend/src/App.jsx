@@ -21,6 +21,8 @@ import PublicLayout from './components/Layouts/PublicLayout';
 import CartPage from './components/Cart/CartPage';
 import CreateAccount from './components/LoggedInUserPages/CreateAccount';
 import UserLayout from './components/Layouts/UserLayout';
+import StripePaymentPage from './components/Functionality/StripePaymentPage';
+import PaymentSuccess from './components/Functionality/PaymentSuccess';
 
 const App = () => {
   let dispatch = useDispatch();
@@ -43,6 +45,9 @@ const App = () => {
           <Route path="category/:prds/:id" element={<ProductDetailPage />} />
           <Route path="cart" element={<CartPage />} />
           <Route path="create-account" element={<CreateAccount />} />
+          <Route path="/payment" element={<StripePaymentPage />} />
+
+          <Route path="/payment-success" element={<PaymentSuccess />} />
         </Route>
 
         <Route path="/admin" element={<AdminLayout />}>

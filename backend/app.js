@@ -7,6 +7,8 @@ var cors = require('cors');
 require('dotenv').config();
 var mongoose = require('mongoose');
 
+const paymentRoutes = require('./routes/paymentRoutes');
+
 var apiRouter = require('./routes/api');
 var authentication = require('./routes/authentication');
 var home = require('./routes/home');
@@ -36,7 +38,7 @@ app.use('/public', express.static('public'));
 const corsOptions = {
   origin: process.env.WEB_URL,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 };
 
@@ -63,6 +65,7 @@ app.use('/', home);
 app.use('/logout', authMiddleware, logout);
 app.use('/user', authMiddleware, userNameSpace);
 app.use('/create-user', userCreation);
+app.use('/api/payment', paymentRoutes);
 
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);

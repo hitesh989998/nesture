@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import { useSelector, useDispatch } from 'react-redux';
 import {
   RemoveFromCart,
@@ -12,15 +13,16 @@ import {
 import { AiOutlineDelete } from 'react-icons/ai';
 import { MdOutlineDeleteForever } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const CartPage = () => {
   let cartitems = useSelector((state) => state.cart.items);
-  let productdisplay = useSelector((state) => state.navProdMenu.allproducts);
+  // let productdisplay = useSelector((state) => state.navProdMenu.allproducts);
   let carttotalitems = useSelector((state) => state.cart.totalItems);
   let carttotalPrice = useSelector((state) => state.cart.totalPrice);
   let dispatch = useDispatch();
 
-  let discountChecker = productdisplay.filter((items) => items.discount);
+  // let discountChecker = productdisplay.filter((items) => items.discount);
 
   return (
     <div className="relative pb-20 rounded-2xl">
@@ -120,7 +122,7 @@ const CartPage = () => {
       {cartitems.length > 0 && (
         <div>
           <button
-            className="absolute bottom-0 left-0 flex items-center gap-1 bg-red-600 hover:bg-red-700 hover:text-white text-white px-5 h-10 w-30 rounded-2xl"
+            className="absolute -bottom-2 -left-2 flex items-center gap-1 bg-red-600 hover:bg-red-700 hover:text-white text-white px-5 h-10 w-30 rounded-2xl"
             onClick={() => {
               dispatch(ClearCart());
             }}
@@ -128,9 +130,40 @@ const CartPage = () => {
             <MdOutlineDeleteForever className="text-xl" />
             Clear Cart
           </button>
-          <div className="absolute bottom-0 right-0">
+          <div className="absolute -bottom-2 -right-2">
             <h3 className="font-medium">Total Items: {carttotalitems}</h3>
             <h3 className="font-bold">Total Price: {carttotalPrice}</h3>
+            <Link to="/payment">
+              <div className="flex items-center justify-center">
+                <button
+                  className="flex items-center justify-center gap-2 text-white text-sm font-semibold bg-[#009b7e] hover:bg-[#007a63] p-3 rounded-2xl shadow-md h-10"
+                  onClick={() =>
+                    toast(
+                      <div
+                        style={{ lineHeight: '1.5', whiteSpace: 'pre-line' }}
+                      >
+                        <strong>Use these test card details:</strong>
+                        <br />
+                        Card Number: 4242 4242 4242 4242
+                        <br />
+                        Expiry Date: 12/34
+                        <br />
+                        CVC: 123
+                        <br />
+                        ZIP Code: 12345
+                      </div>
+                    )
+                  }
+                >
+                  Checkout with
+                  <img
+                    src="/stripe-white.png"
+                    alt="Stripe Logo"
+                    className="w-10 h-10 mt-1"
+                  />
+                </button>
+              </div>
+            </Link>
           </div>
         </div>
       )}
