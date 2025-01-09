@@ -1,15 +1,21 @@
+import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
-import { useEffect } from 'react';
+import axios from 'axios';
 import {
   ResponsiveContainer,
-  BarChart,
-  Bar,
+  LineChart,
+  Line,
+  AreaChart,
+  Area,
   PieChart,
   Pie,
   Cell,
+  BarChart,
+  Bar,
   Tooltip,
   XAxis,
+  CartesianGrid,
   YAxis,
   Legend,
 } from 'recharts';
@@ -17,6 +23,11 @@ import {
 const AdminDashboard = () => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const navigate = useNavigate();
+  const adminUser = useSelector((state) => state.auth.user);
+
+  const [userStats, setUserStats] = useState([]);
+  const [productCategories, setProductCategories] = useState([]);
+  const [priceStats, setPriceStats] = useState([]);
 
   useEffect(() => {
     if (isAuthenticated !== 'authenticated') {
@@ -24,21 +35,38 @@ const AdminDashboard = () => {
     }
   }, [isAuthenticated, navigate]);
 
-  const adminUser = useSelector((state) => state.auth.user);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [userResponse, categoryResponse, priceResponse] =
+          await Promise.all([
+            axios.get(
+              `${import.meta.env.VITE_BACKEND_WEB_URL}/api/charts/user-stats`
+            ),
+            axios.get(
+              `${import.meta.env.VITE_BACKEND_WEB_URL}/api/charts/product-categories`
+            ),
+            axios.get(
+              `${import.meta.env.VITE_BACKEND_WEB_URL}/api/charts/price-stats`
+            ),
+          ]);
 
-  const userStats = [
-    { role: 'Customers', count: 220 },
-    { role: 'Vendors', count: 30 },
-    { role: 'Administrators', count: 5 },
-  ];
+        setUserStats(userResponse.data);
+        setProductCategories(categoryResponse.data);
+        setPriceStats(priceResponse.data);
+      } catch (err) {
+        throw err;
+      }
+    };
 
-  const productStats = [
-    { category: 'In Stock', value: 5200 },
-    { category: 'Out of Stock', value: 378 },
-    { category: 'New Arrivals', value: 228 },
-  ];
+    fetchData();
+  }, []);
 
-  const COLORS = ['#00765e', '#FFF8DE', '#C5D3E8'];
+  const COLORS = ['#00765e', '#FFF8DE', '#C5D3E8', '#FFC0CB', '#87CEEB'];
+  const totalCount = productCategories.reduce(
+    (sum, item) => sum + item.count,
+    0
+  );
 
   return (
     <main>
@@ -53,22 +81,18 @@ const AdminDashboard = () => {
       </div>
 
       <div className="grid grid-cols-3 gap-6 my-6">
-        {[...userStats, ...productStats].map((stat, index) => (
+        {userStats.map((stat, index) => (
           <div
             key={index}
             className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
           >
-            <h3 className="text-lg font-semibold text-gray-600">
-              {stat.role || stat.category}
-            </h3>
-            <p className="text-2xl font-bold text-[#00765e]">
-              {stat.count || stat.value}
-            </p>
+            <h3 className="text-lg font-semibold text-gray-600">{stat.role}</h3>
+            <p className="text-2xl font-bold text-[#00765e]">{stat.count}</p>
           </div>
         ))}
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-2 gap-6 mt-6">
         <div className="bg-white p-6 rounded-lg shadow-md">
           <h3 className="text-lg font-semibold text-gray-600 mb-4">
             User Distribution
@@ -99,14 +123,57 @@ const AdminDashboard = () => {
 
         <div className="bg-white p-6 rounded-lg shadow-md">
           <h3 className="text-lg font-semibold text-gray-600 mb-4">
-            Product Stock
+            Products by Category
           </h3>
           <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={productStats}>
-              <XAxis dataKey="category" />
+            <LineChart data={productCategories}>
+              <XAxis
+                dataKey="category"
+                tick={{ fontSize: 6, angle: -10 }}
+                interval={0}
+              />
+              <CartesianGrid stroke="#ccc" strokeDasharray="5 5 " />
               <YAxis />
               <Tooltip />
-              <Bar dataKey="value" fill="#00765e" />
+              <Legend formatter={() => `Total Products: ${totalCount}`} />
+              <Line type="monotone" dataKey="count" stroke="#00765e" />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-2 gap-6 mt-6">
+        <div className="bg-white p-6 rounded-lg shadow-md">
+          <h3 className="text-lg font-semibold text-gray-600 mb-4">
+            Product Price Ranges
+          </h3>
+          <ResponsiveContainer width="100%" height={300}>
+            <AreaChart data={priceStats}>
+              <XAxis dataKey="range" />
+              <YAxis />
+              <Tooltip />
+              <Area
+                type="monotone"
+                dataKey="count"
+                stackId="1"
+                stroke="#00765e"
+                fill="#C5D3E8"
+              />
+            </AreaChart>
+          </ResponsiveContainer>
+        </div>
+
+        <div className="bg-white p-6 rounded-lg shadow-md">
+          <h3 className="text-lg font-semibold text-gray-600 mb-4">
+            Items Priced Under ₹500
+          </h3>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={priceStats}>
+              <XAxis dataKey="range" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Bar dataKey="count" fill="#00765e" />
             </BarChart>
           </ResponsiveContainer>
         </div>

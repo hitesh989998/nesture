@@ -15,6 +15,7 @@ var logout = require('./routes/logout');
 var productRoutes = require('./routes/productRoutes');
 var userRoutes = require('./routes/userRoutes');
 var userCreation = require('./routes/userCreation');
+var charts = require('./routes/charts');
 
 var authMiddleware = require('./middlewares/AuthorizationMW');
 
@@ -65,6 +66,7 @@ app.use('/create-user', userCreation);
 
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/charts', charts);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
