@@ -56,7 +56,7 @@ const CategoryPage = () => {
           </h1>
         </header>
 
-        <main className="flex">
+        <main className="flex min-h-screen">
           <aside className="relative w-1/4 left-2">
             <div className="w-80 m-5 h-10">
               <div className="flex flex-col gap-5 bg-[#E3E6EA] rounded-2xl shadow-lg ">

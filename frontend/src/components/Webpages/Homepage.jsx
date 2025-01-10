@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { TbShoppingBagPlus } from 'react-icons/tb';
 import { AddToCart } from '../Redux/AddtoCartSlice';
 import { useSelector, useDispatch } from 'react-redux';
+import { Helmet } from 'react-helmet';
 
 const Homepage = () => {
   let AllProducts = useSelector((state) => state.navProdMenu.allproducts);
@@ -11,6 +12,39 @@ const Homepage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>
+          Nesture: Your Eco-Friendly Shopping Destination for Sustainable Living
+        </title>
+        <meta
+          name="description"
+          content="Shop eco-friendly essentials at Nesture. Discover sustainable clothing, eco-conscious products, and more. Join the green movement!"
+        />
+        <meta
+          name="keywords"
+          content="eco-friendly products, sustainable shopping, green lifestyle, eco-conscious essentials, sustainable fashion"
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://nesture.web.app" />
+
+        <script type="application/ld+json">
+          {`
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Nesture - Your Eco-Friendly Shopping Destination",
+        "url": "https://nesture.web.app",
+        "description": "Shop eco-friendly essentials at Nesture. Discover sustainable clothing, eco-conscious products, and more.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Nesture",
+          "logo": "https://nesture.web.app/nesture-tr-main.png"
+        },
+        "mainEntityOfPage": "https://nesture.web.app"
+      }
+    `}
+        </script>
+      </Helmet>
       <SliderHomepage />{' '}
       <div className="flex justify-center p-3 ">
         <Link to="/all-products">
