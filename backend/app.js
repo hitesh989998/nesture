@@ -18,6 +18,7 @@ var productRoutes = require('./routes/productRoutes');
 var userRoutes = require('./routes/userRoutes');
 var userCreation = require('./routes/userCreation');
 var charts = require('./routes/charts');
+var contactusForm = require('./routes/contactusForm');
 
 var authMiddleware = require('./middlewares/AuthorizationMW');
 
@@ -70,6 +71,7 @@ app.use('/api/payment', paymentRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/charts', charts);
+app.use('/api/contact-us', contactusForm);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

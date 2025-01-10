@@ -50,7 +50,7 @@ const Footer = () => {
       </section>
 
       <section className="w-full text-center flex justify-center items-center mb-3 -mt-7 font-light">
-        © 2024 | MERN Stack Project by Hitesh
+        © 2025 | MERN Stack Project by Hitesh
       </section>
     </footer>
   );
