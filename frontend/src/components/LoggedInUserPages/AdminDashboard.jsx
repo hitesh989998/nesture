@@ -31,9 +31,11 @@ const AdminDashboard = () => {
 
   useEffect(() => {
     if (isAuthenticated !== 'authenticated') {
-      navigate('/');
+      if (adminUser?.role !== 'administrator') {
+        return navigate('/');
+      }
     }
-  }, [isAuthenticated, navigate]);
+  }, [isAuthenticated, adminUser?.role, navigate]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -71,9 +73,11 @@ const AdminDashboard = () => {
   return (
     <main>
       <div className="bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold text-gray-600">
-          Welcome back, {adminUser.username}!
-        </h2>
+        {isAuthenticated === 'authenticated' && (
+          <h2 className="text-2xl font-bold text-gray-600">
+            Welcome back, {adminUser.username}!
+          </h2>
+        )}
         <div className="flex items-center mt-2 gap-1">
           <img src="/nesture-tr-main.png" alt="logo" className="h-8 w-20" />
           <p className="text-gray-600 text-lg tracking-tight">admin user</p>
@@ -108,12 +112,13 @@ const AdminDashboard = () => {
                 outerRadius={100}
                 fill="#00765e"
               >
-                {userStats.map((_, index) => (
-                  <Cell
-                    key={`cell-${index}`}
-                    fill={COLORS[index % COLORS.length]}
-                  />
-                ))}
+                {userStats &&
+                  userStats.map((_, index) => (
+                    <Cell
+                      key={`cell-${index}`}
+                      fill={COLORS[index % COLORS.length]}
+                    />
+                  ))}
               </Pie>
               <Tooltip />
               <Legend />

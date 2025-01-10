@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { fetchProducts } from './components/Redux/NavProdSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router';
 import Homepage from './components/Webpages/Homepage';
 import AboutUs from './components/Webpages/AboutUs';
@@ -23,15 +23,30 @@ import CreateAccount from './components/LoggedInUserPages/CreateAccount';
 import UserLayout from './components/Layouts/UserLayout';
 import StripePaymentPage from './components/Functionality/StripePaymentPage';
 import PaymentSuccess from './components/Functionality/PaymentSuccess';
+import { Link } from 'react-router-dom';
 
 const App = () => {
   let dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
+  const userLoginStatus = useSelector((state) => state.auth.user);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   return (
     <>
+      {isAuthenticated === 'authenticated' &&
+        userLoginStatus.role === 'administrator' && (
+          <div className="flex justify-center items-center bg-white bg-opacity-20 backdrop-blur-sm  text-[#009b7e] fixed top-20 w-full z-10 p-3 ">
+            <h2 className="text-sm left-20 relative">
+              Welcome administrator! To visit your dashboard click{' '}
+              <Link to="/admin/dashboard" className="underline text-white">
+                here
+              </Link>
+            </h2>
+          </div>
+        )}
+
       <Routes>
         <Route path="/" element={<PublicLayout />}>
           <Route path="/" element={<Homepage />}></Route>

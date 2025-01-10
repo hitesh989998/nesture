@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
-import { useEffect } from 'react';
 import { FaHome, FaShoppingCart, FaUser, FaUndo } from 'react-icons/fa';
 import {
   ResponsiveContainer,
@@ -22,12 +21,6 @@ import { LogoutUser } from '../Redux/AuthenticationSlice';
 const UserDashboard = () => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (isAuthenticated !== 'authenticated') {
-      navigate('/');
-    }
-  }, [isAuthenticated, navigate]);
 
   const userLoginStatus = useSelector((state) => state.auth.user);
 
@@ -114,9 +107,11 @@ const UserDashboard = () => {
 
           <main className="col-span-3 space-y-6">
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <h2 className="text-2xl font-semibold text-gray-600">
-                Welcome back, {userLoginStatus.username}!
-              </h2>
+              {isAuthenticated === 'authenticated' && (
+                <h2 className="text-2xl font-semibold text-gray-600">
+                  Welcome back, {userLoginStatus.username}!
+                </h2>
+              )}
               <h3 className="text-lg font-medium text-gray-500 flex items-center gap-1">
                 Your
                 <img
