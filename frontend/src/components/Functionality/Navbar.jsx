@@ -201,7 +201,7 @@ const Navbar = () => {
             <section>
               <div className="absolute flex flex-col items-center left-0 bg-opacity-10 backdrop-blur-lg  bg-white h-38 w-38 shadow-sm rounded-2xl p-5 m-1.5 text-black">
                 <LuLayoutDashboard className="text-4xl text-[#00765e]" />
-                <h3 className="text-lg font-semibold">User Account</h3>
+                <h3 className="text-lg font-semibold"></h3>
                 <h4 className="text-sm text-center">Access your Dashboard</h4>
                 <Link
                   to={

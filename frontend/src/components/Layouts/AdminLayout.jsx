@@ -9,8 +9,9 @@ import {
   FaSignOutAlt,
 } from 'react-icons/fa';
 import { Link, useNavigate, Outlet } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { LogoutUser } from '../Redux/AuthenticationSlice';
+import { useEffect } from 'react';
 
 const AdminLayout = () => {
   const navigate = useNavigate();
@@ -20,6 +21,17 @@ const AdminLayout = () => {
     Dispatch(LogoutUser());
     navigate('/');
   };
+
+  const adminUser = useSelector((state) => state.auth.user);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+
+  useEffect(() => {
+    if (isAuthenticated !== 'authenticated') {
+      if (adminUser?.role !== 'administrator') {
+        return navigate('/');
+      }
+    }
+  }, [isAuthenticated, adminUser?.role, navigate]);
 
   return (
     <>
