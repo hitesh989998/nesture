@@ -1,27 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const SliderSlice = createSlice({
-  name: 'homeslide',
-  initialState: {
-    value: 0,
-    length: [],
-  },
+const initialState = {
+  value: 0,
+};
+
+const sliderSlice = createSlice({
+  name: 'slider',
+  initialState,
   reducers: {
     NextSlide: (state) => {
-      state.value < state.length.length - 1
-        ? (state.value += 1)
-        : (state.value = 0);
+      state.value = (state.value + 1) % 4;
     },
     PrevSlide: (state) => {
-      state.value > 0
-        ? (state.value -= 1)
-        : (state.value = state.length.length - 1);
-    },
-    SliceData: (state, action) => {
-      state.length = action.payload;
+      state.value = (state.value - 1 + 4) % 4;
     },
   },
 });
 
-export default SliderSlice.reducer;
-export const { NextSlide, PrevSlide, SliceData } = SliderSlice.actions;
+export const { NextSlide, PrevSlide } = sliderSlice.actions;
+export default sliderSlice.reducer;
