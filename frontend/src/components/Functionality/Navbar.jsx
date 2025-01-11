@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 /* eslint-disable eqeqeq */
 import { TbShoppingBag, TbUserCircle } from 'react-icons/tb';
 import { useState } from 'react';
@@ -26,6 +27,23 @@ const Navbar = () => {
   const [hamburger, setHamburger] = useState('hidden');
   const [loginVisiblity, setloginVisiblity] = useState('hidden');
   const [createAccountVisiblity, setcreateAccountVisiblity] = useState(true);
+
+  const [isSearchVisible, setSearchVisible] = useState(false);
+
+  const [clicked, setClicked] = useState(false);
+  const handleClick = () => {
+    setClicked(!clicked);
+    changeHoverStateCart(!isHoverCart);
+  };
+
+  const handleClickProfile = () => {
+    setClicked(!clicked);
+    changeHoverState(!isHover);
+  };
+
+  const handleVisibilityToggle = () => {
+    setSearchVisible(!isSearchVisible);
+  };
 
   const userLoginStatus = useSelector((state) => state.auth.user);
 
@@ -119,9 +137,15 @@ const Navbar = () => {
             <HiOutlineMenuAlt2 />
             Menu
           </button>
+
           <div className="relative">
             <SearchBar />
             <IoIosSearch className="text-2xl absolute top-2 left-72" />
+            {isSearchVisible && (
+              <div className="absolute top-12 left-0 w-full">
+                <SearchBar />
+              </div>
+            )}
           </div>
         </div>
 
@@ -133,8 +157,9 @@ const Navbar = () => {
 
         <div
           className=" p-3 m-2  rounded"
-          onMouseOver={() => changeHoverStateCart(true)}
-          onMouseLeave={() => changeHoverStateCart(false)}
+          onMouseOver={() => !clicked && changeHoverStateCart(true)}
+          onMouseLeave={() => !clicked && changeHoverStateCart(false)}
+          onClick={handleClick}
         >
           <TbShoppingBag className="relative -mr-4 hover:bg-[#00765e] hover:text-white text-2xl bg-[#8FDAC5] h-10 w-10 p-2 rounded-full" />
 
@@ -147,8 +172,9 @@ const Navbar = () => {
 
         <div
           className="relative m-2 hover:bg-[#00765e] hover:text-white rounded-3xl  px-5 pl-10 h-15 w-30"
-          onMouseOver={() => changeHoverState(true)}
-          onMouseLeave={() => changeHoverState(false)}
+          onMouseOver={() => !clicked && changeHoverState(true)}
+          onMouseLeave={() => !clicked && changeHoverState(false)}
+          onClick={handleClickProfile}
         >
           {userLoginStatus ? (
             <section>

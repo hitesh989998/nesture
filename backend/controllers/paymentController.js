@@ -2,12 +2,12 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 exports.createPaymentIntent = async (req, res) => {
   try {
-    const { amount } = req.body; // amount in cents (e.g., 500 = $5.00)
+    const { amount } = req.body; //
 
     // Create a PaymentIntent
     const paymentIntent = await stripe.paymentIntents.create({
       amount: amount,
-      currency: 'usd', // Change to the currency you prefer
+      currency: 'inr',
       metadata: { integration_check: 'accept_a_payment' },
     });
 
