@@ -1,9 +1,8 @@
-import React from 'react';
 import { useDispatch } from 'react-redux';
 import { openpage } from '../Redux/NavProdSlice';
 import { Link } from 'react-router-dom';
 
-const NavbarButtons = ({ className }) => {
+const NavbarButtons = ({ classNameContainer, classNameChild }) => {
   const prodbuttons = [
     'Sustainable Clothing',
     'Eco-Friendly Accessories',
@@ -17,14 +16,14 @@ const NavbarButtons = ({ className }) => {
 
   return (
     <>
-      <div>
+      <div className={classNameContainer}>
         {prodbuttons.map((items, index) => {
           return (
             <Link key={index} to={`/category/${items}`}>
               <button
                 key={items.id}
                 onClick={() => dispatch(openpage(items))}
-                className={className}
+                className={classNameChild}
               >
                 {items}
               </button>

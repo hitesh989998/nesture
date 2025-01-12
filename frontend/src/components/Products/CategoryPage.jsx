@@ -133,7 +133,7 @@ const CategoryPage = () => {
             </div>
           </aside>
 
-          <section className="relative flex items-center flex-wrap gap-6 m-5">
+          <section className="relative flex items-center flex-wrap gap-6 m-5 left-24 lg:left-0">
             {itemsdisplay.map((item) => {
               return (
                 <Link

@@ -8,7 +8,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="flex w-full h-1/3 bottom-0 bg-[#F6F6F6] flex-col ">
+    <footer className="flex w-full h-1/3 bottom-0 bg-[#F6F6F6] flex-col overflow-hidden ">
       <section className="flex w-full justify-around items-center">
         <section className="h-28 w-60 justify-around items-center">
           <img

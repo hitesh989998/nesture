@@ -40,7 +40,7 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="bg-gray-100 p-6 min-h-screen flex flex-col items-center top-24 relative  w-full mb-24">
+    <div className="bg-gray-100 p-6 min-h-screen flex flex-col items-center top-24 relative  w-full mb-24 ">
       <h1 className="text-2xl font-bold text-[#009b7e] mb-6 mt-8  relative left-11">
         We'd love to hear from you!
       </h1>

@@ -71,7 +71,7 @@ const UserDashboard = () => {
 
   return (
     <div className="bg-[url('/newgreen.jpeg')] bg-cover bg-center bg-fixed flex justify-center items-center min-h-screen relative top-24 p-5 mb-24">
-      <section className="w-11/12 h-full bg-white/10 p-8 rounded-3xl backdrop-blur-sm shadow-lg">
+      <section className="w-full h-full bg-white/10 p-8 rounded-3xl backdrop-blur-sm shadow-lg">
         <div className="grid grid-cols-4 gap-6">
           <aside className="col-span-1 bg-white p-6 rounded-lg shadow-md relative">
             <div>
@@ -97,7 +97,7 @@ const UserDashboard = () => {
             </div>
             <div className="flex justify-center absolute bottom-1 w-full left-0">
               <button
-                className="bg-red-500 text-white tracking-wide px-28 py-3 rounded-2xl relative hover:bg-red-600 hover:text-white bottom-2"
+                className="bg-red-500 text-white tracking-wide py-3 px-14 lg:px-28 rounded-2xl relative hover:bg-red-600 hover:text-white bottom-2"
                 onClick={handleLogout}
               >
                 Log Out

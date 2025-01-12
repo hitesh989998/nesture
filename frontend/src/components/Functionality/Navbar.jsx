@@ -73,7 +73,7 @@ const Navbar = () => {
   return (
     <>
       <div
-        className={`w-screen h-screen ${hamburger} top-0 fixed z-50`}
+        className={`w-full h-full ${hamburger} top-0 fixed z-50`}
         onClick={autoClose}
       >
         <button
@@ -83,19 +83,20 @@ const Navbar = () => {
           <MdOutlineCloseFullscreen className="mr-2 text-2xl" /> Close
         </button>
 
-        <div className="w-3/6 h-full bg-[#E3E6EA] shadow-lg flex flex-col justify-center p-8 gap-10 space-y-3">
+        <div className=" w-auto lg:w-3/6 h-full bg-[#E3E6EA] shadow-lg flex flex-col justify-center p-8 gap-10 space-y-3">
           <div>
             <h3 className="text-[#5A5F6A] text-3xl">Category</h3>
-            <NavbarButtons className="flex flex-col gap-4 text-[#5A5F6A] hover:bg-[#00765e] hover:text-white font-medium text-lg tracking-wide" />
+            <NavbarButtons classNameChild="flex-col text-[#5A5F6A] hover:bg-[#00765e] hover:text-white font-medium  tracking-wide flex gap-4 text-xs mx-2 my-2 lg:hidden " />
+            <NavbarButtons classNameChild="flex-col text-[#5A5F6A] hover:bg-[#00765e] hover:text-white font-medium  tracking-wide flex gap-4 text-lg mx-2 my-1 hidden lg:block " />
           </div>
 
-          <div className="w-fit space-y-3 ">
+          <div className="w-[500px] space-y-3 lg:w-fit">
             <h3 className="text-[#5A5F6A] text-3xl">Cart</h3>
             <CartPage />
           </div>
         </div>
 
-        <div className="w-1/3 h-full bg-white shadow-lg flex flex-col justify-center p-8 space-y-3">
+        <div className=" w-2/3 lg:w-1/3 h-full bg-white shadow-lg flex flex-col justify-center p-8 space-y-3">
           <h3 className="text-[#5A5F6A] text-3xl">Index</h3>
           <ul className="text-[#5A5F6A] font-medium text-xl space-y-1 tracking-wide">
             <li className="hover:text-[#009b7e] flex items-center gap-1">
@@ -128,7 +129,7 @@ const Navbar = () => {
           />
         </div>
       </div>
-      <nav className=" h-20 w-full flex items-center px-6 fixed top-0 bg-white z-10">
+      <nav className="h-20 w-full flex items-center px-6 fixed top-0 bg-white z-10 lg:h-20 lg:w-full">
         <div className="flex gap-4">
           <button
             className="flex bg-[#F6F6F6] hover:bg-[#00765e] hover:text-white px-5 h-10 w-30 items-center gap-1 rounded-xl"
@@ -140,7 +141,7 @@ const Navbar = () => {
 
           <div className="relative">
             <SearchBar />
-            <IoIosSearch className="text-2xl absolute top-2 left-72" />
+            <IoIosSearch className="text-2xl absolute top-2 left-44 lg:left-72" />
             {isSearchVisible && (
               <div className="absolute top-12 left-0 w-full">
                 <SearchBar />
@@ -149,7 +150,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="flex flex-1 justify-center mr-12">
+        <div className="flex flex-1 justify-center mr-1 lg:mr-12">
           <Link to="/">
             <img src="/nesture-tr-main.png" className="h-20 w-auto p-3"></img>
           </Link>
@@ -247,7 +248,7 @@ const Navbar = () => {
         </div>
       </nav>
       <div
-        className={`w-screen h-screen ${loginVisiblity} top-0 fixed z-50 bg-opacity-10 backdrop-blur-lg bg-white items-center justify-center`}
+        className={`w-full h-full ${loginVisiblity} top-0 fixed z-50 bg-opacity-10 backdrop-blur-lg bg-white items-center justify-center`}
         onClick={autoClose}
       >
         <section className="bg-white shadow-lg rounded-3xl flex flex-col items-center justify-center h-96 w-96 p-8 relative">
