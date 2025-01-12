@@ -25,7 +25,7 @@ const AboutUs = () => {
         </p>
 
         {/* Built for the Future Section */}
-        <div className="bg-[#8FDAC5] p-6 rounded-lg shadow-md mb-10">
+        <div className="bg-[#009b7e] p-6 rounded-lg shadow-md mb-10">
           <h2 className="text-2xl font-semibold text-white mb-4">
             Built to be scaled for the future.
           </h2>
@@ -42,7 +42,7 @@ const AboutUs = () => {
           <h2 className="text-2xl font-semibold text-[#009b7e] mb-8">
             Our Tech Stack
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-12">
             {/* React */}
             <div className="text-center p-6 rounded-lg backdrop-blur-md bg-opacity-20 hover:bg-[#E8F8F7] transition-all duration-300 hover:scale-105">
               <FaReact size={50} color="#61dafb" className="mx-auto" />
@@ -191,7 +191,6 @@ const AboutUs = () => {
           </div>
         </div>
 
-        {/* Code Written Beautifully Section */}
         <div className="bg-white p-6 rounded-lg shadow-md mt-12 mb-5">
           <h2 className="text-2xl font-semibold text-[#009b7e] mb-4">
             Code That Sparkles ✨
@@ -205,7 +204,6 @@ const AboutUs = () => {
           </p>
         </div>
 
-        {/* Footer Section */}
         <p className="text-md text-[#5A5F6A] mt-8">
           Full-stack code, where everything works like clockwork, by{' '}
           <span className="font-semibold">Hitesh Lalwani</span>.

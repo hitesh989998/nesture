@@ -31,7 +31,7 @@ const SearchBar = () => {
   return (
     <div ref={containerRef} className="relative">
       <input
-        className="bg-[#F6F6F6] relative rounded-xl h-10 w-80 focus:outline-none px-4"
+        className="bg-[#F6F6F6] relative rounded-xl h-10 w-52 focus:outline-none px-4 text-xs lg:w-80 lg:text-sm"
         onFocus={handleFocus}
         onChange={(e) => dispatch(updateInput(e.target.value))}
         autoFocus
