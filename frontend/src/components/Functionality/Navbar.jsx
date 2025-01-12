@@ -213,8 +213,11 @@ const Navbar = () => {
                   className="bg-[#00765e] hover:bg-[#6ABBA5] hover:text-white rounded-2xl p-2 mt-3 text-white flex text-base items-center"
                   onClick={() => {
                     loginScreen();
-                    toast(
+                    toast.info(
                       `To skip account creation, kindly use Username-123 and Password-123`
+                    );
+                    toast(
+                      `For admin login with CRUD dashboard, kindly use Username-admin and Password-admin`
                     );
                   }}
                 >
