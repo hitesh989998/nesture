@@ -20,22 +20,22 @@ const Footer = () => {
 
         <section className="flex justify-around">
           <ul className="text-[#5A5F6A] flex gap-4 tracking-wide">
-            <li className="text-[#009b7e] hover:text-[#00765e] flex items-center gap-1">
+            <li className="text-[#009b7e] hover:text-[#6ABBA5] flex items-center gap-1 text-xs lg:text-base">
               <Link to="/">Homepage</Link>
             </li>
-            <li className="hover:text-[#009b7e] flex items-center gap-1">
+            <li className="hover:text-[#009b7e] flex items-center gap-1 text-xs lg:text-base">
               <Link to="/about-us">About Us</Link>
             </li>
-            <li className="hover:text-[#009b7e] flex items-center gap-1">
+            <li className="hover:text-[#009b7e] flex items-center gap-1 text-xs lg:text-base">
               <Link to="/contact-us">Contact Us</Link>
             </li>
-            <li className="hover:text-[#009b7e] flex items-center gap-1">
+            <li className="hover:text-[#009b7e] flex items-center gap-1 text-xs lg:text-base">
               <Link to="/privacy-policy">Privacy Policy</Link>
             </li>
-            <li className="hover:text-[#009b7e] flex items-center gap-1">
+            <li className="hover:text-[#009b7e] flex items-center gap-1 text-xs lg:text-base">
               <Link to="/terms-of-use">Terms of Use</Link>
             </li>
-            <li className="hover:text-[#009b7e] flex items-center gap-1">
+            <li className="hover:text-[#009b7e] flex items-center gap-1 text-xs lg:text-base">
               <Link to="/sitemap.xml">Sitemap</Link>
             </li>
           </ul>

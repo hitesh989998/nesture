@@ -63,7 +63,7 @@ app.use('/api', apiRouter);
 app.use('/authentication', authentication);
 app.use('/', home);
 
-app.use('/logout', authMiddleware, logout);
+app.use('/logout', logout);
 app.use('/user', authMiddleware, userNameSpace);
 app.use('/create-user', userCreation);
 app.use('/api/payment', paymentRoutes);
