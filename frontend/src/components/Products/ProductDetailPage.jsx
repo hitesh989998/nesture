@@ -26,11 +26,11 @@ const ProductDetailPage = () => {
         {productdisplay
           .filter((items) => items.id == id)
           .map((items) => (
-            <main className="flex flex-col gap-32">
-              <section className="relative flex flex-col lg:flex-row gap-4 items-center justify-center h-[70vh] w-[98%] rounded-3xl mx-6 top-24 bg-[url('/wmremove-transformed.jpeg')] bg-cover bg-center right-2">
+            <main className="flex flex-col gap-32 min-h-screen relative">
+              <section className="relative flex flex-col lg:flex-row gap-4 items-center justify-center h-[90%] w-[98%] rounded-3xl mx-6 top-24 bg-[url('/wmremove-transformed.jpeg')] bg-cover bg-center right-2">
                 <div
                   key={items.id}
-                  className="flex flex-row relative gap-4 items-center justify-center w-full"
+                  className="flex flex-row relative gap-4 my-16 items-center justify-center h-full w-full"
                 >
                   <section className="relative mt-1 flex flex-col items-center gap-4 backdrop-blur-lg bg-white/10 rounded-3xl h-[450px] w-[370px] justify-center">
                     <figure className="relative h-[300px] w-[300px] mb-1">
