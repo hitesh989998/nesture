@@ -1,14 +1,26 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import { TbShoppingBagPlus } from 'react-icons/tb';
 import { AddToCart } from '../Redux/AddtoCartSlice';
+import { fetchProducts, openpage } from '../Redux/NavProdSlice';
 
 const CategoryPage = () => {
   const stateofstore = useSelector((state) => state.navProdMenu.allproducts);
   const { prds } = useParams();
   let dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!stateofstore.length) {
+      dispatch(fetchProducts());
+    }
+  }, [dispatch, stateofstore]);
+
+  useEffect(() => {
+    const newFilter = stateofstore.filter((items) => items.category === prds);
+    setitemsdisplay(newFilter);
+  }, [stateofstore, prds]);
 
   // eslint-disable-next-line eqeqeq
   let newfilter = stateofstore.filter((items) => items.category == prds);
@@ -46,7 +58,7 @@ const CategoryPage = () => {
   return (
     <>
       {' '}
-      <div className="flex w-full flex-col overflow-hidden relative top-20 mb-64">
+      <div className="flex w-full flex-col overflow-hidden relative top-20 mb-64 h-full">
         <header className="relative h-72 w-[97%] flex items-center justify-center shadow-md rounded-3xl mx-auto pl-20 ">
           <h1
             className="text-[#E3E6EA] bg-clip-text text-transparent bg-cover bg-center text-7xl font-bold tracking-wide p-3 "
@@ -133,76 +145,81 @@ const CategoryPage = () => {
             </div>
           </aside>
 
-          <section className="relative flex items-center flex-wrap gap-6 m-5 left-24 lg:left-0">
-            {itemsdisplay.map((item) => {
-              return (
-                <Link
-                  key={item.id}
-                  to={`/category/${item.category}/${item.id}`}
-                >
-                  {' '}
-                  <div
+          <section className="absolute flex items-center flex-wrap gap-6 m-5 left-[24%]">
+            <div className="flex flex-wrap gap-4 relative h-full items-start">
+              {itemsdisplay.map((item) => {
+                return (
+                  <Link
                     key={item.id}
-                    className="bg-[#E3E6EA] shadow-lg group rounded-3xl overflow-hidden w-full flex flex-col items-center"
+                    to={`/category/${item.category}/${item.id}`}
                   >
-                    <div className="flex justify-between w-full items-center px-3 py-1">
-                      <div className="">
-                        <h2 className="font-semibold m-1">{item.name}</h2>
-                        {item.discount ? (
-                          <div key={item.id} className="flex">
-                            <div className="font-light ml-1 text-sm -mt-1">
-                              Now at Rs
-                              {Math.floor(
-                                item.price - (item.price * item.discount) / 100
-                              )}
+                    {' '}
+                    <div
+                      key={item.id}
+                      className="bg-[#E3E6EA] shadow-lg group rounded-3xl overflow-hidden w-full flex flex-col items-center"
+                    >
+                      <div className="flex justify-between w-full items-center px-3 py-1">
+                        <div className="">
+                          <h2 className="font-semibold m-1">{item.name}</h2>
+                          {item.discount ? (
+                            <div key={item.id} className="flex">
+                              <div className="font-light ml-1 text-sm -mt-1">
+                                Now at Rs
+                                {Math.floor(
+                                  item.price -
+                                    (item.price * item.discount) / 100
+                                )}
+                              </div>
+                              <div className="line-through font-light	text-sm -mt-1 ml-1">
+                                Rs{item.price}
+                              </div>
                             </div>
-                            <div className="line-through font-light	text-sm -mt-1 ml-1">
+                          ) : (
+                            <div className="font-light ml-1 text-sm -mt-1">
                               Rs{item.price}
                             </div>
-                          </div>
-                        ) : (
-                          <div className="font-light ml-1 text-sm -mt-1">
-                            Rs{item.price}
-                          </div>
-                        )}
+                          )}
+                        </div>
+                        <div className="rounded-full bg-white h-10 w-10 flex items-center justify-center hover:bg-[#009b7e] hover:text-white shadow-sm">
+                          <button
+                            className=""
+                            onClick={(e) => {
+                              dispatch(AddToCart(item));
+                              e.stopPropagation();
+                              e.preventDefault();
+                            }}
+                          >
+                            <TbShoppingBagPlus className="text-lg" />
+                          </button>
+                        </div>
                       </div>
-                      <div className="rounded-full bg-white h-10 w-10 flex items-center justify-center hover:bg-[#009b7e] hover:text-white shadow-sm">
-                        <button
-                          className=""
-                          onClick={(e) => {
-                            dispatch(AddToCart(item));
-                            e.stopPropagation();
-                            e.preventDefault();
-                          }}
-                        >
-                          <TbShoppingBagPlus className="text-lg" />
-                        </button>
-                      </div>
-                    </div>
-                    <div className="relative p-[5px]">
-                      <img
-                        className="h-72 w-72 rounded-3xl"
-                        src={item.image_url}
-                        alt={item.name}
-                      ></img>
-                      <div className="bg-black inset-0 absolute opacity-0 group-hover:opacity-80 rounded-3xl">
-                        {item.discount && (
-                          <div className="text-[#009b7e] top-0 right-0 font-semibold p-2 mr-1 absolute">
-                            {item.discount}% Off
-                          </div>
-                        )}
-                        <div className="p-5 absolute bottom-0">
-                          <div className="text-[#009b7e]">{item.category}</div>
-                          <div className="text-white font-medium">
-                            {item.description}
+                      <div className="relative p-[5px]">
+                        <img
+                          className="h-72 w-72 rounded-3xl"
+                          src={item.image_url}
+                          alt={item.name}
+                        ></img>
+                        <div className="bg-black inset-0 absolute opacity-0 group-hover:opacity-80 rounded-3xl">
+                          {item.discount && (
+                            <div className="text-[#009b7e] top-0 right-0 font-semibold p-2 mr-1 absolute">
+                              {item.discount}% Off
+                            </div>
+                          )}
+                          <div className="p-5 absolute bottom-0">
+                            <div className="text-[#009b7e]">
+                              {item.category}
+                            </div>
+                            <div className="text-white font-medium">
+                              {item.description}
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </Link>
-              );
-            })}
+                  </Link>
+                );
+              })}
+            </div>
           </section>
         </main>
       </div>

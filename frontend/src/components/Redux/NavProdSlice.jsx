@@ -47,10 +47,14 @@ const NavProdSlice = createSlice({
   },
   reducers: {
     openpage: (state, action) => {
-      const filteredData = state.value.filter(
+      console.log(action.payload, 'payload here');
+      const filteredData = state.allproducts.filter(
         (item) => item.category === action.payload
       );
-      state.value = filteredData;
+      console.log(filteredData, 'filtered data');
+      state.allproducts = filteredData;
+      console.log(state.allproducts, 'all products');
+      return { ...state, allproducts: filteredData };
     },
   },
   extraReducers: (builder) => {
