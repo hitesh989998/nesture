@@ -1,4 +1,6 @@
 # Nesture - A MERN Stack E-Commerce Platform
+Live website: https://nesture.web.app/
+Backend server: https://nesture.onrender.com/
 
 Welcome to **Nesture**, a full-fledged e-commerce platform built using the **MERN stack** (MongoDB, Express.js, React.js, and Node.js). This project provides a seamless and secure experience for both customers and administrators. From easy product management to real-time data analytics, **Nesture** is designed to offer a robust solution for online businesses.
 
