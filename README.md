@@ -1,4 +1,4 @@
-# Nesture - A MERN Stack E-Commerce Platform
+# Nesture - A MERN Stack E-Commerce Platform | By Hitesh Lalwani
 Live Website: https://nesture.web.app/
 Backend Server: https://nesture.onrender.com/
 
