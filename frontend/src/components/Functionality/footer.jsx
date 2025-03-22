@@ -49,8 +49,8 @@ const Footer = () => {
         </section>
       </section>
 
-      <section className="w-full text-center flex justify-center items-center mb-3 -mt-7 font-light">
-        © 2025 | MERN Stack Project by Hitesh
+      <section className="w-full text-center flex justify-center items-center mb-3 -mt-7 font-light hover:text-[#009b7e]">
+        <a href="/about-us"> © 2025 | MERN Stack Project by Hitesh </a>
       </section>
     </footer>
   );

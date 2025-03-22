@@ -6,7 +6,7 @@ import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from 'react-icons/md';
 
 const SliderHomepage = () => {
   const dispatch = useDispatch();
-  const currentSlide = useSelector((state) => state.slider.value); // Ensure slider.value is being set correctly
+  const currentSlide = useSelector((state) => state.slider.value);
 
   const images = ['./1.png', './2.png', './3.png', './4.png'];
 
