@@ -37,13 +37,14 @@ app.use(express.static(path.join(__dirname, 'frontend', 'build')));
 app.use('/public', express.static('public'));
 
 const corsOptions = {
-  origin: process.env.WEB_URL,
+  // origin: process.env.WEB_URL,
+  origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 const MONGO_URI = process.env.MONGO_URI;
 mongoose.connect(MONGO_URI);

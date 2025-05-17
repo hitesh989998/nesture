@@ -7,4 +7,8 @@ export default defineConfig({
   server: {
     host: true, // This allows external access to the dev server
   },
+  build: {
+    // transpile down to ES2019 so '?' gets compiled away
+    target: ['es2019'],
+  },
 });
