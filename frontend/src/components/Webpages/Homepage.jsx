@@ -14,36 +14,87 @@ const Homepage = () => {
   return (
     <>
       <Helmet>
+        {/* Basic SEO */}
         <title>
-          Nesture: Your Eco-Friendly Shopping Destination for Sustainable Living
+          Nesture – Your Eco‑Friendly Shopping Destination for Sustainable
+          Living
         </title>
         <meta
           name="description"
-          content="Shop eco-friendly essentials at Nesture. Discover sustainable clothing, eco-conscious products, and more. Join the green movement!"
+          content="Shop eco‑friendly essentials at Nesture. Discover sustainable clothing, eco‑conscious products, and more. Join the green movement!"
         />
         <meta
           name="keywords"
-          content="eco-friendly products, sustainable shopping, green lifestyle, eco-conscious essentials, sustainable fashion"
+          content="eco‑friendly products, sustainable shopping, green lifestyle, eco‑conscious essentials, sustainable fashion"
         />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://nesture.web.app" />
+        <link rel="canonical" href="https://nesture.web.app/" />
 
+        {/* Open Graph (for Facebook, LinkedIn, etc.) */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://nesture.web.app/" />
+        <meta
+          property="og:title"
+          content="Nesture – Eco‑Friendly Shopping Destination"
+        />
+        <meta
+          property="og:description"
+          content="Shop eco‑friendly essentials at Nesture. Discover sustainable clothing, eco‑conscious products, and more."
+        />
+        <meta
+          property="og:image"
+          content="https://nesture.web.app/nesture-tr-main.png"
+        />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@YourTwitterHandle" />
+        <meta
+          name="twitter:title"
+          content="Nesture – Eco‑Friendly Shopping Destination"
+        />
+        <meta
+          name="twitter:description"
+          content="Shop eco‑friendly essentials at Nesture. Discover sustainable clothing, eco‑conscious products, and more."
+        />
+        <meta
+          name="twitter:image"
+          content="https://nesture.web.app/nesture-tr-main.png"
+        />
+
+        {/* JSON‑LD Structured Data */}
         <script type="application/ld+json">
-          {`
-      {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "name": "Nesture - Your Eco-Friendly Shopping Destination",
-        "url": "https://nesture.web.app",
-        "description": "Shop eco-friendly essentials at Nesture. Discover sustainable clothing, eco-conscious products, and more.",
-        "publisher": {
-          "@type": "Organization",
-          "name": "Nesture",
-          "logo": "https://nesture.web.app/nesture-tr-main.png"
-        },
-        "mainEntityOfPage": "https://nesture.web.app"
-      }
-    `}
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebPage',
+            name: 'Nesture – Your Eco‑Friendly Shopping Destination',
+            url: 'https://nesture.web.app/',
+            description:
+              'Shop eco‑friendly essentials at Nesture. Discover sustainable clothing, eco‑conscious products, and more.',
+            publisher: {
+              '@type': 'Organization',
+              name: 'Nesture',
+              logo: {
+                '@type': 'ImageObject',
+                url: 'https://nesture.web.app/nesture-tr-main.png',
+              },
+            },
+            breadcrumb: {
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                {
+                  '@type': 'ListItem',
+                  position: 1,
+                  name: 'Home',
+                  item: 'https://nesture.web.app/',
+                },
+              ],
+            },
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id': 'https://nesture.web.app/',
+            },
+          })}
         </script>
       </Helmet>
       <div className="overflow-hidden relative">
