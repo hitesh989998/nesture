@@ -62,9 +62,9 @@ const App = () => {
           <Route path="category/:prds/:id" element={<ProductDetailPage />} />
           <Route path="cart" element={<CartPage />} />
           <Route path="create-account" element={<CreateAccount />} />
-          <Route path="/payment" element={<StripePaymentPage />} />
+          <Route path="payment" element={<StripePaymentPage />} />
 
-          <Route path="/payment-success" element={<PaymentSuccess />} />
+          <Route path="payment-success" element={<PaymentSuccess />} />
         </Route>
 
         <Route path="/admin" element={<AdminLayout />}>

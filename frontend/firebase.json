@@ -16,6 +16,14 @@
         "destination": "/about-us/index.html"
       },
       {
+        "source": "/contact-us",
+        "destination": "/contact-us/index.html"
+      },
+      {
+        "source": "/category/Eco-Activewear",
+        "destination": "/category/Eco-Activewear/index.html"
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }

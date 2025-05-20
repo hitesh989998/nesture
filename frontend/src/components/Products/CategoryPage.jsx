@@ -6,6 +6,7 @@ import { TbShoppingBagPlus } from 'react-icons/tb';
 import { AddToCart } from '../Redux/AddtoCartSlice';
 import { fetchProducts, openpage } from '../Redux/NavProdSlice';
 import ProductCard from './ProductCard';
+import { Helmet } from 'react-helmet';
 
 const CategoryPage = () => {
   const stateofstore = useSelector((state) => state.navProdMenu.allproducts);
@@ -58,7 +59,24 @@ const CategoryPage = () => {
 
   return (
     <>
-      {' '}
+      {prds === 'Eco-Activewear' && (
+        <Helmet>
+          {/* Basic SEO */}
+          <title>
+            Eco-Activewear – Nesture: Sustainable Shopping, Our Mission & Team
+          </title>
+          <meta
+            name="description"
+            content="Discover Nesture’s story, our mission to make eco-friendly living accessible, and the passionate team behind your favorite sustainable shopping destination."
+          />
+          <meta
+            name="keywords"
+            content="Nesture About Us, sustainable shopping mission, eco-friendly team, green lifestyle story"
+          />
+          <meta name="robots" content="index, follow" />
+          <link rel="canonical" href="https://nesture.web.app/activewear" />
+        </Helmet>
+      )}{' '}
       <div className="flex w-full flex-col overflow-hidden relative top-20 mb-64 h-full">
         <header className="relative h-72 w-[97%] flex items-center justify-center shadow-md rounded-3xl mx-auto pl-20 ">
           <h1
