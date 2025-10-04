@@ -10,10 +10,101 @@ import {
 import { FcAreaChart } from 'react-icons/fc';
 import { FaHashnode } from 'react-icons/fa6';
 import { FiUploadCloud } from 'react-icons/fi';
+import { Helmet } from 'react-helmet';
 
 const AboutUs = () => {
   return (
     <section className="bg-[#F6F6F6] py-16 px-6 relative top-24 mb-20">
+      <Helmet>
+        {/* Basic SEO */}
+        <title>
+          About Us – Nesture: Sustainable Shopping, Our Mission & Team
+        </title>
+        <meta
+          name="description"
+          content="Discover Nesture’s story, our mission to make eco‑friendly living accessible, and the passionate team behind your favorite sustainable shopping destination."
+        />
+        <meta
+          name="keywords"
+          content="Nesture About Us, sustainable shopping mission, eco‑friendly team, green lifestyle story"
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://nesture.web.app/about" />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://nesture.web.app/about" />
+        <meta
+          property="og:title"
+          content="About Us – Nesture: Sustainable Shopping, Our Mission & Team"
+        />
+        <meta
+          property="og:description"
+          content="Meet the Nesture team and learn how we’re making eco‑friendly living easier for everyone."
+        />
+        <meta
+          property="og:image"
+          content="https://nesture.web.app/nesture-about-og.png"
+        />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@YourTwitterHandle" />
+        <meta
+          name="twitter:title"
+          content="About Us – Nesture: Sustainable Shopping, Our Mission & Team"
+        />
+        <meta
+          name="twitter:description"
+          content="Meet the Nesture team and learn how we’re making eco‑friendly living easier for everyone."
+        />
+        <meta
+          name="twitter:image"
+          content="https://nesture.web.app/nesture-about-og.png"
+        />
+
+        {/* JSON‑LD Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'AboutPage',
+            name: 'About Us – Nesture',
+            url: 'https://nesture.web.app/about',
+            description:
+              'Discover Nesture’s story, our mission to make eco‑friendly living accessible, and the passionate team behind your sustainable shopping destination.',
+            publisher: {
+              '@type': 'Organization',
+              name: 'Nesture',
+              logo: {
+                '@type': 'ImageObject',
+                url: 'https://nesture.web.app/nesture-logo.png',
+              },
+            },
+            breadcrumb: {
+              '@type': 'BreadcrumbList',
+              itemListElement: [
+                {
+                  '@type': 'ListItem',
+                  position: 1,
+                  name: 'Home',
+                  item: 'https://nesture.web.app/',
+                },
+                {
+                  '@type': 'ListItem',
+                  position: 2,
+                  name: 'About Us',
+                  item: 'https://nesture.web.app/about',
+                },
+              ],
+            },
+            mainEntity: {
+              '@type': 'WebPageElement',
+              name: 'Team & Mission Section',
+            },
+          })}
+        </script>
+      </Helmet>
+
       <div className="max-w-6xl mx-auto text-center">
         {/* Header Section */}
         <h1 className="text-4xl font-bold text-[#009b7e] mb-6">

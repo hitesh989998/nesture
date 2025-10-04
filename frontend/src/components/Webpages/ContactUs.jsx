@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { Helmet } from 'react-helmet';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -41,6 +42,22 @@ const ContactUs = () => {
 
   return (
     <div className="bg-gray-100 p-6 min-h-screen flex flex-col items-center top-24 relative  w-full mb-24 ">
+      <Helmet>
+        {/* Basic SEO */}
+        <title>
+          Contact Us – Nesture: Sustainable Shopping Support & Inquiries
+        </title>
+        <meta
+          name="description"
+          content="Have questions or need assistance? Reach out to Nesture’s customer support team for help with your sustainable shopping journey."
+        />
+        <meta
+          name="keywords"
+          content="Nesture Contact Us, customer support, sustainable shopping inquiries, eco-friendly help"
+        />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://nesture.web.app/contact" />
+      </Helmet>
       <h1 className="text-2xl font-bold text-[#009b7e] mb-6 mt-8  relative left-11">
         We'd love to hear from you!
       </h1>
