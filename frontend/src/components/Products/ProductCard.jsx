@@ -45,7 +45,7 @@ const ProductCard = ({ item }) => {
           src={item.image_url}
           alt={item.name}
         ></img>
-        <div className="bg-black inset-0 absolute opacity-0 group-hover:opacity-80 rounded-3xl">
+        <div className="bg-black inset-1 absolute opacity-0 group-hover:opacity-80 rounded-3xl">
           {item.discount && (
             <div className="text-[#009b7e] top-0 right-0 font-semibold p-2 mr-1 absolute">
               {item.discount}% Off
